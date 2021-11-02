@@ -41,25 +41,32 @@ class CustomerController extends Controller
     public function store(Request $request)
     {
 
-        //save data to database customer
-        $customer = new customer;
-        $customer->name = $request->input('name');
-        $customer->email = $request->input('email');
-        $customer->phone_number = $request->input('phone_number');
-        $customer->city = $request->input('city');
-        $customer->created_at = Carbon::now();
-        $customer->save();
+            
+            //save data to database customer
+        // $customer = new customer;
+        // $customer->name = $request->input('name');
+        // $customer->email = $request->input('email');
+        // $customer->phone_number = $request->input('phone_number');
+        // $customer->city = $request->input('city');
+        // $customer->country = $request->input('country');
+        // $customer->created_at = Carbon::now();
+        // $customer->save();
         
-        //Offering
-        $offering = new Offering;
-        $offering->customer_id=$customer->id;
-        $offering->option=$request->input('option');
-        $offering->number_of_floors=$request->input('number_of_floors');
-        $offering->number_of_rooms=$request->input('number_of_rooms');
-        $offering->system = $request->input('system');
-        $offering->save();
-        
+        // $offering = new Offering;
+        // $offering->customer_id=$customer->id;
+        // $offering->option=$request->input('option');
+        // $offering->number_of_floors_and_rooms = $request->input('floor-and-rooms');
+        // $offering->system = $request->input('system');
+        // $offering->budget = $request->input('budget');
+        // $offering->created_at = Carbon::now();
+        // $offering->save();
 
+        //do generate output
+        
+        $modules = new ModulesController;
+        $modules->process($request->input('system'));
+    
+        return redirect()->back()->with('success', 'Your request has been submitted successfully');
     }
 
     /**

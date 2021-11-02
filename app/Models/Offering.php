@@ -11,9 +11,11 @@ class Offering extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id','customer_id','option','number_of_floors','number_of_rooms','system'];
+    protected $fillable = ['id','customer_id','option','number_of_floors_and_rooms','system','budget'];
 
     public function customer(){
         return $this->belongsTo(customer::class,'customer_id','id');
     }
+
+    public $timestamps = false;
 }

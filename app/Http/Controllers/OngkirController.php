@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Offering;
+use App\Models\ongkir;
 use Illuminate\Http\Request;
 
-class OfferingController extends Controller
+class OngkirController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class OfferingController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Offering  $offering
+     * @param  \App\Models\ongkir  $ongkir
      * @return \Illuminate\Http\Response
      */
-    public function show(Offering $offering)
+    public function show(ongkir $ongkir)
     {
         //
     }
@@ -52,10 +52,10 @@ class OfferingController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Offering  $offering
+     * @param  \App\Models\ongkir  $ongkir
      * @return \Illuminate\Http\Response
      */
-    public function edit(Offering $offering)
+    public function edit(ongkir $ongkir)
     {
         //
     }
@@ -64,10 +64,10 @@ class OfferingController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Offering  $offering
+     * @param  \App\Models\ongkir  $ongkir
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Offering $offering)
+    public function update(Request $request, ongkir $ongkir)
     {
         //
     }
@@ -75,10 +75,10 @@ class OfferingController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Offering  $offering
+     * @param  \App\Models\ongkir  $ongkir
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Offering $offering)
+    public function destroy(ongkir $ongkir)
     {
         //
     }
