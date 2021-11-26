@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\citi;
 use App\Models\customer;
 use App\Models\Offering;
+use App\Models\solution;
+use App\Models\type_object;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
+use GuzzleHttp\Psr7\Request as Psr7Request;
+use PhpParser\Node\Stmt\TryCatch;
 
 class CustomerController extends Controller
 {
@@ -17,9 +22,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        // $customer = customer::all();
-        return customer::all();
-        //
+        $param = ['data'=>customer::paginate(10)];
+        return view('dashboard.customer.customer',$param);
     }
 
     /**
@@ -40,26 +44,48 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-
         //save data to database customer
-        $customer = new customer;
-        $customer->name = $request->input('name');
-        $customer->email = $request->input('email');
-        $customer->phone_number = $request->input('phone_number');
-        $customer->city = $request->input('city');
-        $customer->created_at = Carbon::now();
-        $customer->save();
-        
-        //Offering
-        $offering = new Offering;
-        $offering->customer_id=$customer->id;
-        $offering->option=$request->input('option');
-        $offering->number_of_floors=$request->input('number_of_floors');
-        $offering->number_of_rooms=$request->input('number_of_rooms');
-        $offering->system = $request->input('system');
-        $offering->save();
-        
 
+        try {
+
+            foreach ($request->input('solution') as $key => $value) {
+
+
+
+                $citi = new citi();
+                $citi->id = $request->input('kota');
+
+                $customer = new customer;
+                $customer->name = $request->input('name');
+                $customer->email = $request->input('email');
+                $customer->phone_number = $request->input('phone_number');
+                $customer->city = CitiController::show($citi)->nama_kota;
+                $customer->country = $request->input('country');
+                $customer->create_at = Carbon::now();
+                $customer->save();
+    
+                $offering = new Offering;
+                $offering->id_customer=$customer->id;
+                $offering->customer = $customer->name;
+                $floorAndRooms = explode("-",$request->input('floor-and-rooms'));
+                $offering->number_of_floors = $floorAndRooms[0];
+                $offering->number_of_rooms = $floorAndRooms[1];
+                $offering->object_id = $request->input('object');
+                $offering->object = type_object::find($request->input('object'))->nama_object;
+                $offering->budget = $request->input('budget');
+                $offering->id_solution = $value;
+                $offering->solution = solution::find($value)->nama_solution;
+                $offering->save();
+            }
+ 
+            $modules = new ModulesController;
+            $modules->process($request->input('solution'));
+
+        } catch (\Throwable $th) {
+            return back()->withErrors(['error', $th->getMessage()]);
+        }
+      
+        return redirect()->view('');
     }
 
     /**
@@ -70,9 +96,8 @@ class CustomerController extends Controller
      */
     public function show(customer $customer)
     {
+        return customer::find($customer->id);   
 
-        
-        //
     }
 
     /**
@@ -83,7 +108,10 @@ class CustomerController extends Controller
      */
     public function edit(customer $customer)
     {
-        //
+
+        $offering = new Offering;
+        $param =['old'=> $this->show($customer),'offer'=> $offering->where('id_customer',$customer->id)->get()]; 
+        return view('dashboard.customer.form_customer',$param);  
     }
 
     /**

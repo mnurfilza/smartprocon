@@ -10,12 +10,14 @@ class customer extends Model
 {
 
     protected $fillable = [
-      'id', 'name', 'email', 'phone_number', 'city',  'created_at',
+      'id', 'name', 'email', 'phone_number', 'city', 'country' ,'create_at',
     ];    
     
     public function offering(){
         return $this->hasOne(Offering::class);
     }
+
+    public $timestamps = false;
 }
 
 
