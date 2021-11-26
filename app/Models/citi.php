@@ -9,9 +9,10 @@ class citi extends Model
 {
     use HasFactory;
     public $timestamps = false;
+    protected $table = "regional";
 
     protected $fillable = [
-        'id', 'id_provinsi', 'nama_kota',
+        'id', 'id_provinsi', 'provinsi','nama_kota',
     ];
 
 }

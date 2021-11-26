@@ -20,18 +20,17 @@
                             @endforeach
                         </div>
                         @endif
-                        <form action="/offering/proses" method="POST" enctype="multipart/form-data">
+                        <form action="/customer" method="POST" enctype="multipart/form-data">
                         
                             @csrf
 
                             <div class="form-group">
-                                <label class="font-weight-bold">Option</label>
-                                <select name="products" class="form-control @error('option') is-invalid @enderror">
+                                <label class="font-weight-bold">Object</label>
+                                <select name="object" class="form-control @error('object') is-invalid @enderror">
                                     <option value="">Pilih Kategori</option>
-                                    <option value="Appartemen">Appartemen</option>
-                                    <option value="Commercial Building">Commercial Building</option>
-                                    <option value="Residential">Residential</option>
-                                    <option value="Other">Other</option>
+                                    @foreach ($objects as $item)
+                                    <option value={{$item->id}}>{{$item->nama_object}}</option>
+                                    @endforeach
                                 </select>
                             
                                 <!-- error message untuk option -->
@@ -46,7 +45,8 @@
                             <div class="form-group">
                                 <label class="font-weight-bold">System</label>
                                 @foreach ($data as $row)
-                                <input type='checkbox' name='system[]' value={{ $row->id_modules }}>{{$row->modules}}<br>
+                                
+                                <input type='checkbox' name='solution[]' value={{ $row->id }}>{{$row->nama_solution}}<br>
                                     
                                 @endforeach
                         
@@ -112,7 +112,7 @@
                             
                                 <!-- error message untuk title -->
                                 @error('phone')
-                                    <div class="alert alert-danger mt-2">
+                                    <div class="alert alert-danger mt-2">Masukkan Judul Blog
                                         {{ $message }}
                                     </div>
                                 @enderror
@@ -131,15 +131,21 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold">City</label>
-                                <input type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('title') }}" placeholder="Masukkan Judul Blog">
+                                <label class="font-weight-bold">Kota Asal</label>
+                                <select name="kota" class="form-control @error('object') is-invalid @enderror">
+                                    <option value="">Pilih Kota Asal</option>
+                                    @foreach ($citi as $item)
+                                    <option value={{$item->id}}>{{$item->nama_kota}}</option>
+                                    @endforeach
+                                </select>
                             
-                                <!-- error message untuk title -->
-                                @error('city')
+                                <!-- error message untuk option -->
+                                @error('option')
                                     <div class="alert alert-danger mt-2">
                                         {{ $message }}
                                     </div>
                                 @enderror
+
                             </div>
 
                             <div class="form-group">

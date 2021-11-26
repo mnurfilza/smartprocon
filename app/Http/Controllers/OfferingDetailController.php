@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\categorie;
+use App\Models\OfferingDetail;
 use Illuminate\Http\Request;
 
-class CategorieController extends Controller
+class OfferingDetailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class CategorieController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\categorie  $categorie
+     * @param  \App\Models\OfferingDetail  $offeringDetail
      * @return \Illuminate\Http\Response
      */
-    public function show(categorie $categorie)
+    public function show(OfferingDetail $offeringDetail)
     {
         //
     }
@@ -52,10 +52,10 @@ class CategorieController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\categorie  $categorie
+     * @param  \App\Models\OfferingDetail  $offeringDetail
      * @return \Illuminate\Http\Response
      */
-    public function edit(categorie $categorie)
+    public function edit(OfferingDetail $offeringDetail)
     {
         //
     }
@@ -64,10 +64,10 @@ class CategorieController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\categorie  $categorie
+     * @param  \App\Models\OfferingDetail  $offeringDetail
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, categorie $categorie)
+    public function update(Request $request, OfferingDetail $offeringDetail)
     {
         //
     }
@@ -75,10 +75,10 @@ class CategorieController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\categorie  $categorie
+     * @param  \App\Models\OfferingDetail  $offeringDetail
      * @return \Illuminate\Http\Response
      */
-    public function destroy(categorie $categorie)
+    public function destroy(OfferingDetail $offeringDetail)
     {
         //
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\citi;
+use App\Models\provinsi;
 use Illuminate\Http\Request;
 
 class CitiController extends Controller
@@ -14,7 +15,8 @@ class CitiController extends Controller
      */
     public function index()
     {
-        //
+        $param = ['data'=> citi::paginate(10)];
+        return view('dashboard.regional.regional',$param);
     }
 
     /**
@@ -24,7 +26,8 @@ class CitiController extends Controller
      */
     public function create()
     {
-        //
+        $param=['data'=>provinsi::all()];
+        return view('dashboard.regional.form_regional',$param);
     }
 
     /**
@@ -35,7 +38,25 @@ class CitiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $messages = [
+            'required' => ':attribute wajib diisi',
+        ];
+        $request->validate([
+            'provinsi' => 'required',
+            'kota' => 'required',
+        ],$messages);
+        try {
+            $ongkir = new citi();
+            $ongkir->nama_kota= $request->nama_kota;
+            $ongkir->id_provinsi= $request->provinsi;
+            $ongkir->provinsi = provinsi::find($request->provinsi)->nama;
+            $ongkir->save();
+
+        } catch (\Throwable $th) {
+            return redirect()->back()->withErrors(['error', 'Gagal menambahkan data'.$th->getMessage()]);
+        }
+
+        return redirect('/ongkir')->with('success', 'Berhasil menambahkan data');
     }
 
     /**
@@ -46,7 +67,7 @@ class CitiController extends Controller
      */
     public function show(citi $citi)
     {
-        //
+        return citi::find($citi->id);   
     }
 
     /**
@@ -81,5 +102,10 @@ class CitiController extends Controller
     public function destroy(citi $citi)
     {
         //
+    }
+
+    public function getAllCiti()
+    {
+        return $citi = citi::all();
     }
 }

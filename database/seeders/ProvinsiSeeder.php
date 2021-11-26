@@ -35,9 +35,10 @@ class ProvinsiSeeder extends Seeder
             $c = array();
             
             foreach ($citiesRes->json()['kota_kabupaten'] as  $city) {
-                DB::table('citis')->insert([
+                DB::table('regional')->insert([
                     'id'=>$city['id'],
                     'id_provinsi' => $city['id_provinsi'],
+                    'provinsi'=>$value['nama'],
                     'nama_kota' => $city['nama'],
                 ]);
 

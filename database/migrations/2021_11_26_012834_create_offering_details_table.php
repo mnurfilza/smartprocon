@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCitisTable extends Migration
+class CreateOfferingDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateCitisTable extends Migration
      */
     public function up()
     {
-        Schema::create('citis', function (Blueprint $table) {
-            $table->integer('id')->primary();
-            $table->string('id_provinsi');
-            $table->string('nama_kota');
-            
+        Schema::create('offering_details', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();
         });
     }
 
@@ -28,6 +26,6 @@ class CreateCitisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('citis');
+        Schema::dropIfExists('offering_details');
     }
 }

@@ -15,10 +15,10 @@ class CreateOngkirsTable extends Migration
     {
         Schema::create('ongkirs', function (Blueprint $table) {
             $table->id();
-            $table->string('id_kota')->foreign()->references('id')->on('citis');
-            $table->string('kota');
-            $table->string('price');
-            
+            $table->string('id_kota',20)->foreign('id_kota')->references('id')->on('citis');
+            $table->string('kota',50);
+            $table->string('price',10);
+
         });
     }
 

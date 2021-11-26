@@ -10,7 +10,7 @@ class customer extends Model
 {
 
     protected $fillable = [
-      'id', 'name', 'email', 'phone_number', 'city', 'country' ,'created_at',
+      'id', 'name', 'email', 'phone_number', 'city', 'country' ,'create_at',
     ];    
     
     public function offering(){

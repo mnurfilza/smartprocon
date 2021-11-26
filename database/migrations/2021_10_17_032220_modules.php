@@ -15,10 +15,9 @@ class Modules extends Migration
     {
         Schema::create('modules', function (Blueprint $table) {
             $table->id();
-            $table->string('system');
-            $table->string('id_module');
-            $table->longText('video');
-            $table->longText('pdf');
+            $table->string('id_solutions');
+            $table->string('solutions');
+            $table->longText('link');
         });
     }
 

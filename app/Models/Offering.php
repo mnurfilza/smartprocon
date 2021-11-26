@@ -11,7 +11,7 @@ class Offering extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id','customer_id','option','number_of_floors_and_rooms','system','budget'];
+    protected $fillable = ['id','id_solution','id_customer','option','number_of_floors','number_of_rooms','object_id','object','budget','solution'];
 
     public function customer(){
         return $this->belongsTo(customer::class,'customer_id','id');

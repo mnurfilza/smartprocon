@@ -61,15 +61,8 @@ class ModulesController extends Controller
      */
     public function show(modules $modules)
     {
-        //get data
-        $modules = new modules;
-        $datas = $modules->get();
 
-
-        //list of modules
-        $list = new modulesList;
-        $lists = $list->all();
-        return view("dashboard.upload",['data'=>$datas,'list'=>$lists]);
+        return view("dashboard.upload",['data'=>[],'list'=>[]]);
     }
 
     /**
@@ -80,35 +73,8 @@ class ModulesController extends Controller
      */
     public function process(array $system)
     {
-        $modules = new modules;
-        $mod = $modules->whereIn('id_module',$system)->get();
-        $files = array();
-
-            foreach ($mod as $key) {
-                if ($key->video !== "") {
-                    $files[] = $key->video;
-                }
-            }
-
-            $superBitrate = (new X264)->setKiloBitrate(1000);
-            $superBitrate->setAudioKiloBitrate(128);
-            FFMpeg::fromDisk('local')
-            ->open(['LC.mp4','IC.mp4'])
-            ->export()
-            ->inFormat($superBitrate)
-            ->concatWithTranscoding(true,true)
-            ->save('output.mp4');
-
-        // } catch (\Throwable $th) {
-
-        //     return back()->withErrors(['file' => $th->getMessage()]);
-        // }
-
-
-         
-
-        return public_path('assets/media/merge.pdf');
-
+        print_r($system);
+        die();
 
     }
 
@@ -121,4 +87,3 @@ class ModulesController extends Controller
     }
 
 }
-
