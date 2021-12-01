@@ -31,8 +31,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.pages.home');
 });
+
+Route::get('/solution-ges', function () {
+    return view('frontend.pages.solution');
+});
+
+Route::get('/about-us', function () {
+    return view('frontend.pages.about');
+});
+
+Route::get('/contact-us', function () {
+    return view('frontend.pages.contact');
+});
+
+Route::get('/offering-ges', function () {
+    return view('frontend.pages.offering');
+});
+
+
 
 Route::get('/admin', function () {
     return view('login');
@@ -50,8 +68,8 @@ Route::resources([
     'solutions_package' => SolutionsPackageController::class,
     'sub_solution_package' => SubSolutionPackageController::class,
     'customer' => CustomerController::class,
-
 ]);
+
 Route::get('/offering', [OfferingController::class, 'index']);
 
 Route::post('/offering/proses', [CustomerController::class, 'store']);
