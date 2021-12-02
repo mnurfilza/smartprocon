@@ -13,10 +13,24 @@ class TypeObjectSeeder extends Seeder
      * @return void
      */
     public function run()
+
+
     {
-        DB::table('type_objects')->insert([
-            'nama_object' => 'Apartement',
-            'keterangan' =>'Lighting',
-        ]);    
+
+        $objects = [
+            [
+                'nama_object' => 'Apartement',
+                'keterangan' =>'Apartement',
+            ],
+            [
+                'nama_object' => 'Commercial Building',
+                'keterangan' =>'Commercial Building',
+            ],
+            [
+                'nama_object' => 'Residential',
+                'keterangan' =>'Residential',
+            ]
+            ];
+        DB::table('type_objects')->insert($objects);    
     }
 }

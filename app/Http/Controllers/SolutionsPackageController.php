@@ -151,4 +151,11 @@ class SolutionsPackageController extends Controller
         solutions_package::destroy($solutions_package->id);
         return redirect()->back()->with('success', 'Berhasil menghapus data');
     }
+
+
+    //get solution by object and solution id
+    public function getSolution($id_solution, $id_object)
+    {
+        return solutions_package::where('id_solution',$id_solution)->where('id_object',$id_object)->first();
+    }
 }

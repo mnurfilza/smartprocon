@@ -6,7 +6,7 @@
 
     <h2 class="my-5">Detail Customer</h2>
     
-    <div class="col-lg-8 mx-auto my-5">				
+    <div class="col-sm-3 mx-auto my-5">				
 
         @if(count($errors) > 0)
         <div class="alert alert-danger">
@@ -22,11 +22,13 @@
             </div>
         @endif       
             @include('dashboard.customer.widgets.form_customer_update')
-            @include('dashboard.customer.widgets.table_customer_detail', array('class'=>'table-hover'))
 
         
     </div>
-    
+    <div class="col-lg-9 mx-auto my-5">				
+
+    @include('dashboard.customer.widgets.table_customer_detail', array('class'=>'table-hover'))
+    </div>
 </div>
 </div>
 

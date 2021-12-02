@@ -15,7 +15,15 @@ class CreateOfferingDetailsTable extends Migration
     {
         Schema::create('offering_details', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('offering_id');
+            $table->string('sku');
+            $table->string('nama_produk');
+            $table->integer('qty');
+            $table->integer('harga');
+            $table->integer('total');
+            $table->integer('ongkir');
+            $table->integer('ongkos_pasang');
+
         });
     }
 
