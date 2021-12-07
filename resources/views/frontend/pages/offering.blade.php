@@ -257,7 +257,7 @@
                                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
                                     value="Access Control & Security">
                                 <label class="form-check-label poppins" for="inlineRadio1">
-                                    Access Control & Security
+                                    Smart Control & Connectivity
                                 </label>
                             </div>
 
