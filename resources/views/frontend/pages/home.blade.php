@@ -7,9 +7,9 @@
                 <div class="col-12 col-md-4 col-lg-3 box-banner">
                     <div class="desc-banner">
                         <div class="text-head">
-                            Design You
-                            Own Smart Home
-                            In Few Click
+                            Design Your
+                            Own Smart Home<br>
+                            <span>In Few Clicks</span>
                         </div>
                         <div class="text-desc">
                             Our online design tool will give
@@ -210,7 +210,7 @@
                         </div>
                         <div class="card-body text-center">
                             <div class="card-img">
-                                <img src="{{ asset('images/smarthome/icon-people.png') }}" class="lazy img-fluid" alt="user">
+                                <img src="{{ asset('images/smarthome/yamin.webp') }}" class="lazy img-fluid" alt="user">
                             </div>
                             <p class="card-name poppins fw-bold">Yamin C</p>
                             <p class="card-name job-office poppins">
@@ -234,9 +234,9 @@
                         </div>
                         <div class="card-body text-center">
                             <div class="card-img">
-                                <img src="{{ asset('images/smarthome/icon-people.png') }}" class="lazy img-fluid" alt="user">
+                                <img src="{{ asset('images/smarthome/atshushi.webp') }}" class="lazy img-fluid" alt="user">
                             </div>
-                            <p class="card-name poppins fw-bold">Athusi Senno</p>
+                            <p class="card-name poppins fw-bold">Atshushi Senno</p>
                             <p class="card-name job-office poppins">
                                 Founder and Managing Director<br>Juni Group Mgmt. (HK) Ltd.
                             </p>
@@ -258,7 +258,7 @@
                         </div>
                         <div class="card-body text-center">
                             <div class="card-img">
-                                <img src="{{ asset('images/smarthome/icon-people.png') }}" class="lazy img-fluid" alt="user">
+                                <img src="{{ asset('images/smarthome/ferry.webp') }}" class="lazy img-fluid" alt="user">
                             </div>
                             <p class="card-name poppins fw-bold">Herman Priyadi</p>
                             <p class="card-name job-office poppins">
