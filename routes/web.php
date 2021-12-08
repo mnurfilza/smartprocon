@@ -46,9 +46,32 @@ Route::get('/contact-us', function () {
     return view('frontend.pages.contact');
 });
 
-Route::get('/offering-ges', function () {
-    return view('frontend.pages.offering');
-});
+// Route::get('/offering-ges-2', function () {
+//     return view('frontend.pages.offering');
+// });
+
+// Route::group(['namespace' => 'Frontend'], function () {
+// 	Route::get('/', 'SiteController@index')->name('home');
+
+// 	Route::get('/profil', 'SiteController@indexAbout')->name('about');
+
+// 	Route::get('/produk', 'SiteController@indexProduct')->name('products');
+// 	Route::get('/produk/{product_type_slug}/{product_slug}', 'SiteController@showProduct')->name('products.show');
+
+// 	Route::get('/bahan-dasar', 'SiteController@indexIngredient')->name('ingredients');
+
+// 	Route::get('/artikel', 'SiteController@indexNews')->name('news');
+// 	Route::get('/artikel/{news_category_slug}/{news_slug}', 'SiteController@showNews')->name('news.show');
+
+// 	Route::get('/galeri', 'SiteController@indexGallery')->name('galleries');
+// 	Route::get('/galeri/{gallery_slug}', 'SiteController@showGallery')->name('galleries.show');
+
+// 	Route::get('/video', 'SiteController@indexVideo')->name('videos');
+
+// 	Route::get('/storage-link-2', function(){
+// 		Artisan::call('storage:link2');
+// 	});
+// });
 
 
 
@@ -69,6 +92,8 @@ Route::resources([
     'sub_solution_package' => SubSolutionPackageController::class,
     'customer' => CustomerController::class,
 ]);
+
+Route::get('/offering-ges', [OfferingController::class, 'index']);
 
 Route::get('/offering', [OfferingController::class, 'index']);
 

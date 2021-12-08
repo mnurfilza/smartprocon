@@ -2678,6 +2678,354 @@ input[type="number"] {
                         }
                     }
 
+                    .top {
+                        display: flex;
+                        width: 100%;
+                        height: auto;
+                        margin: 0 0 1.5rem;
+
+                        @media (max-width: 576px) {
+                            flex-direction: column;
+                            margin: 0;
+                        }
+
+
+                        .form-check-inline {
+                            width: 50%;
+                            position: relative;
+                            display: inline-flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            padding: 1.25rem 2rem;
+                            margin: 0 1rem 0 0;
+
+                            @media (max-width: 1024px) {
+                                margin: 0 0.5rem;
+                            }
+
+                            @media (max-width: 576px) {
+                                width: 100%;
+                                margin: 0 0 1rem;
+                                padding: 1.25rem 1rem;
+                            }
+
+                            .form-check-input:checked[type="radio"] {
+                                background-size: 20px;
+                                background-image: url("/images/smarthome/green-color.webp");
+
+                                @media (max-width: 375px) {
+                                    background-size: 18px;
+                                }
+                            }
+
+                            .box-radio {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+
+                                input {
+                                    width: 100%;
+                                    padding: 1em;
+                                    margin-bottom: 3em;
+                                    box-sizing: border-box;
+                                    margin-top: 1em;
+                                    border: none;
+                                    border: 2px solid #03ac0e;
+                                    border-radius: 50%;
+                                    background-color: #fff;
+                                    font-size: 1em;
+                                    font-family: "Poppins", sans-serif;
+
+                                    &.form-check-input {
+                                        width: auto;
+                                        margin: 0.5rem 0.5rem 0.5rem 0;
+
+                                        @media (max-width: 375px) {
+                                            font-size: 0.75em;
+                                        }
+                                    }
+                                }
+
+                                label {
+                                    font-weight: 600;
+                                    font-size: 1em;
+                                    color: #042306;
+
+                                    @media (max-width: 375px) {
+                                        font-size: 0.85em;
+                                    }
+                                }
+                            }
+
+                            &:nth-child(1) {
+                                background: #dfe7fd;
+
+                                .box-img {
+                                    background: #d3defe;
+                                    padding: 1.25rem;
+                                    margin: 0 0 0 2.5rem;
+                                    border-radius: 50%;
+                                }
+                            }
+
+                            &:nth-child(2) {
+                                background: #fff1e6;
+
+                                .box-img {
+                                    background: #ffebdb;
+                                    padding: 1.25rem;
+                                    margin: 0 0 0 2.5rem;
+                                    border-radius: 50%;
+                                }
+                            }
+
+                            &:nth-child(3) {
+                                background: #fad2e1;
+
+                                .box-img {
+                                    background: #fdc7db;
+                                    padding: 1.25rem;
+                                    margin: 0 0 0 2.5rem;
+                                    border-radius: 50%;
+                                }
+                            }
+
+                            &:nth-child(4) {
+                                background: #bee1e6;
+
+                                .box-img {
+                                    background: #addbe1;
+                                    padding: 1.25rem;
+                                    margin: 0 0 0 2.5rem;
+                                    border-radius: 50%;
+                                }
+                            }
+                        }
+
+                    }
+
+                    .center {
+                        display: flex;
+                        width: 100%;
+                        height: auto;
+                        margin: 0 0 1.5rem;
+
+                        @media (max-width: 576px) {
+                            flex-direction: column;
+                            margin: 0;
+                        }
+
+                        .form-check-inline {
+                            width: 50%;
+                            position: relative;
+                            display: inline-flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            padding: 1.25rem 2rem;
+                            margin: 0 1rem 0 0;
+
+                            @media (max-width: 1024px) {
+                                margin: 0 0.5rem;
+                            }
+
+                            @media (max-width: 576px) {
+                                width: 100%;
+                                margin: 0 0 1rem;
+                                padding: 1.25rem 1rem;
+                            }
+
+                            &:nth-child(1) {
+                                background: #fad2e1;
+
+                                .form-check-input:checked[type="radio"] {
+                                    background-size: 20px;
+                                    background-image: url("/images/smarthome/green-color.webp");
+
+                                    @media (max-width: 375px) {
+                                        background-size: 18px;
+                                    }
+                                }
+
+                                .box-img {
+                                    background: #fdc7db;
+                                    padding: 1.25rem;
+                                    margin: 0 0 0 2.5rem;
+                                    border-radius: 50%;
+                                }
+                            }
+
+                            &:nth-child(2) {
+                                background: #bee1e6;
+
+                                .form-check-input:checked[type="radio"] {
+                                    background-size: 20px;
+                                    background-image: url("/images/smarthome/green-color.webp");
+
+                                    @media (max-width: 375px) {
+                                        background-size: 18px;
+                                    }
+                                }
+
+                                .box-img {
+                                    background: #addbe1;
+                                    padding: 1.25rem;
+                                    margin: 0 0 0 2.5rem;
+                                    border-radius: 50%;
+                                }
+                            }
+
+                            .box-radio {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+
+                                input {
+                                    width: 100%;
+                                    padding: 1em;
+                                    margin-bottom: 3em;
+                                    box-sizing: border-box;
+                                    margin-top: 1em;
+                                    border: none;
+                                    border: 2px solid #03ac0e;
+                                    border-radius: 50%;
+                                    background-color: #fff;
+                                    font-size: 1em;
+                                    font-family: "Poppins", sans-serif;
+
+                                    &.form-check-input {
+                                        width: auto;
+                                        margin: 0.5rem 0.5rem 0.5rem 0;
+
+                                        @media (max-width: 375px) {
+                                            font-size: 0.75em;
+                                        }
+                                    }
+                                }
+
+                                label {
+                                    font-weight: 600;
+                                    font-size: 1em;
+                                    color: #042306;
+
+                                    @media (max-width: 375px) {
+                                        font-size: 0.85em;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .bottom {
+                        display: flex;
+                        width: 100%;
+                        height: auto;
+                        margin: 0 0 1.5rem;
+
+                        @media (max-width: 576px) {
+                            flex-direction: column;
+                            margin: 0;
+                        }
+
+                        .form-check-inline {
+                            width: 48.5%;
+                            position: relative;
+                            display: inline-flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            padding: 1.25rem 2rem;
+                            margin: 0 1rem 0 0;
+
+                            @media (max-width: 1024px) {
+                                margin: 0 0.5rem;
+                            }
+
+                            @media (max-width: 576px) {
+                                width: 100%;
+                                margin: 0 0 1rem;
+                                padding: 1.25rem 1rem;
+                            }
+
+                            &:nth-child(1) {
+                                background: #fad2e1;
+
+                                .form-check-input:checked[type="radio"] {
+                                    background-size: 20px;
+                                    background-image: url("/images/smarthome/green-color.webp");
+
+                                    @media (max-width: 375px) {
+                                        background-size: 18px;
+                                    }
+                                }
+
+                                .box-img {
+                                    background: #fdc7db;
+                                    padding: 1.25rem;
+                                    margin: 0 0 0 2.5rem;
+                                    border-radius: 50%;
+                                }
+                            }
+
+                            &:nth-child(2) {
+                                background: #bee1e6;
+
+                                .form-check-input:checked[type="radio"] {
+                                    background-size: 20px;
+                                    background-image: url("/images/smarthome/green-color.webp");
+
+                                    @media (max-width: 375px) {
+                                        background-size: 18px;
+                                    }
+                                }
+
+                                .box-img {
+                                    background: #addbe1;
+                                    padding: 1.25rem;
+                                    margin: 0 0 0 2.5rem;
+                                    border-radius: 50%;
+                                }
+                            }
+
+                            .box-radio {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+
+                                input {
+                                    width: 100%;
+                                    padding: 1em;
+                                    margin-bottom: 3em;
+                                    box-sizing: border-box;
+                                    margin-top: 1em;
+                                    border: none;
+                                    border: 2px solid #03ac0e;
+                                    border-radius: 50%;
+                                    background-color: #fff;
+                                    font-size: 1em;
+                                    font-family: "Poppins", sans-serif;
+
+                                    &.form-check-input {
+                                        width: auto;
+                                        margin: 0.5rem 0.5rem 0.5rem 0;
+
+                                        @media (max-width: 576px) {
+                                            font-size: 0.75em;
+                                        }
+                                    }
+                                }
+
+                                label {
+                                    font-weight: 600;
+                                    font-size: 1em;
+                                    color: #042306;
+
+                                    @media (max-width: 375px) {
+                                        font-size: 0.85em;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
                     &.step2 {
                         &:nth-child(1) {
                             background: #dfe7fd;
@@ -2817,337 +3165,19 @@ input[type="number"] {
                                     -ms-border-radius: 0;
                                     -o-border-radius: 0;
                                 }
-                            }
-                        }
-                    }
 
-                    .top {
-                        display: flex;
-                        width: 100%;
-                        height: auto;
-                        margin: 0 0 1.5rem;
-
-                        @media (max-width: 576px) {
-                            flex-direction: column;
-                            margin: 0;
-                        }
-
-                        .form-check-inline {
-                            width: 50%;
-                            position: relative;
-                            display: inline-flex;
-                            justify-content: space-between;
-                            align-items: center;
-                            padding: 1.25rem 2rem;
-                            margin: 0 1rem;
-
-                            @media (max-width: 1024px) {
-                                margin: 0 0.5rem;
-                            }
-
-                            @media (max-width: 576px) {
-                                width: 100%;
-                                margin: 0 0 1rem;
-                                padding: 1.25rem 1rem;
-                            }
-
-                            &:nth-child(1) {
-                                background: #dfe7fd;
-
-                                .form-check-input:checked[type="radio"] {
-                                    background-size: 20px;
-                                    background-image: url("/images/smarthome/green-color.webp");
-
-                                    @media (max-width: 375px) {
-                                        background-size: 18px;
-                                    }
-                                }
-
-                                .box-img {
-                                    background: #d3defe;
-                                    padding: 1.25rem;
-                                    margin: 0 0 0 2.5rem;
-                                    border-radius: 50%;
-                                }
-                            }
-
-                            &:nth-child(2) {
-                                background: #fff1e6;
-
-                                .form-check-input:checked[type="radio"] {
-                                    background-size: 20px;
-                                    background-image: url("/images/smarthome/green-color.webp");
-
-                                    @media (max-width: 375px) {
-                                        background-size: 18px;
-                                    }
-                                }
-
-                                .box-img {
-                                    background: #ffebdb;
-                                    padding: 1.25rem;
-                                    margin: 0 0 0 2.5rem;
-                                    border-radius: 50%;
-                                }
-                            }
-
-                            .box-radio {
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-
-                                input {
-                                    width: 100%;
-                                    padding: 1em;
-                                    margin-bottom: 3em;
-                                    box-sizing: border-box;
-                                    margin-top: 1em;
-                                    border: none;
-                                    border: 2px solid #03ac0e;
-                                    border-radius: 50%;
-                                    background-color: #fff;
-                                    font-size: 1em;
-                                    font-family: "Poppins", sans-serif;
-
-                                    &.form-check-input {
-                                        width: auto;
-                                        margin: 0.5rem 0.5rem 0.5rem 0;
-
-                                        @media (max-width: 375px) {
-                                            font-size: 0.75em;
-                                        }
-                                    }
-                                }
-
-                                label {
-                                    font-weight: 600;
-                                    font-size: 1em;
+                                select {
                                     color: #042306;
+                                    padding: 0.65rem 1.25rem;
+                                    border: 2px solid #d9d9d9;
+                                    border-radius: 0;
+                                    -webkit-border-radius: 0;
+                                    -moz-border-radius: 0;
+                                    -ms-border-radius: 0;
+                                    -o-border-radius: 0;
 
-                                    @media (max-width: 375px) {
-                                        font-size: 0.85em;
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    .center {
-                        display: flex;
-                        width: 100%;
-                        height: auto;
-                        margin: 0 0 1.5rem;
-
-                        @media (max-width: 576px) {
-                            flex-direction: column;
-                            margin: 0;
-                        }
-
-                        .form-check-inline {
-                            width: 50%;
-                            position: relative;
-                            display: inline-flex;
-                            justify-content: space-between;
-                            align-items: center;
-                            padding: 1.25rem 2rem;
-                            margin: 0 1rem;
-
-                            @media (max-width: 1024px) {
-                                margin: 0 0.5rem;
-                            }
-
-                            @media (max-width: 576px) {
-                                width: 100%;
-                                margin: 0 0 1rem;
-                                padding: 1.25rem 1rem;
-                            }
-
-                            &:nth-child(1) {
-                                background: #fad2e1;
-
-                                .form-check-input:checked[type="radio"] {
-                                    background-size: 20px;
-                                    background-image: url("/images/smarthome/green-color.webp");
-
-                                    @media (max-width: 375px) {
-                                        background-size: 18px;
-                                    }
-                                }
-
-                                .box-img {
-                                    background: #fdc7db;
-                                    padding: 1.25rem;
-                                    margin: 0 0 0 2.5rem;
-                                    border-radius: 50%;
-                                }
-                            }
-
-                            &:nth-child(2) {
-                                background: #bee1e6;
-
-                                .form-check-input:checked[type="radio"] {
-                                    background-size: 20px;
-                                    background-image: url("/images/smarthome/green-color.webp");
-
-                                    @media (max-width: 375px) {
-                                        background-size: 18px;
-                                    }
-                                }
-
-                                .box-img {
-                                    background: #addbe1;
-                                    padding: 1.25rem;
-                                    margin: 0 0 0 2.5rem;
-                                    border-radius: 50%;
-                                }
-                            }
-
-                            .box-radio {
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-
-                                input {
-                                    width: 100%;
-                                    padding: 1em;
-                                    margin-bottom: 3em;
-                                    box-sizing: border-box;
-                                    margin-top: 1em;
-                                    border: none;
-                                    border: 2px solid #03ac0e;
-                                    border-radius: 50%;
-                                    background-color: #fff;
-                                    font-size: 1em;
-                                    font-family: "Poppins", sans-serif;
-
-                                    &.form-check-input {
-                                        width: auto;
-                                        margin: 0.5rem 0.5rem 0.5rem 0;
-
-                                        @media (max-width: 375px) {
-                                            font-size: 0.75em;
-                                        }
-                                    }
-                                }
-
-                                label {
-                                    font-weight: 600;
-                                    font-size: 1em;
-                                    color: #042306;
-
-                                    @media (max-width: 375px) {
-                                        font-size: 0.85em;
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    .bottom {
-                        display: flex;
-                        width: 100%;
-                        height: auto;
-                        margin: 0 0 1.5rem;
-
-                        @media (max-width: 576px) {
-                            flex-direction: column;
-                            margin: 0;
-                        }
-
-                        .form-check-inline {
-                            width: 47.5%;
-                            position: relative;
-                            display: inline-flex;
-                            justify-content: space-between;
-                            align-items: center;
-                            padding: 1.25rem 2rem;
-                            margin: 0 1rem;
-
-                            @media (max-width: 1024px) {
-                                margin: 0 0.5rem;
-                            }
-
-                            @media (max-width: 576px) {
-                                width: 100%;
-                                margin: 0 0 1rem;
-                                padding: 1.25rem 1rem;
-                            }
-
-                            &:nth-child(1) {
-                                background: #fad2e1;
-
-                                .form-check-input:checked[type="radio"] {
-                                    background-size: 20px;
-                                    background-image: url("/images/smarthome/green-color.webp");
-
-                                    @media (max-width: 375px) {
-                                        background-size: 18px;
-                                    }
-                                }
-
-                                .box-img {
-                                    background: #fdc7db;
-                                    padding: 1.25rem;
-                                    margin: 0 0 0 2.5rem;
-                                    border-radius: 50%;
-                                }
-                            }
-
-                            &:nth-child(2) {
-                                background: #bee1e6;
-
-                                .form-check-input:checked[type="radio"] {
-                                    background-size: 20px;
-                                    background-image: url("/images/smarthome/green-color.webp");
-
-                                    @media (max-width: 375px) {
-                                        background-size: 18px;
-                                    }
-                                }
-
-                                .box-img {
-                                    background: #addbe1;
-                                    padding: 1.25rem;
-                                    margin: 0 0 0 2.5rem;
-                                    border-radius: 50%;
-                                }
-                            }
-
-                            .box-radio {
-                                display: flex;
-                                justify-content: center;
-                                align-items: center;
-
-                                input {
-                                    width: 100%;
-                                    padding: 1em;
-                                    margin-bottom: 3em;
-                                    box-sizing: border-box;
-                                    margin-top: 1em;
-                                    border: none;
-                                    border: 2px solid #03ac0e;
-                                    border-radius: 50%;
-                                    background-color: #fff;
-                                    font-size: 1em;
-                                    font-family: "Poppins", sans-serif;
-
-                                    &.form-check-input {
-                                        width: auto;
-                                        margin: 0.5rem 0.5rem 0.5rem 0;
-
-                                        @media (max-width: 576px) {
-                                            font-size: 0.75em;
-                                        }
-                                    }
-                                }
-
-                                label {
-                                    font-weight: 600;
-                                    font-size: 1em;
-                                    color: #042306;
-
-                                    @media (max-width: 375px) {
-                                        font-size: 0.85em;
+                                    option {
+                                        color: #042306;
                                     }
                                 }
                             }
