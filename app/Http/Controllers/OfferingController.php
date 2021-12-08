@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Offering;
 use App\Models\type_object;
 use Illuminate\Http\Request;
 

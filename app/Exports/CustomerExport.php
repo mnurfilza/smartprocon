@@ -7,6 +7,8 @@ use App\Http\Controllers\CustomerController;
 
 use App\Http\Controllers\OfferingDetailController;
 use App\Models\customer;
+use App\Models\Offering;
+use App\Models\OfferingDetail;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
@@ -24,14 +26,10 @@ class CustomerExport implements FromCollection
 
     public function __construct(
         customer $customer,
-        OfferingController $offering, 
-        OfferingDetailController $offeringDetail,
         Request $request)
    
     {
         $this->customer = $customer;
-        $this->offering = $offering;
-        $this->offeringDetail = $offeringDetail;
         $this->request = $request;
     }
     /**
@@ -42,6 +40,7 @@ class CustomerExport implements FromCollection
         $startDate ="";
         $endDate =  "";
         $kota = "";
+        $solution = "";
         $queries = array();
 
         try {
@@ -56,15 +55,51 @@ class CustomerExport implements FromCollection
             if (!empty($kota)) {
                 array_push($queries,['city', '=', $kota]);
             }
+
+            
     
+           
            $customers = $this->customer->where($queries)->get();
+           $offer = new Offering();
            foreach ($customers as $key => $value) {
-               # code...
-                 echo '<pre>';
-               print_r($value->create_at);
-               print_r(" ");
-               print_r($value->city);
-               echo '</pre>';
+            echo "<pre>";
+
+            if (!empty($this->request->input('solution'))) {
+                $offering =$offer->where('id_customer',$value->id)->whereIn('solution',$this->request->input('solution'))->first();
+            }else{
+
+                $offering =$offer->where('id_customer',$value->id)->first();
+
+            }
+
+            // if (!empty($this->request->input('solution'))) {
+            //     foreach ($this->request->input('solution') as $key => $ofer ) {
+            //         if ($ofer === $offering->solution) {
+                        
+
+            //             print_r("masuk kemari");
+            //             $detailOffering = new OfferingDetail(); 
+            //             $details = $detailOffering->where('offering_id',$ofer->id)->get();
+
+            //             print_r($details);
+                        
+            //         }
+                    
+            //     }
+
+                
+            // }
+            
+
+            print_r($offering->id);
+            
+
+            $detailOffering = new OfferingDetail(); 
+            $details = $detailOffering->where('offering_id',$offering->id)->first();
+
+            print_r($details);
+           
+             echo "</pre>";
            }
             // print_r($this->request->input('startDate'));
             die();

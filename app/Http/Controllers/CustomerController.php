@@ -24,7 +24,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $param = ['data'=>customer::orderBy('id','desc')->paginate(10),'regional'=>citi::all()];
+        $param = ['data'=>customer::orderBy('id','desc')->paginate(10),'regional'=>citi::all(),'solution'=>solution::all()];
         return view('dashboard.customer.customer',$param);
     }
 

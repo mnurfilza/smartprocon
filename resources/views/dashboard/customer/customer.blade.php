@@ -18,11 +18,7 @@
         @endif
 		<div class="row">		
 			<div class="col-sm-1">
-			<a href="/product/create" class="btn btn-info btn-sm">Add</a>
-			</div>
-
-			<div class="col-sm-1">
-				<button type="submit"  class="donate_now btn btn-default-border-blk generalDonation" data-toggle="modal"  data-backdrop="static" data-keyboard="false" data-target="#myModalHorizontal">Export Customer</button>
+				<button type="submit"  class="btn btn-info btn-sm" data-toggle="modal"  data-backdrop="static" data-keyboard="false" data-target="#myModalHorizontal">Export Customer</button>
 				</div>
 		</div>
 
@@ -72,11 +68,18 @@
 						<div class="form-group">
 							<label class="font-weight-bold">Kota</label>
 							<select name="kota" class="form-control @error('object') is-invalid @enderror">
-								<option value="">Pilih Kategori</option>
+								<option value="">Pilih Kota</option>
 								@foreach ($regional as $item)
 								<option value='{{$item->nama_kota}}'>{{$item->nama_kota}}</option>
 								@endforeach
 							</select>
+						</div>
+
+						<div class="form-group">
+							<label class="font-weight-bold">Solution</label>
+								@foreach ($solution as $item)
+								<input type='checkbox' name='solution[]' value='{{ $item->nama_solution }}'>{{$item->nama_solution}}<br>
+								@endforeach
 						</div>
 						<div class="modal-body">
 							<div class="modal-footer" id="modal_footer">
