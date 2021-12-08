@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\CitiController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\ExportController;
 use App\Http\Controllers\ModulesController;
 use App\Http\Controllers\ModulesListController;
 use App\Http\Controllers\TypeObjectController;
@@ -76,10 +77,13 @@ Route::get('/contact-us', function () {
 
 
 Route::get('/admin', function () {
-    return view('login');
+    return view('frontend.pages.login');
 });
 
 
+
+//backend site
+Route::post('/export', [ExportController::class, 'exportToExcel']);
 Route::resources([
     'product' => ProductController::class,
     'type_barang' => TypeBarangController::class,
@@ -96,7 +100,6 @@ Route::resources([
 Route::get('/offering-ges', [OfferingController::class, 'index']);
 
 Route::get('/offering', [OfferingController::class, 'index']);
-
 Route::post('/offering/proses', [CustomerController::class, 'store']);
 Route::get('/upload', [ModulesController::class, 'show']);
 Route::post('/upload/proses',[ModulesController::class, 'store']);

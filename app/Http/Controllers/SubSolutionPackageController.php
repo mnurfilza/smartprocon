@@ -147,4 +147,10 @@ class SubSolutionPackageController extends Controller
        
         return redirect()->back()->with('success', 'Berhasil menghapus data');
     }
+
+    public function search(SubSolutionPackage $subSolutionPackage)
+    {
+        return SubSolutionPackage::where('id_solution_package',$subSolutionPackage->id_solution_package)->get();  
+    }
+    
 }

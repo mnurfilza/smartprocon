@@ -134,4 +134,8 @@ class OngkosPasangController extends Controller
         ongkos_pasang::destroy($ongkos_pasang->id);
         return redirect()->back()->with('success', 'Berhasil menghapus data');
     }
+
+    public function getOngkosPasangByCity(ongkos_pasang $ongkos_pasang)
+    {
+        return ongkos_pasang::where('id_kota', $ongkos_pasang->id_kota)->first();    }
 }

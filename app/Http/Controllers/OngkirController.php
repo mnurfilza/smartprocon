@@ -127,4 +127,8 @@ class OngkirController extends Controller
         ongkir::destroy($ongkir->id);
         return redirect()->back()->with('success', 'Berhasil menghapus data');
     }
+
+    public function searchOngkirByCity(ongkir $ongkir){
+        return ongkir::where('id_kota', $ongkir->id_kota)->first();
+    }
 }

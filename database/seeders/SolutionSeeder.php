@@ -14,9 +14,32 @@ class SolutionSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('solutions')->insert([
-            'nama_solution' => 'Lighting',
-            'keterangan' =>'Lighting',
-        ]);    
+        $solutions =[
+            [
+                'nama_solution' => 'Lighting Control',
+                'keterangan' =>'Lighting Control',
+            ],
+            [
+                'nama_solution' => 'Audio & Video Control',
+                'keterangan' =>'Audio & Video Control',
+            ],
+            [
+                'nama_solution' => 'Access Control & Security ',
+                'keterangan' =>'Access Control & Security ',
+            ],
+            [
+                'nama_solution' => 'Indoor Comfort',
+                'keterangan' =>'Indoor Comfort',
+            ],
+            [
+                'nama_solution' => 'Smart Security',
+                'keterangan' =>'Smart Security',
+            ],
+            [
+                'nama_solution' => 'Connectifity',
+                'keterangan' =>'Connectifity',
+            ],
+        ];
+        DB::table('solutions')->insert($solutions);    
     }
 }

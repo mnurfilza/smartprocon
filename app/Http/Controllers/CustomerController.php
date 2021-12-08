@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use App\Models\citi;
 use App\Models\customer;
 use App\Models\Offering;
+use App\Models\OfferingDetail;
+use App\Models\ongkir;
+use App\Models\ongkos_pasang;
+use App\Models\product;
 use App\Models\solution;
+use App\Models\SubSolutionPackage;
 use App\Models\type_object;
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
-use GuzzleHttp\Psr7\Request as Psr7Request;
-use PhpParser\Node\Stmt\TryCatch;
 
 class CustomerController extends Controller
 {
@@ -22,7 +24,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $param = ['data'=>customer::paginate(10)];
+        $param = ['data'=>customer::orderBy('id','desc')->paginate(10),'regional'=>citi::all(),'solution'=>solution::all()];
         return view('dashboard.customer.customer',$param);
     }
 
@@ -46,24 +48,27 @@ class CustomerController extends Controller
     {
         //save data to database customer
 
-        try {
+       try {
+
+            $citi = new citi();
+            $citi->id = $request->input('kota');
+
+            $customer = new customer;
+            $customer->name = $request->input('name');
+            $customer->email = $request->input('email');
+            $customer->phone_number = $request->input('phone_number');
+            $customer->city = CitiController::show($citi)->nama_kota;
+            $customer->country = $request->input('country');
+            $customer->create_at = Carbon::now();
+            $customer->save();
+
+             //find ongkos pasang
+            $modelOngkosPasang = new ongkos_pasang();
+            $modelOngkosPasang->id_kota = $citi->id;
+            $ongkosPasang = OngkosPasangController::getOngkosPasangByCity($modelOngkosPasang);
 
             foreach ($request->input('solution') as $key => $value) {
 
-
-
-                $citi = new citi();
-                $citi->id = $request->input('kota');
-
-                $customer = new customer;
-                $customer->name = $request->input('name');
-                $customer->email = $request->input('email');
-                $customer->phone_number = $request->input('phone_number');
-                $customer->city = CitiController::show($citi)->nama_kota;
-                $customer->country = $request->input('country');
-                $customer->create_at = Carbon::now();
-                $customer->save();
-    
                 $offering = new Offering;
                 $offering->id_customer=$customer->id;
                 $offering->customer = $customer->name;
@@ -76,16 +81,73 @@ class CustomerController extends Controller
                 $offering->id_solution = $value;
                 $offering->solution = solution::find($value)->nama_solution;
                 $offering->save();
+
+
+                /*save data to database offering_details
+                find solution package */
+                $solutionPackage = SolutionsPackageController::getSolution($value,$request->input('object'));
+                if (empty($solutionPackage)) {
+                    throw new \Exception("Solutions Package Not Exist");
+                }
+
+
+                //itungan untuk jumlah barang
+                $modelSub = new SubSolutionPackage();
+                $modelSub->id_solution_package = $solutionPackage->id;
+                $solutionSubPackage = SubSolutionPackageController::search($modelSub);
+                foreach ($solutionSubPackage as $key => $value) {
+                //findBarang
+                $modelBarang = new product();
+                $modelBarang->sku = $value->sku;
+                $barang = ProductController::show($modelBarang);
+
+                //find ongkos kirim
+                $modelOngkir = new ongkir();
+                $modelOngkir->id_kota = $citi->id;
+                $ongkir = OngkirController::searchOngkirByCity($modelOngkir);
+                $jumlah =0;
+                $hargaSatuan=0;
+                $total = 0;
+                
+                if ($value->ruangan == 1 && $value->lantai == 1) {
+                    $jumlah = (integer)$value->jumlah * (integer)$floorAndRooms[0] * (integer)$floorAndRooms[1];
+                    $hargaSatuan = (integer)$value->jumlah * (integer)$floorAndRooms[0] * (integer)$floorAndRooms[1] * (integer)$barang->harga_satuan;
+                }elseif ($value->ruangan == 1) {
+                    $jumlah = (integer)$value->jumlah * (integer)$floorAndRooms[1] ;
+                    $hargaSatuan = (integer)$value->jumlah * (integer)$floorAndRooms[1] * (integer)$barang->harga_satuan;
+
+                }elseif ($value->lantai == 1) {
+                    $jumlah = (integer)$value->jumlah * (integer)$floorAndRooms[0] ;
+                    $hargaSatuan = (integer)$value->jumlah * (integer)$floorAndRooms[0] * (integer)$barang->harga_satuan;
+                }
+                $total = $jumlah * $hargaSatuan;
+                $ongkos_kirim = (integer)$barang->berat_barang * (integer)$ongkir->price;
+                
+
+             
+
+                $offeringDetail = new OfferingDetail();
+                $offeringDetail->offering_id = $offering->id;
+                $offeringDetail->sku = $value->sku;
+                $offeringDetail->nama_produk = $value->nama_barang;
+                $offeringDetail->qty = $jumlah;
+                $offeringDetail->harga = $hargaSatuan;
+                $offeringDetail->total = $total;
+                $offeringDetail->ongkir = $ongkos_kirim;
+                $offeringDetail->ongkos_pasang = $ongkosPasang->harga;
+                $offeringDetail->save();
+            }
+                
             }
  
-            $modules = new ModulesController;
-            $modules->process($request->input('solution'));
+            // $modules = new ModulesController;
+            // $modules->process($request->input('solution'));
 
         } catch (\Throwable $th) {
             return back()->withErrors(['error', $th->getMessage()]);
         }
       
-        return redirect()->view('');
+        return redirect()->back()->with('success','Data Berhasil Disimpan');
     }
 
     /**
@@ -110,7 +172,25 @@ class CustomerController extends Controller
     {
 
         $offering = new Offering;
-        $param =['old'=> $this->show($customer),'offer'=> $offering->where('id_customer',$customer->id)->get()]; 
+        $resOffering = $offering->where('id_customer',$customer->id)->get();
+        $offeringDetail = new OfferingDetail;
+
+        $offer = [];
+        foreach ($resOffering as $key => $value) {
+           
+            $offeringDetail->offering_id = $value->id;
+            $offeringCtr = OfferingDetailController::getOfferingDetail($offeringDetail);
+           
+            foreach ($offeringCtr as $keys => $v) {
+                array_push($offer,$v);
+            }
+
+        }
+        $param =[
+            'old'=> $this->show($customer),
+            'offer'=> $offer,
+            'of'=> $resOffering,
+        ]; 
         return view('dashboard.customer.form_customer',$param);  
     }
 
@@ -136,4 +216,7 @@ class CustomerController extends Controller
     {
         //
     }
+
+    
 }
+

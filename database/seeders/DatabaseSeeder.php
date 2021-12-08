@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ProvinsiSeeder::class);
         $this->call(SolutionSeeder::class);
         $this->call(TypeObjectSeeder::class);
+        $this->call(CategorieSeeder::class);
 
 
         // \App\Models\User::factory(10)->create();
