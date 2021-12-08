@@ -17,8 +17,16 @@
             </div>
         @endif
 		<div class="row">		
+			<div class="col-sm-1">
 			<a href="/product/create" class="btn btn-info btn-sm">Add</a>
+			</div>
+
+			<div class="col-sm-1">
+				<button type="submit"  class="donate_now btn btn-default-border-blk generalDonation" data-toggle="modal"  data-backdrop="static" data-keyboard="false" data-target="#myModalHorizontal">Export Customer</button>
+				</div>
 		</div>
+
+		
 	</div>
 <div class="row">
 	<div class="col-md-10 my-5">
@@ -31,6 +39,58 @@
 </div>
 </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModalHorizontal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog modal-lg">
+		<div class="modal-content">
+			<!-- Modal Header -->
+			<div class="modal-header" style="background: orange">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true" class="ion-android-close"></span></button>
+				<h4 class="modal-title" id="myModalLabel" style="color: whitesmoke;">Export Customer To Excell</h4>
+			</div>            <!-- Modal Body -->
+			<div class="modal-body">
+				<div>
+					Payment Option
+				</div>
+				<form action="/export" method="POST" enctype='multipart/form-data'>
+					{{ csrf_field() }}
+					<div class="header-btn">
+						<div id="div-physical">
+							<label>
+								<input id="rdb_physical" name="startDate"  type="date" class="validate[required]">
+								Start Date
+							</label>
+						</div>
+						<div id="div-physical">
+							<label>
+								<input id="rdb_physical" name="endDate"  type="date" class="validate[required]">
+								End Date
+							</label>
+						</div>
+
+						<div class="form-group">
+							<label class="font-weight-bold">Kota</label>
+							<select name="kota" class="form-control @error('object') is-invalid @enderror">
+								<option value="">Pilih Kategori</option>
+								@foreach ($regional as $item)
+								<option value='{{$item->nama_kota}}'>{{$item->nama_kota}}</option>
+								@endforeach
+							</select>
+						</div>
+						<div class="modal-body">
+							<div class="modal-footer" id="modal_footer">
+							<input id="btnSubmit" name="btnSubmit" value="Donate" class="btn btn-default-border-blk" type="submit">
+								{{-- <a href="/export" id="btnDonate" class="btn btn-default-border-blk">Donate</a> --}}
+							</div>
+						</div>
+						<button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</form>
+			
+			</div>
+		</div>
+	</div>
+	
 
 @endsection
 

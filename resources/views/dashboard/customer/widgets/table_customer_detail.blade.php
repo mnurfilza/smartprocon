@@ -15,6 +15,9 @@
 		</thead>
 		<tbody>
 			@foreach($offer as $row)
+			@if($row->offering_id != $v->id)
+				@continue
+			@endif
 			<tr>
 				<td>{{$row->sku}}</td>
 				<td>{{$row->nama_produk}}</td>
@@ -24,7 +27,7 @@
 				<td>{{ $row->harga }}</td>
 				<td>{{ $row->total }}</td>
 				
-			</tr>
+			</tr>		
 			@endforeach
 
 		

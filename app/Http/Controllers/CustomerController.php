@@ -13,10 +13,7 @@ use App\Models\solution;
 use App\Models\SubSolutionPackage;
 use App\Models\type_object;
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
 use Carbon\Carbon;
-use GuzzleHttp\Psr7\Request as Psr7Request;
-use PhpParser\Node\Stmt\TryCatch;
 
 class CustomerController extends Controller
 {
@@ -27,7 +24,7 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        $param = ['data'=>customer::paginate(10)];
+        $param = ['data'=>customer::orderBy('id','desc')->paginate(10),'regional'=>citi::all()];
         return view('dashboard.customer.customer',$param);
     }
 
@@ -150,7 +147,7 @@ class CustomerController extends Controller
             return back()->withErrors(['error', $th->getMessage()]);
         }
       
-        return redirect()->view('');
+        return redirect()->back()->with('success','Data Berhasil Disimpan');
     }
 
     /**
@@ -180,16 +177,15 @@ class CustomerController extends Controller
 
         $offer = [];
         foreach ($resOffering as $key => $value) {
-
+           
             $offeringDetail->offering_id = $value->id;
             $offeringCtr = OfferingDetailController::getOfferingDetail($offeringDetail);
-
+           
             foreach ($offeringCtr as $keys => $v) {
-               $offer[$keys] = $v;
+                array_push($offer,$v);
             }
-        }
 
-        
+        }
         $param =[
             'old'=> $this->show($customer),
             'offer'=> $offer,
@@ -221,11 +217,6 @@ class CustomerController extends Controller
         //
     }
 
-    // private function constructOffering($offering)
-    // {
-    //     foreach ($variable as $key => $value) {
-    //         printTable($value->)
-    //     }
-    // }
+    
 }
 

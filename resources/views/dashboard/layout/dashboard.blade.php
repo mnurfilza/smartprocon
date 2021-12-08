@@ -244,14 +244,6 @@
                             </div>
                             <!-- /input-group -->
                         </li>
-                        <li {{ (Request::is('/') ? 'class="active"' : '') }}>
-                            <a href="{{ url ('') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
-                        </li>
-                        <li {{ (Request::is('*charts') ? 'class="active"' : '') }}>
-                            <a href="{{ url ('charts') }}"><i class="fa fa-bar-chart-o fa-fw"></i> Charts</a>
-                            <!-- /.nav-second-level -->
-                        </li>
-
                         <li {{ (Request::is('*customer') ? 'class="active"' : '') }}>
                             <a href="{{ url ('customer') }}"><i class="fa fa-photo fa-fw"></i> Customer</a>
                         </li>
