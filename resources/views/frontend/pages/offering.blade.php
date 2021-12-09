@@ -46,18 +46,20 @@
                         <p class="text poppins">What are you looking for?</p>
                     </div>
                     @foreach ($objects as $item)
-                    <div class="top">
-                        <div class="form-check form-check-inline poppins">
-                            <div class="box-radio">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                    value={{$item->id}}>
-                                <label class="form-check-label poppins" for="inlineRadio1">
-                                    {{$item->nama_object}}
-                                </label>
-                            </div>
-                            <div class="box-img">
-                                <img src="{{ asset('images/smarthome/radio_ic_baseline.png') }}"
-                                    class="lazy img-fluid radio" alt="icon">
+                    <div class="top row m-0">
+                        <div class="box-choice col-12 col-md-6">
+                            <div class="form-check form-check-inline poppins">
+                                <div class="box-radio">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio1" value={{$item->id}}>
+                                    <label class="form-check-label poppins" for="inlineRadio1">
+                                        {{$item->nama_object}}
+                                    </label>
+                                </div>
+                                <div class="box-img">
+                                    <img src="{{ asset('images/smarthome/radio_ic_baseline.png') }}"
+                                        class="lazy img-fluid radio" alt="icon">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -75,51 +77,57 @@
                     <div class="title-step text-center">
                         <p class="text poppins">Choose the number of floors and rooms?</p>
                     </div>
-                    <div class="top">
-                        <div class="form-check form-check-inline poppins">
-                            <div class="box-radio">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                    value="1-2">
-                                <label class="form-check-label poppins" for="inlineRadio1">1 - 2</label>
-                            </div>
-                            <div class="box-img">
-                                <img src="{{ asset('images/smarthome/radio_ic_baseline.png') }}"
-                                    class="lazy img-fluid radio" alt="icon">
-                            </div>
-                        </div>
-                        <div class="form-check form-check-inline poppins">
-                            <div class="box-radio">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                    value="3-4">
-                                <label class="form-check-label poppins" for="inlineRadio2">3 - 4</label>
-                            </div>
-                            <div class="box-img">
-                                <img src="{{ asset('images/smarthome/radio_ic_baseline.png') }}"
-                                    class="lazy img-fluid radio" alt="icon">
+                    <div class="top row m-0">
+                        <div class="box-choice col-12 col-md-6">
+                            <div class="form-check form-check-inline poppins">
+                                <div class="box-radio">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio1" value="1-2">
+                                    <label class="form-check-label poppins" for="inlineRadio1">1 - 2</label>
+                                </div>
+                                <div class="box-img">
+                                    <img src="{{ asset('images/smarthome/radio_ic_baseline.png') }}"
+                                        class="lazy img-fluid radio" alt="icon">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="center">
-                        <div class="form-check form-check-inline poppins">
-                            <div class="box-radio">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                    value="5-6">
-                                <label class="form-check-label poppins" for="inlineRadio1">5 - 6</label>
-                            </div>
-                            <div class="box-img">
-                                <img src="{{ asset('images/smarthome/radio_ic_baseline.png') }}"
-                                    class="lazy img-fluid radio" alt="icon">
+                        <div class="box-choice col-12 col-md-6">
+                            <div class="form-check form-check-inline poppins">
+                                <div class="box-radio">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio2" value="3-4">
+                                    <label class="form-check-label poppins" for="inlineRadio2">3 - 4</label>
+                                </div>
+                                <div class="box-img">
+                                    <img src="{{ asset('images/smarthome/radio_ic_baseline.png') }}"
+                                        class="lazy img-fluid radio" alt="icon">
+                                </div>
                             </div>
                         </div>
-                        <div class="form-check form-check-inline poppins">
-                            <div class="box-radio">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                    value="6-More">
-                                <label class="form-check-label poppins" for="inlineRadio2">6 - More</label>
+                        <div class="box-choice col-12 col-md-6">
+                            <div class="form-check form-check-inline poppins">
+                                <div class="box-radio">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio1" value="5-6">
+                                    <label class="form-check-label poppins" for="inlineRadio1">5 - 6</label>
+                                </div>
+                                <div class="box-img">
+                                    <img src="{{ asset('images/smarthome/radio_ic_baseline.png') }}"
+                                        class="lazy img-fluid radio" alt="icon">
+                                </div>
                             </div>
-                            <div class="box-img">
-                                <img src="{{ asset('images/smarthome/radio_ic_baseline.png') }}"
-                                    class="lazy img-fluid radio" alt="icon">
+                        </div>
+                        <div class="box-choice col-12 col-md-6">
+                            <div class="form-check form-check-inline poppins">
+                                <div class="box-radio">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio2" value="6-More">
+                                    <label class="form-check-label poppins" for="inlineRadio2">6 - More</label>
+                                </div>
+                                <div class="box-img">
+                                    <img src="{{ asset('images/smarthome/radio_ic_baseline.png') }}"
+                                        class="lazy img-fluid radio" alt="icon">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -129,53 +137,59 @@
                     <div class="title-step text-center">
                         <p class="text poppins">Choose your budget?</p>
                     </div>
-                    <div class="top">
-                        <div class="form-check form-check-inline poppins">
-                            <div class="box-radio">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                    value="500$-800$">
-                                <label class="form-check-label poppins" for="inlineRadio1">500$ - 800$</label>
-                            </div>
-                            <div class="box-img">
-                                <img src="{{ asset('images/smarthome/radio_ic_baseline.png') }}"
-                                    class="lazy img-fluid radio" alt="icon">
+                    <div class="top row m-0">
+                        <div class="box-choice col-12 col-md-6">
+                            <div class="form-check form-check-inline poppins">
+                                <div class="box-radio">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio1" value="500$-800$">
+                                    <label class="form-check-label poppins" for="inlineRadio1">500$ - 800$</label>
+                                </div>
+                                <div class="box-img">
+                                    <img src="{{ asset('images/smarthome/radio_ic_baseline.png') }}"
+                                        class="lazy img-fluid radio" alt="icon">
+                                </div>
                             </div>
                         </div>
-                        <div class="form-check form-check-inline poppins">
-                            <div class="box-radio">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                    value="500$-800$">
-                                <label class="form-check-label poppins" for="inlineRadio2">500$ - 800$</label>
-                            </div>
+                        <div class="box-choice col-12 col-md-6">
+                            <div class="form-check form-check-inline poppins">
+                                <div class="box-radio">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio2" value="500$-800$">
+                                    <label class="form-check-label poppins" for="inlineRadio2">500$ - 800$</label>
+                                </div>
 
-                            <div class="box-img">
-                                <img src="{{ asset('images/smarthome/raddio_teenyicons_shop.png') }}"
-                                    class="lazy img-fluid radio" alt="icon">
+                                <div class="box-img">
+                                    <img src="{{ asset('images/smarthome/raddio_teenyicons_shop.png') }}"
+                                        class="lazy img-fluid radio" alt="icon">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="center">
-                        <div class="form-check form-check-inline poppins">
-                            <div class="box-radio">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                    value="500$-800$">
-                                <label class="form-check-label poppins" for="inlineRadio1">500$ - 800$</label>
-                            </div>
+                        <div class="box-choice col-12 col-md-6">
+                            <div class="form-check form-check-inline poppins">
+                                <div class="box-radio">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio1" value="500$-800$">
+                                    <label class="form-check-label poppins" for="inlineRadio1">500$ - 800$</label>
+                                </div>
 
-                            <div class="box-img">
-                                <img src="{{ asset('images/smarthome/radio_ant_home-filled.png') }}"
-                                    class="lazy img-fluid radio" alt="icon">
+                                <div class="box-img">
+                                    <img src="{{ asset('images/smarthome/radio_ant_home-filled.png') }}"
+                                        class="lazy img-fluid radio" alt="icon">
+                                </div>
                             </div>
                         </div>
-                        <div class="form-check form-check-inline poppins">
-                            <div class="box-radio">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                    value="$800-More">
-                                <label class="form-check-label poppins" for="inlineRadio2">800$ - More</label>
-                            </div>
-                            <div class="box-img">
-                                <img src="{{ asset('images/smarthome/radio_entypo_dots.png') }}"
-                                    class="lazy img-fluid radio" alt="icon">
+                        <div class="box-choice col-12 col-md-6">
+                            <div class="form-check form-check-inline poppins">
+                                <div class="box-radio">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio2" value="$800-More">
+                                    <label class="form-check-label poppins" for="inlineRadio2">800$ - More</label>
+                                </div>
+                                <div class="box-img">
+                                    <img src="{{ asset('images/smarthome/radio_entypo_dots.png') }}"
+                                        class="lazy img-fluid radio" alt="icon">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -186,77 +200,30 @@
                         <p class="text poppins">Choose the system you want?</p>
                     </div>
                     @foreach ($data as $row)
+                    <div class="top row m-0">
+                        <div class="box-choice col-12 col-md-6">
+                            <div class="form-check form-check-inline poppins">
+                                <div class="box-radio">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                        id="inlineRadio1" value="{{ $row->id }}">
+                                    <label class="form-check-label poppins"
+                                        for="inlineRadio1">{{$row->nama_solution}}</label>
+                                </div>
+                                <div class="box-img">
+                                    <img src="{{ asset('images/smarthome/radio_ic_baseline.png') }}"
+                                        class="lazy img-fluid radio" alt="icon">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     @endforeach
-                    <div class="top">
-                        <div class="form-check form-check-inline poppins">
-                            <div class="box-radio">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                    value="Lighting Control">
-                                <label class="form-check-label poppins" for="inlineRadio1">Lighting Control</label>
-                            </div>
-                            <div class="box-img">
-                                <img src="{{ asset('images/smarthome/radio_ic_baseline.png') }}"
-                                    class="lazy img-fluid radio" alt="icon">
-                            </div>
-                        </div>
-                        <div class="form-check form-check-inline poppins">
-                            <div class="box-radio">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                    value="Access Control & Security">
-                                <label class="form-check-label poppins" for="inlineRadio2">
-                                    Audio & Video Control
-                                </label>
-                            </div>
 
-                            <div class="box-img">
-                                <img src="{{ asset('images/smarthome/raddio_teenyicons_shop.png') }}"
-                                    class="lazy img-fluid radio" alt="icon">
-                            </div>
-                        </div>
+                    <!-- error message untuk category -->
+                    @error('system')
+                    <div class="alert alert-danger mt-2">
+                        {{ $message }}
                     </div>
-                    <div class="center">
-                        <div class="form-check form-check-inline poppins">
-                            <div class="box-radio">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                    value="Access Control & Security">
-                                <label class="form-check-label poppins" for="inlineRadio1">
-                                    Access Control & Security
-                                </label>
-                            </div>
-
-                            <div class="box-img">
-                                <img src="{{ asset('images/smarthome/radio_ant_home-filled.png') }}"
-                                    class="lazy img-fluid radio" alt="icon">
-                            </div>
-                        </div>
-                        <div class="form-check form-check-inline poppins">
-                            <div class="box-radio">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"
-                                    value="Indoor Comfort">
-                                <label class="form-check-label poppins" for="inlineRadio2">Indoor Comfort</label>
-                            </div>
-                            <div class="box-img">
-                                <img src="{{ asset('images/smarthome/radio_entypo_dots.png') }}"
-                                    class="lazy img-fluid radio" alt="icon">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bottom">
-                        <div class="form-check form-check-inline poppins">
-                            <div class="box-radio">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"
-                                    value="Access Control & Security">
-                                <label class="form-check-label poppins" for="inlineRadio1">
-                                    Smart Control & Connectivity
-                                </label>
-                            </div>
-
-                            <div class="box-img">
-                                <img src="{{ asset('images/smarthome/radio_ant_home-filled.png') }}"
-                                    class="lazy img-fluid radio" alt="icon">
-                            </div>
-                        </div>
-                    </div>
+                    @enderror
                 </div>
 
                 <div class="step step5 hidden">
@@ -267,67 +234,72 @@
                         <div class="mb-4 row">
                             <label for="inputName" class="col-2 col-md-2 col-form-label poppins">Name</label>
                             <div class="col-12 col-md-10">
-                                <input type="text" class="form-control poppins @error('nama') is-invalid @enderror" name="name" value="{{ old('title') }}" placeholder="Your Name">
+                                <input type="text" class="form-control poppins @error('nama') is-invalid @enderror"
+                                    name="name" value="{{ old('title') }}" placeholder="Your Name">
 
                                 <!-- error message untuk title -->
                                 @error('nama')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
                                 @enderror
                             </div>
                         </div>
                         <div class="mb-4 row">
                             <label for="inputPhone" class="col-2 col-md-2 col-form-label poppins">Phone</label>
                             <div class="col-12 col-md-10">
-                                <input type="number" class="form-control poppins @error('phone') is-invalid @enderror" name="phone_number" value="{{ old('title') }}" placeholder="Your Phone">
+                                <input type="number" class="form-control poppins @error('phone') is-invalid @enderror"
+                                    name="phone_number" value="{{ old('title') }}" placeholder="Your Phone">
 
                                 @error('phone')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
                                 @enderror
                             </div>
                         </div>
                         <div class="mb-4 row">
                             <label for="inputEmail" class="col-2 col-md-2 col-form-labe poppins">Email</label>
                             <div class="col-12 col-md-10">
-                                <input type="email" class="form-control poppins @error('email') is-invalid @enderror" name="email" value="{{ old('title') }}" placeholder="Your Email">
+                                <input type="email" class="form-control poppins @error('email') is-invalid @enderror"
+                                    name="email" value="{{ old('title') }}" placeholder="Your Email">
 
                                 @error('email')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
                                 @enderror
                             </div>
                         </div>
                         <div class="mb-4 row">
                             <label for="inputCity" class="col-2 col-md-2 col-form-label poppins">City</label>
                             <div class="col-12 col-md-10">
-                                <select name="kota" class="form-select poppins @error('object') is-invalid @enderror" aria-label="Default select example">
+                                <select name="kota" class="form-select poppins @error('object') is-invalid @enderror"
+                                    aria-label="Default select example">
                                     <option value="">Please enter your city</option>
                                     @foreach ($citi as $item)
                                     <option value={{$item->id}}>{{$item->nama_kota}}</option>
                                     @endforeach
                                 </select>
-                            
+
                                 <!-- error message untuk option -->
                                 @error('option')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
                                 @enderror
                             </div>
                         </div>
                         <div class="mb-4 row">
                             <label for="inputCountry" class="col-2 col-md-2 col-form-label poppins">Country</label>
                             <div class="col-12 col-md-10">
-                                <input type="text" class="form-control poppins @error('country') is-invalid @enderror" name="country" value="{{ old('title') }}" placeholder="Please enter your country">
+                                <input type="text" class="form-control poppins @error('country') is-invalid @enderror"
+                                    name="country" value="{{ old('title') }}" placeholder="Please enter your country">
 
                                 @error('country')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
+                                <div class="alert alert-danger mt-2">
+                                    {{ $message }}
+                                </div>
                                 @enderror
                             </div>
                         </div>
