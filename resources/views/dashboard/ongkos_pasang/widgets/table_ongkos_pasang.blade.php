@@ -14,7 +14,7 @@
             <td>{{$row->kota}}</td>
             <td>{{$row->provinsi}}</td>
             <td>{{ $row->type_barang }}</td>
-            <td>Rp. {{ $row->harga }}</td>
+            <td>@currency($row->harga)</td>
             <td>
                 <div class="col-lg-9">
                 <form action="/ongkos_pasang/{{$row->id}}" method="POST" enctype='multipart/form-data'>

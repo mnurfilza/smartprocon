@@ -16,13 +16,13 @@ class ProvinsiSeeder extends Seeder
       public function run()
         {
 
-        $response = Http::get('https://dev.farizdotid.com/api/daerahindonesia/provinsi');
+        $response = Http::get('https://emsifa.github.io/api-wilayah-indonesia/api/provinces.json');
 
         $data = array();
-        foreach ($response->json()['provinsi'] as $provinsi) {
+        foreach ($response->json() as $provinsi) {
             $data[] = [
                 'id'=> $provinsi['id'],
-                'nama'=> $provinsi['nama'],
+                'nama'=> $provinsi['name'],
             ];
         }
 
@@ -30,16 +30,18 @@ class ProvinsiSeeder extends Seeder
 
 
         foreach ($data as $key => $value)   {
-            $url = "https://dev.farizdotid.com/api/daerahindonesia/kota?id_provinsi={$value['id']}";
+            $url = "https://emsifa.github.io/api-wilayah-indonesia/api/regencies/{$value['id']}.json";
             $citiesRes = Http::get($url);
             $c = array();
             
-            foreach ($citiesRes->json()['kota_kabupaten'] as  $city) {
+
+           
+            foreach ($citiesRes->json() as  $city) {
                 DB::table('regional')->insert([
                     'id'=>$city['id'],
-                    'id_provinsi' => $city['id_provinsi'],
+                    'id_provinsi' => $city['province_id'],
                     'provinsi'=>$value['nama'],
-                    'nama_kota' => $city['nama'],
+                    'nama_kota' => $city['name'],
                 ]);
 
             }

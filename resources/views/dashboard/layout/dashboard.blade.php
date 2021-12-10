@@ -12,7 +12,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url ('') }}">SB Admin v2.0 | Laravel 5</a>
+                <a class="navbar-brand" href="{{ url ('') }}">Smartprocon Dashboard</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -246,6 +246,10 @@
                         </li>
                         <li {{ (Request::is('*customer') ? 'class="active"' : '') }}>
                             <a href="{{ url ('customer') }}"><i class="fa fa-photo fa-fw"></i> Customer</a>
+                        </li>
+
+                        <li {{ (Request::is('*modules') ? 'class="active"' : '') }}>
+                            <a href="{{ url ('modules') }}"><i class="fa fa-photo fa-fw"></i> Module</a>
                         </li>
                        
                         <li {{ (Request::is('*ongkir') ? 'class="active"' : '') }}>

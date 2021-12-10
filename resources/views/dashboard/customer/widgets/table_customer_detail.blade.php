@@ -22,10 +22,10 @@
 				<td>{{$row->sku}}</td>
 				<td>{{$row->nama_produk}}</td>
 				<td>{{$row->qty}}</td>
-				<td>{{$row->ongkir}}</td>
-				<td>{{ $row->ongkos_pasang }}</td>
-				<td>{{ $row->harga }}</td>
-				<td>{{ $row->total }}</td>
+				<td>@currency($row->ongkir)</td>
+				<td>@currency($row->ongkos_pasang)</td>
+				<td>@currency($row->harga)</td>
+				<td>@currency($row->total)</td>
 				
 			</tr>		
 			@endforeach
