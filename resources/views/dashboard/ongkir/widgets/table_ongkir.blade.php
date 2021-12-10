@@ -10,7 +10,7 @@
 		@foreach($data  as $row)
 		<tr>
 			<td>{{$row->kota}}</td>
-			<td>Rp. {{ $row->price }}</td>
+			<td>@currency($row->price)</td>
 			<td class="col-lg-2">
 				<div class="col-lg-5 my-4">
 				<form action="/ongkir/{{$row->id}}" method="POST" enctype='multipart/form-data'>

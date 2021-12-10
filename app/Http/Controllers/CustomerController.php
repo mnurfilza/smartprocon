@@ -48,8 +48,8 @@ class CustomerController extends Controller
     {
         //save data to database customer
 
-       try {
-
+       
+        try{
             $citi = new citi();
             $citi->id = $request->input('kota');
 
@@ -57,7 +57,8 @@ class CustomerController extends Controller
             $customer->name = $request->input('name');
             $customer->email = $request->input('email');
             $customer->phone_number = $request->input('phone_number');
-            $customer->city = CitiController::show($citi)->nama_kota;
+            $citiCtr = new CitiController();
+            $customer->city = $citiCtr->show($citi)->nama_kota;
             $customer->country = $request->input('country');
             $customer->create_at = Carbon::now();
             $customer->save();
@@ -65,7 +66,8 @@ class CustomerController extends Controller
              //find ongkos pasang
             $modelOngkosPasang = new ongkos_pasang();
             $modelOngkosPasang->id_kota = $citi->id;
-            $ongkosPasang = OngkosPasangController::getOngkosPasangByCity($modelOngkosPasang);
+            $ongkosPasangCtr = new OngkosPasangController();
+            $ongkosPasang = $ongkosPasangCtr->getOngkosPasangByCity($modelOngkosPasang);
 
             foreach ($request->input('solution') as $key => $value) {
 
@@ -85,7 +87,8 @@ class CustomerController extends Controller
 
                 /*save data to database offering_details
                 find solution package */
-                $solutionPackage = SolutionsPackageController::getSolution($value,$request->input('object'));
+                $spCtr = new SolutionsPackageController();
+                $solutionPackage = $spCtr->getSolution($value,$request->input('object'));
                 if (empty($solutionPackage)) {
                     throw new \Exception("Solutions Package Not Exist");
                 }
@@ -94,20 +97,28 @@ class CustomerController extends Controller
                 //itungan untuk jumlah barang
                 $modelSub = new SubSolutionPackage();
                 $modelSub->id_solution_package = $solutionPackage->id;
-                $solutionSubPackage = SubSolutionPackageController::search($modelSub);
+                $subCtr = new SubSolutionPackageController();
+                $solutionSubPackage = $subCtr->search($modelSub);
                 foreach ($solutionSubPackage as $key => $value) {
                 //findBarang
                 $modelBarang = new product();
                 $modelBarang->sku = $value->sku;
-                $barang = ProductController::show($modelBarang);
+                $productCtr = new ProductController();
+                $barang = $productCtr->show($modelBarang);
 
                 //find ongkos kirim
                 $modelOngkir = new ongkir();
                 $modelOngkir->id_kota = $citi->id;
-                $ongkir = OngkirController::searchOngkirByCity($modelOngkir);
+                $ongkirCtr = new  OngkirController();
+                $ongkir = $ongkirCtr->searchOngkirByCity($modelOngkir);
                 $jumlah =0;
                 $hargaSatuan=0;
                 $total = 0;
+
+                if (empty($ongkir)){
+                    throw new \Exception("Ongkir Tidak Ada Untuk :"." ".$customer->city);
+                    
+                }
                 
                 if ($value->ruangan == 1 && $value->lantai == 1) {
                     $jumlah = (integer)$value->jumlah * (integer)$floorAndRooms[0] * (integer)$floorAndRooms[1];
@@ -139,6 +150,8 @@ class CustomerController extends Controller
             }
                 
             }
+
+            //should return data for module
  
             // $modules = new ModulesController;
             // $modules->process($request->input('solution'));

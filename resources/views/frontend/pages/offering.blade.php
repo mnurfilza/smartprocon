@@ -1,9 +1,18 @@
 @extends('frontend.layouts.app')
 @section('content')
 <div class="page-form">
+   
     <section class="section-one bg-white">
         <div class="container-fluid">
+            @if(count($errors) > 0)
+            <div class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+            {{ $error }} <br/>
+            @endforeach
+            </div>
+            @endif
             <form action="/customer" method="POST" enctype="multipart/form-data" id="stepByStepForm" class="form">
+                @csrf
                 <ul class="progress-bar">
                     <li class="progress-bar__dot full poppins">
                         1
@@ -313,9 +322,7 @@
                     <button id="next" class="button poppins">
                         Next
                     </button>
-                    <button id="validate" type="submit" class="hidden button poppins">
-                        Save Project
-                    </button>
+                    <input id="validate" type="submit" value="Save Project" class="hidden button poppins">  
                 </div>
             </form>
         </div>

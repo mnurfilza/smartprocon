@@ -10,5 +10,5 @@ class modules extends Model
     use HasFactory;
     protected $table = "modules";
     public $timestamps = false;
-    protected $fillable = ['id','system','video','pdf','id_modules'];
+    protected $fillable = ['id','id_solutions','solutions','link'];
 }

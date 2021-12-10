@@ -90,6 +90,7 @@ class OngkosPasangController extends Controller
     public function edit(ongkos_pasang $ongkos_pasang)
     {
     
+    
         $param =['old'=> $this->show($ongkos_pasang)]; 
        
         return view('dashboard.ongkos_pasang.form_ongkos_pasang',$param);    

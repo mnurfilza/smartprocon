@@ -14,15 +14,15 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->string('sku', 20)->primary();
+            $table->string('sku', 100)->primary();
             $table->string('nama',100);
             $table->string('type_barang',50)->foreign()->references('type_barang')->on('type_barang');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->string('harga_satuan',10);
-            $table->string('garansi',2);
-            $table->string('berat_barang',3);
-            $table->string('createBy');
-            $table->string('updateBy');
+            $table->string('garansi',10);
+            $table->string('berat_barang',10);
+            $table->string('createBy')->nullable();
+            $table->string('updateBy')->nullable();
             $table->dateTime('create_at')->nullable();
             $table->dateTime('update_at')->nullable();
 

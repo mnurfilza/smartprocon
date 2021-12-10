@@ -14,7 +14,7 @@
 		<tr>
 			<td>{{$row->sku}}</td>
 			<td>{{$row->nama}}</td>
-			<td>Rp. {{ $row->harga_satuan }}</td>
+			<td>@currency($row->harga_satuan)</td>
 			<td>{{$row->garansi}}</td>
 			<td>{{$row->berat_barang}}kg</td>
 

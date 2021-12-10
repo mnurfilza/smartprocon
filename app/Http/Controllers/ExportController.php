@@ -22,8 +22,10 @@ class ExportController extends Controller
             'endDate' => 'required',
 
         ],$messages);
-        $filename = 'customers_'.Carbon::now().'.xlsx';
-        return Excel::download(new CustomerExport(
-            new customer(),$request),$filename);
+
+        $data = new CustomerExport(new customer(),$request);
+        $filename = 'customers_'.Carbon::now()->format('Y-m-d').'.xlsx';
+        return Excel::download($data, $filename);
     }
 }
+

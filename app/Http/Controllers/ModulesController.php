@@ -3,54 +3,66 @@
 namespace App\Http\Controllers;
 
 use App\Models\modules;
-use App\Models\modulesList;
-use FFMpeg\Format\Audio\Aac;
-use FFMpeg\Format\Video\X264;
+use App\Models\solution;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
-use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
 
 class ModulesController extends Controller
 {
+     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $param = ['data'=> modules::paginate(10)];
+        return view('dashboard.modules.modules',$param);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        $param = ["solution"=>solution::all()];
+        return view('dashboard.modules.form_modules',$param);    
+    }
+
+
     public function store(Request $request)
     {
-        $list = new modulesList;
-        $desc = $list->where('id_modules',$request->input('system'))->first();
-        $modules = new modules;
-        $modules->system = $desc->modules;
-        $modules->id_module = $request->input('system');
-        //upload pdf or video
-        $file = $request->file('file');
 
-        if ($file->getClientOriginalName() == null){
-            return redirect()->back()->with('error', 'No file selected');
-        }
+        $messages = [
+            'required' => ':attribute wajib diisi',
+        ];
+        $request->validate([
+            'solution' => 'required',
+            'link' => 'required',
+        ],$messages);
 
         try {
-            if ($file->getClientOriginalExtension() == "pdf"){
-                $modules->pdf = base64_encode(file_get_contents($file));
-                $modules->video ="";
-            }elseif ($file->getClientOriginalExtension() == "mp4") {
 
-                $modules->pdf = "";
-                $path = 'assets/media/'.$modules->id_module.".mp4";
-                Storage::disk('local')->put($path, file_get_contents($file));
-                $modules->video = $path;
-            }else{
-                throw new \Exception("File type not supported");
-            }
-             } catch (\Throwable $th) {
-            return back()->withErrors(['file' => $th->getMessage()]);
+        $solution = new solution();
+        $modules = new modules();
+        $solutionCount = $modules->where('id_solutions', $request->solution)->get()->count();
+        if ($solutionCount > 0){
+            throw new \Exception("Modules For This Solution Already Exists");   
         }
 
-
-        //check if module already exists
-        $mod = $modules->where('id_module',$request->input('system'))->first();
-        if ($mod !== null) {
-            return back()->withErrors(['system' => 'Module already exists']);
-        }
+       
+        $modules->id_solutions = $request->input('solution');
+        $modules->solutions = $solution->find($modules->id_solutions)->nama_solution;
+        $modules->link = $request->input('link');
         $modules->save();
-        return redirect()->back();
+
+        } catch (\Throwable $th) {
+            return back()->withErrors(['error', $th->getMessage()]);
+        }
+        //store normaly
+        return redirect('/modules')->with('success', 'Berhasil menambahkan data');
+
     }
 
     /**
@@ -61,8 +73,7 @@ class ModulesController extends Controller
      */
     public function show(modules $modules)
     {
-
-        return view("dashboard.upload",['data'=>[],'list'=>[]]);
+        return modules::where('id',$modules->id)->first();
     }
 
     /**
@@ -71,19 +82,58 @@ class ModulesController extends Controller
      * @param  \App\Models\modules  $modules
      * @return \Illuminate\Http\Response
      */
-    public function process(array $system)
-    {
-        print_r($system);
-        die();
 
+    public function edit($id)
+    {
+        
+        $modules = new modules();
+        $modules->id = $id;
+        $param =['old'=> $this->show($modules),'solution'=> solution::all()]; 
+        return view('dashboard.modules.form_modules',$param);    
     }
 
-    public function showPDF($id)
+
+    public function update(Request $request, modules $modules)
     {
-        $modules = new modules;
-        $file = $modules->where('id',$id)->first();
-        $pdf = base64_decode($file->pdf);
-        return response($pdf)->header('Content-Type', 'application/pdf');
+        //
+
+        $messages = [
+            'required' => ':attribute wajib diisi',
+        ];
+        $request->validate([
+            'solution' => 'required',
+            'link' => 'required',
+        ],$messages);
+
+        try {
+
+        $solution = new solution();
+
+        $modules->id_solutions = $request->input('solution');
+        $modules->solutions = $solution->find($modules->id_solution)->nama_solution;
+        $modules->link = $request->input('link');
+        $modules->save();
+
+        } catch (\Throwable $th) {
+            return back()->withErrors(['error', $th->getMessage()]);
+        }
+        //store normaly
+        return redirect()->back()->with('success','Data Berhasil Disimpan');
     }
 
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\modules  $customer
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(string $id)
+    {
+        //
+        modules::where('id',$id)->delete();
+        return redirect()->back()->with('success', 'Berhasil menghapus data');
+    }
+
+
+   
 }

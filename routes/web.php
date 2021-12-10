@@ -95,15 +95,13 @@ Route::resources([
     'solutions_package' => SolutionsPackageController::class,
     'sub_solution_package' => SubSolutionPackageController::class,
     'customer' => CustomerController::class,
+    'modules'=> ModulesController::class
 ]);
 
 Route::get('/offering-ges', [OfferingController::class, 'index']);
 
 Route::get('/offering', [OfferingController::class, 'index']);
 Route::post('/offering/proses', [CustomerController::class, 'store']);
-Route::get('/upload', [ModulesController::class, 'show']);
-Route::post('/upload/proses',[ModulesController::class, 'store']);
-Route::get('/upload/show/{id}',[ModulesController::class, 'showPDF']);
 Route::delete('/product/{sku}/delete', [ProductController::class, 'delete']);
 Route::get('/product/detail/{sku}', [ProductDetailController::class, 'productDetail']);
 Route::put('/product/update/{sku}', [ProductDetailController::class, 'updateDetail']);
