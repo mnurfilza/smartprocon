@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\citi;
 use App\Models\customer;
+use App\Models\modules;
 use App\Models\Offering;
 use App\Models\OfferingDetail;
 use App\Models\ongkir;
 use App\Models\ongkos_pasang;
+use App\Models\ParamConfig;
 use App\Models\product;
 use App\Models\solution;
 use App\Models\SubSolutionPackage;
@@ -49,6 +51,9 @@ class CustomerController extends Controller
         //save data to database customer
 
        
+        $data = array();
+        $offerings = array();
+        $link = array();
         try{
             $citi = new citi();
             $citi->id = $request->input('kota');
@@ -70,6 +75,9 @@ class CustomerController extends Controller
             $ongkosPasang = $ongkosPasangCtr->getOngkosPasangByCity($modelOngkosPasang);
 
             foreach ($request->input('solution') as $key => $value) {
+
+
+                            
 
                 $offering = new Offering;
                 $offering->id_customer=$customer->id;
@@ -99,10 +107,10 @@ class CustomerController extends Controller
                 $modelSub->id_solution_package = $solutionPackage->id;
                 $subCtr = new SubSolutionPackageController();
                 $solutionSubPackage = $subCtr->search($modelSub);
-                foreach ($solutionSubPackage as $key => $value) {
+                foreach ($solutionSubPackage as $key => $ssp) {
                 //findBarang
                 $modelBarang = new product();
-                $modelBarang->sku = $value->sku;
+                $modelBarang->sku = $ssp->sku;
                 $productCtr = new ProductController();
                 $barang = $productCtr->show($modelBarang);
 
@@ -111,6 +119,9 @@ class CustomerController extends Controller
                 $modelOngkir->id_kota = $citi->id;
                 $ongkirCtr = new  OngkirController();
                 $ongkir = $ongkirCtr->searchOngkirByCity($modelOngkir);
+
+
+             
                 $jumlah =0;
                 $hargaSatuan=0;
                 $total = 0;
@@ -120,47 +131,86 @@ class CustomerController extends Controller
                     
                 }
                 
-                if ($value->ruangan == 1 && $value->lantai == 1) {
-                    $jumlah = (integer)$value->jumlah * (integer)$floorAndRooms[0] * (integer)$floorAndRooms[1];
-                    $hargaSatuan = (integer)$value->jumlah * (integer)$floorAndRooms[0] * (integer)$floorAndRooms[1] * (integer)$barang->harga_satuan;
-                }elseif ($value->ruangan == 1) {
-                    $jumlah = (integer)$value->jumlah * (integer)$floorAndRooms[1] ;
-                    $hargaSatuan = (integer)$value->jumlah * (integer)$floorAndRooms[1] * (integer)$barang->harga_satuan;
+                if ($ssp->ruangan == 1 && $ssp->lantai == 1) {
+                    $jumlah = (integer)$ssp->jumlah * (integer)$floorAndRooms[0] * (integer)$floorAndRooms[1];
+                    $hargaSatuan = (integer)$ssp->jumlah * (integer)$floorAndRooms[0] * (integer)$floorAndRooms[1] * (integer)$barang->harga_satuan;
+                }elseif ($ssp->ruangan == 1) {
+                    $jumlah = (integer)$ssp->jumlah * (integer)$floorAndRooms[1] ;
+                    $hargaSatuan = (integer)$ssp->jumlah * (integer)$floorAndRooms[1] * (integer)$barang->harga_satuan;
 
-                }elseif ($value->lantai == 1) {
-                    $jumlah = (integer)$value->jumlah * (integer)$floorAndRooms[0] ;
-                    $hargaSatuan = (integer)$value->jumlah * (integer)$floorAndRooms[0] * (integer)$barang->harga_satuan;
+                }elseif ($ssp->lantai == 1) {
+                    $jumlah = (integer)$ssp->jumlah * (integer)$floorAndRooms[0] ;
+                    $hargaSatuan = (integer)$ssp->jumlah * (integer)$floorAndRooms[0] * (integer)$barang->harga_satuan;
                 }
                 $total = $jumlah * $hargaSatuan;
-                $ongkos_kirim = (integer)$barang->berat_barang * (integer)$ongkir->price;
+                $ongkos_kirim = (float)$barang->berat_barang * (integer)$ongkir->price;
                 
 
              
 
                 $offeringDetail = new OfferingDetail();
                 $offeringDetail->offering_id = $offering->id;
-                $offeringDetail->sku = $value->sku;
-                $offeringDetail->nama_produk = $value->nama_barang;
+                $offeringDetail->sku = $ssp->sku;
+                $offeringDetail->nama_produk = $ssp->nama_barang;
                 $offeringDetail->qty = $jumlah;
                 $offeringDetail->harga = $hargaSatuan;
                 $offeringDetail->total = $total;
                 $offeringDetail->ongkir = $ongkos_kirim;
                 $offeringDetail->ongkos_pasang = $ongkosPasang->harga;
                 $offeringDetail->save();
+
+
+                array_push($offerings, $offeringDetail);
+               
             }
-                
+            
+            //should return data for module
+            $module = new modules();
+            $modules = $module->where('id_solutions','=',$value)->first();
+
+            $config = new ParamConfig();
+            
+
+            if ($config->where('desc','ShowOffering')->first()->value == 1) {
+                $data = [
+                    "module" => [
+                        "link" =>$modules->link,
+                    ],
+    
+                    "offering" => $offerings,
+                ];
+            }else{
+                $data = [
+                    "module" => [
+                        "link" =>$modules->link
+                    ],
+    
+                ];
             }
 
-            //should return data for module
- 
-            // $modules = new ModulesController;
-            // $modules->process($request->input('solution'));
+           
+            }
+
+
+            // foreach ($data as $key => $value) {
+            //     # code...\
+            //     echo '<pre>';
+            // print_r($value->module);
+            // echo '</pre>';
+            // 
+
+            echo '<pre>';
+            print_r($data);
+            echo '</pre>';
+            
+            die();
+            
 
         } catch (\Throwable $th) {
             return back()->withErrors(['error', $th->getMessage()]);
         }
       
-        return redirect()->back()->with('success','Data Berhasil Disimpan');
+        return view('result',$data);
     }
 
     /**
