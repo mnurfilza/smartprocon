@@ -2710,7 +2710,8 @@ input[type="number"] {
                                     padding: 1.25rem 1rem;
                                 }
 
-                                .form-check-input:checked[type="radio"] {
+                                .form-check-input:checked[type="radio"],
+                                .form-check-input:checked[type="checkbox"] {
                                     background-size: 20px;
                                     background-image: url("/images/smarthome/green-color.webp");
 

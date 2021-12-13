@@ -1,14 +1,14 @@
 @extends('frontend.layouts.app')
 @section('content')
 <div class="page-form">
-   
+
     <section class="section-one bg-white">
         <div class="container-fluid">
             @if(count($errors) > 0)
             <div class="alert alert-danger">
-            @foreach ($errors->all() as $error)
-            {{ $error }} <br/>
-            @endforeach
+                @foreach ($errors->all() as $error)
+                {{ $error }} <br />
+                @endforeach
             </div>
             @endif
             <form action="/customer" method="POST" enctype="multipart/form-data" id="stepByStepForm" class="form">
@@ -54,8 +54,9 @@
                     <div class="title-step text-center">
                         <p class="text poppins">What are you looking for?</p>
                     </div>
-                    @foreach ($objects as $item)
+
                     <div class="top row m-0">
+                        @foreach ($objects as $item)
                         <div class="box-choice col-12 col-md-6">
                             <div class="form-check form-check-inline poppins">
                                 <div class="box-radio">
@@ -71,15 +72,15 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    @endforeach
+                        @endforeach
 
-                    <!-- error message untuk option -->
-                    @error('option')
-                    <div class="alert alert-danger mt-2">
-                        {{ $message }}
+                        <!-- error message untuk option -->
+                        @error('option')
+                        <div class="alert alert-danger mt-2">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
-                    @enderror
                 </div>
 
                 <div class="step step2 hidden">
@@ -208,12 +209,13 @@
                     <div class="title-step text-center">
                         <p class="text poppins">Choose the system you want?</p>
                     </div>
-                    @foreach ($data as $row)
+
                     <div class="top row m-0">
+                        @foreach ($data as $row)
                         <div class="box-choice col-12 col-md-6">
                             <div class="form-check form-check-inline poppins">
                                 <div class="box-radio">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions"
                                         id="inlineRadio1" value="{{ $row->id }}">
                                     <label class="form-check-label poppins"
                                         for="inlineRadio1">{{$row->nama_solution}}</label>
@@ -224,15 +226,18 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    @endforeach
+                        @endforeach
 
-                    <!-- error message untuk category -->
-                    @error('system')
-                    <div class="alert alert-danger mt-2">
-                        {{ $message }}
+                        <!-- error message untuk category -->
+                        @error('system')
+                        <div class="alert alert-danger mt-2">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
-                    @enderror
+
+
+
                 </div>
 
                 <div class="step step5 hidden">
@@ -322,7 +327,7 @@
                     <button id="next" class="button poppins">
                         Next
                     </button>
-                    <input id="validate" type="submit" value="Save Project" class="hidden button poppins">  
+                    <input id="validate" type="submit" value="Save Project" class="hidden button poppins">
                 </div>
             </form>
         </div>
