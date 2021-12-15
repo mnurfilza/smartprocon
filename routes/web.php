@@ -99,7 +99,6 @@ Route::resources([
 ]);
 
 Route::get('/offering-ges', [OfferingController::class, 'index']);
-
 Route::get('/offering', [OfferingController::class, 'index']);
 Route::post('/offering/proses', [CustomerController::class, 'store']);
 Route::delete('/product/{sku}/delete', [ProductController::class, 'delete']);

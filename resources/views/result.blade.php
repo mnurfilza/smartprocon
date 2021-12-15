@@ -1,10 +1,25 @@
 
-@section('section')
 <div class="col-sm-12">
+
+	
 	@foreach ($module as $item)
-	<iframe src="{{url($item->link)}}">Your browser isn't compatible</iframe>
+	<div class="col-sm-12">
+	
+		{!!$item->link!!}
+
+	</div>
+
 	@endforeach
 
+
+	<h1>{{$isOffering}}</h1>
+
+	@if ($isOffering!=1)
+		<h1>{{$isOffering}}</h1>
+		
+	@else
+		<h1>lala</h1>
+	@endif
 <div class="row">
 	<div class="col-sm-6">
 		@section ('table_panel_title','Regular Table')
@@ -109,4 +124,3 @@
 	</div>
 </div>
 </div>
-@stop
