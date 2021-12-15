@@ -7,6 +7,7 @@
                @section ('login_panel_title','Please Sign In')
                @section ('login_panel_body')
                         <form role="form">
+                            @csrf
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>

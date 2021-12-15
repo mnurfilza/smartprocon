@@ -16,7 +16,13 @@ class OfferingController extends Controller
         $objects = TypeObjectController::GetAllData($typeObject);
         $citi = CitiController::getAllCiti();
         // return view('offering',['data'=>$solutions, 'objects'=>$objects,'citi'=>$citi]);
-        return view('frontend.pages.offering',['data'=>$solutions, 'objects'=>$objects,'citi'=>$citi]);
+        return view('offering',['data'=>$solutions, 'objects'=>$objects,'citi'=>$citi]);
+    }
+
+
+    public function showResult()
+    {
+        return view('result');
     }
 
 }

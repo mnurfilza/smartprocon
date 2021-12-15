@@ -51,9 +51,8 @@ class CustomerController extends Controller
         //save data to database customer
 
        
-        $data = array();
         $offerings = array();
-        $link = array();
+        $links = array();
         try{
             $citi = new citi();
             $citi->id = $request->input('kota');
@@ -167,50 +166,44 @@ class CustomerController extends Controller
             //should return data for module
             $module = new modules();
             $modules = $module->where('id_solutions','=',$value)->first();
+            array_push($links, $modules);
 
             $config = new ParamConfig();
             
 
-            if ($config->where('desc','ShowOffering')->first()->value == 1) {
-                $data = [
-                    "module" => [
-                        "link" =>$modules->link,
-                    ],
+            // if ($config->where('desc','ShowOffering')->first()->value == 1) {
+            //     $data = [
+            //         "module" => $links,
+            //         "offering" => $offerings,
+            //     ];
+            // }else{
+            //     $data = [
+            //         "module" => $links,
     
-                    "offering" => $offerings,
-                ];
-            }else{
-                $data = [
-                    "module" => [
-                        "link" =>$modules->link
-                    ],
-    
-                ];
-            }
+            //     ];
+            // }
 
            
             }
 
 
-            // foreach ($data as $key => $value) {
-            //     # code...\
-            //     echo '<pre>';
-            // print_r($value->module);
-            // echo '</pre>';
-            // 
+        //     foreach ($data as $key => $value) {
+        //         # code...\
+        //         echo '<pre>';
+        //     print_r($value->module);
+        //     echo '</pre>';
+            
 
-            echo '<pre>';
-            print_r($data);
-            echo '</pre>';
-            
-            die();
-            
+           
+        // }
+        // die();
 
         } catch (\Throwable $th) {
             return back()->withErrors(['error', $th->getMessage()]);
         }
       
-        return view('result',$data);
+       
+        return view('result',['isOffering'=>$config->where('desc','ShowOffering')->first()->value,'module'=>$links,'offering'=>$offerings]);
     }
 
     /**
