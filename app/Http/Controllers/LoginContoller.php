@@ -16,8 +16,10 @@ class LoginContoller extends Controller
 
         $user = User::where('username',$request->username)->first();
 
-        if(auth()->attempt($credentials)){
+        if(auth()->attempt($credentials) && !empty($user)){
             return redirect('/dashboard');
+        }else{
+            
         }
      }
 }
