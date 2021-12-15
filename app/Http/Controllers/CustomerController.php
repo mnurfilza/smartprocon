@@ -73,6 +73,7 @@ class CustomerController extends Controller
             $ongkosPasangCtr = new OngkosPasangController();
             $ongkosPasang = $ongkosPasangCtr->getOngkosPasangByCity($modelOngkosPasang);
 
+
             foreach ($request->input('solution') as $key => $value) {
 
 

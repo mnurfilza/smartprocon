@@ -60,7 +60,7 @@
                         <div class="box-choice col-12 col-md-6">
                             <div class="form-check form-check-inline poppins">
                                 <div class="box-radio">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                    <input class="form-check-input" type="radio" name="object"
                                         id="inlineRadio1" value={{$item->id}}>
                                     <label class="form-check-label poppins" for="inlineRadio1">
                                         {{$item->nama_object}}
@@ -91,7 +91,7 @@
                         <div class="box-choice col-12 col-md-6">
                             <div class="form-check form-check-inline poppins">
                                 <div class="box-radio">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                    <input class="form-check-input" type="radio" name="floor-and-rooms"
                                         id="inlineRadio1" value="1-2">
                                     <label class="form-check-label poppins" for="inlineRadio1">1 - 2</label>
                                 </div>
@@ -104,7 +104,7 @@
                         <div class="box-choice col-12 col-md-6">
                             <div class="form-check form-check-inline poppins">
                                 <div class="box-radio">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                    <input class="form-check-input" type="radio" name="floor-and-rooms"
                                         id="inlineRadio2" value="3-4">
                                     <label class="form-check-label poppins" for="inlineRadio2">3 - 4</label>
                                 </div>
@@ -117,7 +117,7 @@
                         <div class="box-choice col-12 col-md-6">
                             <div class="form-check form-check-inline poppins">
                                 <div class="box-radio">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                    <input class="form-check-input" type="radio" name="floor-and-rooms"
                                         id="inlineRadio1" value="5-6">
                                     <label class="form-check-label poppins" for="inlineRadio1">5 - 6</label>
                                 </div>
@@ -130,7 +130,7 @@
                         <div class="box-choice col-12 col-md-6">
                             <div class="form-check form-check-inline poppins">
                                 <div class="box-radio">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
+                                    <input class="form-check-input" type="radio" name="floor-and-rooms"
                                         id="inlineRadio2" value="6-More">
                                     <label class="form-check-label poppins" for="inlineRadio2">6 - More</label>
                                 </div>
@@ -215,7 +215,7 @@
                         <div class="box-choice col-12 col-md-6">
                             <div class="form-check form-check-inline poppins">
                                 <div class="box-radio">
-                                    <input class="form-check-input" type="checkbox" name="inlineRadioOptions"
+                                    <input class="form-check-input" type="checkbox" name="solution[]"
                                         id="inlineRadio1" value="{{ $row->id }}">
                                     <label class="form-check-label poppins"
                                         for="inlineRadio1">{{$row->nama_solution}}</label>
