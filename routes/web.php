@@ -4,6 +4,7 @@ use App\Http\Controllers\CategorieController;
 use App\Http\Controllers\CitiController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\ExportController;
+use App\Http\Controllers\PreviewExcel;
 use App\Http\Controllers\ModulesController;
 use App\Http\Controllers\ModulesListController;
 use App\Http\Controllers\TypeObjectController;
@@ -83,7 +84,8 @@ Route::get('/admin', function () {
 
 
 //backend site
-Route::post('/export', [ExportController::class, 'exportToExcel']);
+Route::post('/export', [ExportController::class, 'exportToExcel'])->name('export');
+
 Route::resources([
     'product' => ProductController::class,
     'type_barang' => TypeBarangController::class,
@@ -98,6 +100,7 @@ Route::resources([
     'modules'=> ModulesController::class
 ]);
 
+Route::post('/excel/preview', [PreviewExcel::class, 'previewExportToExcel']);
 Route::get('/offering-ges', [OfferingController::class, 'index']);
 Route::get('/offering', [OfferingController::class, 'index']);
 Route::post('/offering/proses', [CustomerController::class, 'store']);
