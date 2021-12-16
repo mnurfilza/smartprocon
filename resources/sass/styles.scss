@@ -3132,6 +3132,164 @@ input[type="number"] {
 
 // ======= End Page Form ======= //
 
+// ======= Page Result ======= //
+.page-result {
+    padding: 2rem 0 5rem;
+
+    @media(max-width: 576px){
+        padding: 2rem 0;
+    }
+
+    section.section-one {
+        padding: 4rem 0 2.5rem;
+
+        .container {
+            .row {
+                .box-video {
+                    padding: 3.5rem 0 1rem;
+
+                    @media(max-width: 576px) {
+                        padding: 2rem 1rem 1rem;
+                    }
+
+                    h1.title-section {
+                        font-size: 2.5rem;
+                        font-weight: bold;
+                        color: #042306;
+                        margin: 0 0 1.5rem;
+                        text-align: center;
+
+                        @media(max-width: 576px) {
+                            font-size: 2rem;
+                            margin: 0 0 1.25rem;
+                        }
+
+                        @media(max-width: 320px) {
+                            font-size: 1.5rem
+                        }
+                    }
+
+                    video {
+                        border-radius: .75rem;
+                        -webkit-border-radius: .75rem;
+                        -moz-border-radius: .75rem;
+                        -ms-border-radius: .75rem;
+                        -o-border-radius: .75rem;
+                    }
+                }
+            }
+        }
+    }
+
+    section.section-two {
+        background: #F8F8F8;
+        padding: 4rem 0;
+
+        @media(max-width: 576px) {
+            padding: 4rem 0 2rem;
+        }
+
+        .container {
+            .row {
+                .title-section {
+                    font-size: 2.5rem;
+                    font-weight: bold;
+                    color: #042306;
+                    margin: 0 0 2rem;
+                    text-align: center;
+
+                    @media(max-width: 576px) {
+                        font-size: 2rem;
+                        margin: 0 0 1.25rem;
+                    }
+
+                    @media(max-width: 320px) {
+                        font-size: 1.5rem
+                    }
+                }
+
+                .box-result {
+                    display: flex;
+                    flex-direction: row;
+                    margin: 0 auto 1rem;
+                    width: 55%;
+
+                    @media(max-width: 576px) {
+                        width: 90%;
+                    }
+
+                    @media(max-width: 320px) {
+                        width: 100%;
+                        padding: 0 1rem;
+                    }
+
+                    p.name-field {
+                        width: 60%;
+                        font-size: 1.25rem;
+                        margin: 0 1rem 0 0;
+
+                        @media(max-width: 576px) {
+                            width: 50%;
+                            font-size: 1.15rem;
+                        }
+
+                        @media(max-width: 320px) {
+                            font-size: 1rem;
+                        }
+                    }
+
+                    p.value-field {
+                        width: 40%;
+                        font-size: 1.25rem;
+
+                        @media(max-width: 576px) {
+                            width: 50%;
+                            font-size: 1.15rem;
+                        }
+
+                        @media(max-width: 320px) {
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    section.section-three {
+        padding: 5em 0 1rem;
+
+        @media(max-width: 576px){
+            padding: 2.5rem 0 0;
+        }
+
+        .container {
+            .row {
+                .table-responsive {
+                    table {
+                        @media(max-width: 576px) {
+                            font-size: 0.85rem;
+                        }
+
+                        @media(max-width: 320px) {
+                            font-size: 0.75rem;
+                        }
+
+                        thead {
+                            background: #04770C;
+                            color: #FFF;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+}
+
+// ======= End Page Result ======= //
+
 footer {
     font-family: "Poppins", sans-serif !important;
     background: #f8f8f8;
