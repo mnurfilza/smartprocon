@@ -13,7 +13,6 @@ class PreviewExcel extends Controller
 {
     public function previewExportToExcel(Request $request)
     {
-        if($request->btnSubmit=="Preview"){
             $data = $this->preview(new customer(),$request);
             // echo '<pre>';
             // foreach ($data as $key => $value) {
@@ -25,7 +24,7 @@ class PreviewExcel extends Controller
             // echo '</pre>';
             // die();
          return view('dashboard.customer.preview',['data'=>$data,'old'=>$request->all(),'solution'=>solution::all()]);
-        }
+        
     }
 
 

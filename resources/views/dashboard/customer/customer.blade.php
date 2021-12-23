@@ -50,9 +50,7 @@
 					Export
 				</div>
 				<form action="/excel/preview" method="POST" enctype='multipart/form-data'>
-
 					@csrf
-					@method('POST')
 					<div class="header-btn">
 						<div id="div-physical">
 							<label>

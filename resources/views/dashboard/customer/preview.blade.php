@@ -28,8 +28,8 @@
 					Export
 				</div>
 				<form action="/export" method="POST" enctype='multipart/form-data'>
-					{{ csrf_field() }}
-					@method('POST');
+					{{-- {{ csrf_field() }} --}}
+					@csrf
 					<div class="header-btn">
 						<div id="div-physical">
 							<label>

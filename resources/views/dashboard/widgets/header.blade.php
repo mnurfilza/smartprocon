@@ -1,6 +1,6 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
 	<div class="container">
-		<a class="navbar-brand" href="/me">Laravel</a>
+		<a class="navbar-brand" href="/me">Green Energy Solutions</a>
 		<ul class="nav navbar-nav navbar-right">
 			<li>
 				<a href="/me">Home</a>
