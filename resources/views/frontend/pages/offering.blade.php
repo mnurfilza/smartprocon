@@ -60,8 +60,8 @@
                         <div class="box-choice col-12 col-md-6">
                             <div class="form-check form-check-inline poppins">
                                 <div class="box-radio">
-                                    <input class="form-check-input" type="radio" name="object"
-                                        id="inlineRadio1" value={{$item->id}}>
+                                    <input class="form-check-input" type="radio" name="object" id="inlineRadio1"
+                                        value={{$item->id}}>
                                     <label class="form-check-label poppins" for="inlineRadio1">
                                         {{$item->nama_object}}
                                     </label>
@@ -215,8 +215,8 @@
                         <div class="box-choice col-12 col-md-6">
                             <div class="form-check form-check-inline poppins">
                                 <div class="box-radio">
-                                    <input class="form-check-input" type="checkbox" name="solution[]"
-                                        id="inlineRadio1" value="{{ $row->id }}">
+                                    <input class="form-check-input" type="checkbox" name="solution[]" id="inlineRadio1"
+                                        value="{{ $row->id }}">
                                     <label class="form-check-label poppins"
                                         for="inlineRadio1">{{$row->nama_solution}}</label>
                                 </div>
@@ -288,21 +288,21 @@
                         <div class="mb-4 row">
                             <label for="inputCity" class="col-2 col-md-2 col-form-label poppins">City</label>
                             <div class="col-12 col-md-10">
-                                <select name="kota" class="form-select poppins @error('object') is-invalid @enderror"
-                                    aria-label="Default select example">
-                                    <option value="">Please enter your city</option>
+                                <input name="kota" class="form-control poppins @error('object') is-invalid @enderror"
+                                    list="datalistOptions" id="inputCity" placeholder="Please enter your city">
+                                <datalist id="datalistOptions">
                                     @foreach ($citi as $item)
-                                    <option value={{$item->id}}>{{$item->nama_kota}}</option>
+                                        <option value={{$item->id}}>{{$item->nama_kota}}</option>
                                     @endforeach
-                                </select>
 
-                                <!-- error message untuk option -->
-                                @error('option')
-                                <div class="alert alert-danger mt-2">
-                                    {{ $message }}
-                                </div>
-                                @enderror
+                                    @error('option')
+                                    <div class="alert alert-danger mt-2">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
+                                </datalist>
                             </div>
+
                         </div>
                         <div class="mb-4 row">
                             <label for="inputCountry" class="col-2 col-md-2 col-form-label poppins">Country</label>
