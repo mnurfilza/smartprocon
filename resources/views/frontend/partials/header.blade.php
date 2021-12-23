@@ -21,7 +21,7 @@
                     <a class="nav-link" href="{{URL::to('/about-us')}}">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{URL::to('/')}}">Our Works</a>
+                    <a class="nav-link" href="{{URL::to('/')}}#ourWorks">Our Works</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{URL::to('/contact-us')}}">Contact Us</a>
