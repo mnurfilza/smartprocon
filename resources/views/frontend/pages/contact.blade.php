@@ -5,7 +5,7 @@
         <div class="container">
             <img src="{{ asset('images/smarthome/bg-contact.webp') }}" class="lazy img-fluid cover-banner" alt="cover">
             <div class="box-title">
-                <div class="text-head poppins">CONTACT</div>
+                <div class="text-head poppins">Contact Us</div>
             </div>
         </div>
     </section>
@@ -15,7 +15,6 @@
         <img src="{{ asset('images/smarthome/ic-baloon-2.png') }}" class="lazy img-fluid baloon-2" alt="icon">
         <div class="container">
             <div class="about text-center">
-                <p class="title-about poppins">Contact US</p>
                 <p class="text-desc one poppins">
                     Green Energy Solutions International Limted Unit<br>
                     503,5/F Silvercord Tower 2, 30 Canton Road,<br>

@@ -87,7 +87,8 @@
                     </div>
                     <div class="col-12 col-md-4 item-gs">
                         <div class="box-iconic">
-                            <img src="{{ asset('images/smarthome/ic-efficient.png') }}" class="lazy img-fluid" alt="icon">
+                            <img src="{{ asset('images/smarthome/ic-efficient.png') }}" class="lazy img-fluid"
+                                alt="icon">
                             <p class="head-text poppins">Efficient</p>
                             <p class="desc poppins">
                                 Automation that provides Efficiency and Convenience anytime
@@ -117,8 +118,7 @@
                         <div class="box-iconic">
                             <img src="{{ asset('images/smarthome/ic-system.png') }}" class="lazy img-fluid" alt="icon">
                             <p class="head-text poppins">
-                                Design On The Fly<br>
-                                (Instant Design Online)
+                                Instant Design Online
                             </p>
                             <p class="desc poppins">
                                 By going through our online design tool, you will get instant design and budget of
@@ -197,10 +197,11 @@
         <p class="title-head text-center poppins">Our Customers Testimonials</p>
         <div class="container-fluid">
             <div class="row">
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-6 col-xl-3">
                     <div class="card">
                         <div class="card-header text-center shadow-sm">
-                            <img src="{{ asset('images/smarthome/ic-quotes.png') }}" class="lazy img-fluid" alt="quotes">
+                            <img src="{{ asset('images/smarthome/ic-quotes.png') }}" class="lazy img-fluid"
+                                alt="quotes">
                             <p class="text-review poppins">
                                 ”During the design process, the team has listened to our requirements and translated
                                 into the design and system that
@@ -216,14 +217,16 @@
                             <p class="card-name job-office poppins">
                                 Head of Planning and Design Region 1<br>Summarecon Property Development
                             </p>
-                            <img src="{{ asset('images/smarthome/ic-quotes.png') }}" class="lazy img-fluid star-img" alt="star">
+                            <img src="{{ asset('images/smarthome/ic-quotes.png') }}" class="lazy img-fluid star-img"
+                                alt="star">
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-6 col-xl-3">
                     <div class="card">
                         <div class="card-header text-center shadow-sm">
-                            <img src="{{ asset('images/smarthome/ic-quotes.png') }}" class="lazy img-fluid" alt="quotes">
+                            <img src="{{ asset('images/smarthome/ic-quotes.png') }}" class="lazy img-fluid"
+                                alt="quotes">
                             <p class="text-review poppins">
                                 ”As an owner of multiple high-end F&B outlets across Asia, I demand that our
                                 partners and vendors provide best quality
@@ -234,20 +237,23 @@
                         </div>
                         <div class="card-body text-center">
                             <div class="card-img">
-                                <img src="{{ asset('images/smarthome/atshushi.webp') }}" class="lazy img-fluid" alt="user">
+                                <img src="{{ asset('images/smarthome/atshushi.webp') }}" class="lazy img-fluid"
+                                    alt="user">
                             </div>
                             <p class="card-name poppins fw-bold">Atshushi Senno</p>
                             <p class="card-name job-office poppins">
                                 Founder and Managing Director<br>Juni Group Mgmt. (HK) Ltd.
                             </p>
-                            <img src="{{ asset('images/smarthome/ic-quotes.png') }}" class="lazy img-fluid star-img" alt="star">
+                            <img src="{{ asset('images/smarthome/ic-quotes.png') }}" class="lazy img-fluid star-img"
+                                alt="star">
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-6 col-xl-3">
                     <div class="card">
                         <div class="card-header text-center shadow-sm">
-                            <img src="{{ asset('images/smarthome/ic-quotes.png') }}" class="lazy img-fluid" alt="quotes">
+                            <img src="{{ asset('images/smarthome/ic-quotes.png') }}" class="lazy img-fluid"
+                                alt="quotes">
                             <p class="text-review poppins">
                                 ”Pengalaman kita sangat positif dari permulaan project development sampai akhir
                                 hand-over dimana team GES ini sangat
@@ -258,14 +264,40 @@
                         </div>
                         <div class="card-body text-center">
                             <div class="card-img">
-                                <img src="{{ asset('images/smarthome/ferry.webp') }}" class="lazy img-fluid" alt="user">
+                                <img src="{{ asset('images/smarthome/user-herman.webp') }}" class="lazy img-fluid"
+                                    alt="user">
                             </div>
                             <p class="card-name poppins fw-bold">Herman Priyadi</p>
                             <p class="card-name job-office poppins">
                                 Business Development <br>Hotel Swissbell Express
                                 Cilegon
                             </p>
-                            <img src="{{ asset('images/smarthome/ic-quotes.png') }}" class="lazy img-fluid star-img" alt="star">
+                            <img src="{{ asset('images/smarthome/ic-quotes.png') }}" class="lazy img-fluid star-img"
+                                alt="star">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-3">
+                    <div class="card">
+                        <div class="card-header text-center shadow-sm">
+                            <img src="{{ asset('images/smarthome/ic-quotes.png') }}" class="lazy img-fluid"
+                                alt="quotes">
+                            <p class="text-review poppins">
+                                "As a five-star hotel owner that values unyielding quality services and integrity, it is important to work with partners and suppliers that share our values. GES team has consistently exhibited these values throughout the journey from early design,development, implementation and operation of our Royal Tulip hotel project"
+                            </p>
+                        </div>
+                        <div class="card-body text-center">
+                            <div class="card-img">
+                                <img src="{{ asset('images/smarthome/ferry.webp') }}" class="lazy img-fluid"
+                                    alt="user">
+                            </div>
+                            <p class="card-name poppins fw-bold">Ferry Sangeroki</p>
+                            <p class="card-name job-office poppins">
+                                Chairman <br>
+                                Hotel Royal Tulip Darmo, Surabaya
+                            </p>
+                            <img src="{{ asset('images/smarthome/ic-quotes.png') }}" class="lazy img-fluid star-img"
+                                alt="star">
                         </div>
                     </div>
                 </div>
@@ -280,20 +312,24 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="black-shadow"></div>
-                        <img src="{{ asset('images/smarthome/works-1.webp') }}" class="lazy img-fluid cover" alt="cover">
+                        <img src="{{ asset('images/smarthome/works-1.webp') }}" class="lazy img-fluid cover"
+                            alt="cover">
                     </div>
                     <div class="swiper-slide">
                         <div class="black-shadow"></div>
-                        <img src="{{ asset('images/smarthome/works-2.webp') }}" class="lazy img-fluid cover" alt="cover">
+                        <img src="{{ asset('images/smarthome/works-2.webp') }}" class="lazy img-fluid cover"
+                            alt="cover">
                     </div>
                     <div class="swiper-slide">
                         <div class="black-shadow"></div>
-                        <img src="{{ asset('images/smarthome/works-1.webp') }}" class="lazy img-fluid cover" alt="cover">
+                        <img src="{{ asset('images/smarthome/works-1.webp') }}" class="lazy img-fluid cover"
+                            alt="cover">
                     </div>
                     <div class="swiper-slide">
                         <div class="black-shadow"></div>
                         <video class="video-works" autoplay muted loop>
-                            <img src="{{ asset('images/smarthome/works-1.webp') }}" class="lazy img-fluid cover" alt="cover">
+                            <img src="{{ asset('images/smarthome/works-1.webp') }}" class="lazy img-fluid cover"
+                                alt="cover">
                             <source src="{{ asset('videos/works-4.mp4') }}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
@@ -301,7 +337,7 @@
                     <div class="swiper-slide">
                         <div class="black-shadow"></div>
                         <video class="video-works" autoplay muted loop>
-                            <source src="{{ asset('videos/works-4.mp4') }}" type="video/mp4">
+                            <source src="{{ asset('videos/works-5.mp4') }}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
