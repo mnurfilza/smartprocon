@@ -45,64 +45,6 @@
             }
             prevScrollpos = currentScrollPos;
         };
-
-        // var swiper = new Swiper(".jumbotron .mySwiper", {
-        //     autoHeight: true,
-        //     slidesPerView: 1,
-        //     spaceBetween: 0,
-        //     loop: true,
-        //     autoplay: {
-        //         delay: 4000,
-        //         disableOnInteraction: true,
-        //     },
-        //     navigation: {
-        //         nextEl: ".swiper-button-next",
-        //         prevEl: ".swiper-button-prev",
-        //     },
-        //     pagination: {
-        //         el: ".swiper-pagination",
-        //         clickable: true,
-        //     },
-        // });
-
-        // var swiper = new Swiper(".section-four .mySwiper", {
-        //     slidesPerView: 1,
-        //     spaceBetween: 0,
-        //     loop: true,
-        //     autoplay: {
-        //         delay: 5000,
-        //         disableOnInteraction: true,
-        //     },
-        //     pagination: {
-        //         el: ".swiper-pagination",
-        //         clickable: true,
-        //     },
-        // });
-
-        // var swiper = new Swiper(".section-three .mySwiper", {
-        //     autoHeight: true,
-        //     slidesPerView: 1,
-        //     spaceBetween: 0,
-        //     slidesPerGroup: 1,
-        //     loop: true,
-        //     loopFillGroupWithBlank: true,
-        //     pagination: {
-        //         el: ".swiper-pagination",
-        //         clickable: true,
-        //     },
-        //     breakpoints: {
-        //         768: {
-        //             slidesPerView: 2,
-        //             spaceBetween: 20,
-        //             slidesPerGroup: 2,
-        //         },
-        //         1024: {
-        //             slidesPerView: 3,
-        //             spaceBetween: 20,
-        //             slidesPerGroup: 3,
-        //         },
-        //     },
-        // });
     </script>
 </body>
 

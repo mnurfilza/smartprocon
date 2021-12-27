@@ -12,19 +12,19 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{URL::to('/')}}">Home</a>
+                    <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" aria-current="page" href="{{URL::to('/')}}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{URL::to('/solution-ges')}}">Solutions</a>
+                    <a class="nav-link {{ request()->is('solution-ges') ? 'active' : '' }}" href="{{URL::to('/solution-ges')}}">Solutions</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{URL::to('/about-us')}}">About Us</a>
+                    <a class="nav-link {{ request()->is('about-us') ? 'active' : '' }}" href="{{URL::to('/about-us')}}">About Us</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{URL::to('/')}}#ourWorks">Our Works</a>
+                    <a class="nav-link {{ request()->is('/#ourWorks') ? 'active' : '' }}" href="{{URL::to('/')}}#ourWorks">Our Works</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{URL::to('/contact-us')}}">Contact Us</a>
+                    <a class="nav-link {{ request()->is('contact-us') ? 'active' : '' }}" href="{{URL::to('/contact-us')}}">Contact Us</a>
                 </li>
             </ul>
         </div>
