@@ -1,4 +1,4 @@
-<form action="/type_barang/{{ $old->id}}" method="POST" enctype='multipart/form-data'>
+<form action="/user/{{ $old->id}}" method="POST" enctype='multipart/form-data'>
     {{ csrf_field() }}    
     @method("put")
 <input type="hidden" class="form-control @error('id') is-invalid @enderror" name="id" value={{$old->id}} >
