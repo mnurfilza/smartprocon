@@ -18,7 +18,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon/favicon-ges.png') }}">
 <link rel="manifest" href="{{ asset('favicon/site.webmanifest') }}">
 
-<title>{{ config('app.name', '| Green Energy Solution') }}</title>
+<title>Green Energy Solution</title>
 {{-- <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon-96x96.png') }}" /> --}}
 
 {{-- <meta name="description" content="Smarthome solutions that guarantes green eficient, secure benefits">

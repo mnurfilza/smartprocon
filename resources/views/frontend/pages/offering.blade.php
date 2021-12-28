@@ -11,7 +11,7 @@
                 @endforeach
             </div>
             @endif
-            <form action="/customer" method="POST" enctype="multipart/form-data" id="stepByStepForm" class="form">
+            <form action="/result" method="POST" enctype="multipart/form-data" id="stepByStepForm" class="form">
                 @csrf
                 <ul class="progress-bar">
                     <li class="progress-bar__dot full poppins">
@@ -292,7 +292,7 @@
                                     list="datalistOptions" id="inputCity" placeholder="Please enter your city">
                                 <datalist id="datalistOptions">
                                     @foreach ($citi as $item)
-                                        <option value={{$item->id}}>{{$item->nama_kota}}</option>
+                                        <option value="{{$item->id}}-{{$item->nama_kota}}">{{$item->nama_kota}}</option>
                                     @endforeach
 
                                     @error('option')
