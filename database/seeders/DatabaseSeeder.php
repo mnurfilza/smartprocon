@@ -16,13 +16,14 @@ class DatabaseSeeder extends Seeder
 
         $this->call(CustomerSeeder::class);
         $this->call(UserRoleSeeder::class);
-        $this->call(UserSeeder::class);
         $this->call(ProvinsiSeeder::class);
         $this->call(SolutionSeeder::class);
         $this->call(TypeObjectSeeder::class);
         $this->call(CategorieSeeder::class);
         $this->call(ProductSeeder::class);
         $this->call(ParamConfigSeeder::class);
+        $this->call(UserSeeder::class);
+
 
 
 

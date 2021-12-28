@@ -6,7 +6,7 @@
             <br /><br /><br />
                @section ('login_panel_title','Please Sign In')
                @section ('login_panel_body')
-                        <form role="form">
+                        <form role="form" action="/login" method="POST" enctype="multipart/form-data">
                             @csrf
                             <fieldset>
                                 <div class="form-group">
@@ -21,7 +21,9 @@
                                     </label>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <a href="{{ url ('') }}" class="btn btn-lg btn-success btn-block">Login</a>
+                                {{-- <a href="{{ url ('') }}" class="btn btn-lg btn-success btn-block">Login</a> --}}
+                                <input id="validate" type="submit" value="Login" class="btn btn-lg btn-success btn-block">
+
                             </fieldset>
                         </form>
                     

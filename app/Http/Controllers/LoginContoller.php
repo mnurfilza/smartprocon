@@ -1,25 +1,37 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginContoller extends Controller
 {
      public function process_login(Request $request)
      {
-        $request->validate([
-            'username' => 'required',
+        $credentials =  $request->validate([
+            'email' => 'required|email:dns',
             'password' => 'required'
         ]);
-        $credentials = $request->except(['_token']);
 
-        $user = User::where('username',$request->username)->first();
 
-        if(auth()->attempt($credentials) && !empty($user)){
-            return redirect('/dashboard');
-        }else{
-            
+       
+        // $user = User::where('username',$request->username)->first();
+
+        if(Auth::attempt($credentials)){
+            $request->session()->regenerate();
+            return redirect('/customer');
         }
+        
+     }
+
+
+     public function logout(){
+         Auth::logout();
+
+         request()->session()->invalidate();
+
+         request()->session()->regenerateToken();
+
+         return redirect('/admin');
      }
 }
