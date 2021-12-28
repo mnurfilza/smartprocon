@@ -17,6 +17,7 @@ use App\Http\Controllers\SolutionController;
 use App\Http\Controllers\SolutionsPackageController;
 use App\Http\Controllers\SubSolutionPackageController;
 use App\Http\Controllers\TypeBarangController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -87,7 +88,8 @@ Route::middleware(['auth'])->group(function () {
         'solutions_package' => SolutionsPackageController::class,
         'sub_solution_package' => SubSolutionPackageController::class,
         'customer' => CustomerController::class,
-        'modules'=> ModulesController::class
+        'modules'=> ModulesController::class,
+        'user'=> UserController::class,
     ]);
     
 });

@@ -103,6 +103,9 @@
                                 <li {{ (Request::is('*regional') ? 'class="active"' : '') }}>
                                     <a href="{{ url ('regional') }}"><i class="fa fa-building-o fa-fw"></i> Regional</a>
                                 </li>
+                                <li {{ (Request::is('*user') ? 'class="active"' : '') }}>
+                                    <a href="{{ url ('user') }}"><i class="fa fa-user fa-fw"></i> User</a>
+                                </li>
                             </ul>
                         </li>
                     </ul>
