@@ -19,7 +19,7 @@
 		<div class="row">		
 			<div class="col-sm-1">
 				<button type="submit"  class="btn btn-info btn-sm" data-toggle="modal"  data-backdrop="static" data-keyboard="false" data-target="#myModalHorizontal">Export Customer</button>
-				</div>
+			</div>
 		</div>
 
 		
@@ -47,10 +47,10 @@
 			</div>            <!-- Modal Body -->
 			<div class="modal-body">
 				<div>
-					Payment Option
+					Export
 				</div>
-				<form action="/export" method="POST" enctype='multipart/form-data'>
-					{{ csrf_field() }}
+				<form action="/excel/preview" method="POST" enctype='multipart/form-data'>
+					@csrf
 					<div class="header-btn">
 						<div id="div-physical">
 							<label>
@@ -83,7 +83,7 @@
 						</div>
 						<div class="modal-body">
 							<div class="modal-footer" id="modal_footer">
-							<input id="btnSubmit" name="btnSubmit" value="Donate" class="btn btn-default-border-blk" type="submit">
+							<input id="btnSubmit" name="btnSubmit" value="Preview" class="btn btn-default-border-blk" type="submit">
 								{{-- <a href="/export" id="btnDonate" class="btn btn-default-border-blk">Donate</a> --}}
 							</div>
 						</div>
