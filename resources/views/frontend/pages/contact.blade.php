@@ -1,4 +1,4 @@
-@extends('frontend.layouts.app')
+@extends('frontend.layouts.nofooter')
 @section('content')
 <div class="page-contact">
     <section class="banner-jumbo bg-white">
@@ -14,14 +14,6 @@
         <img src="{{ asset('images/smarthome/ic-baloon-1.png') }}" class="lazy img-fluid baloon" alt="icon">
         <img src="{{ asset('images/smarthome/ic-baloon-2.png') }}" class="lazy img-fluid baloon-2" alt="icon">
         <div class="container">
-            <div class="about text-center">
-                <p class="text-desc one poppins">
-                    Green Energy Solutions International Limted Unit<br>
-                    503,5/F Silvercord Tower 2, 30 Canton Road,<br>
-                    Tsimshatsui-Kowloon, Hongkong.
-                </p>
-            </div>
-
             <div class="about text-center">
                 <p class="title-office poppins">Shanghai Office :</p>
                 <p class="text-desc two poppins">

@@ -1684,7 +1684,7 @@ input[type="number"] {
 
         .container {
             padding: 0;
-            height: calc(100vh - 56px);
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -1728,6 +1728,24 @@ input[type="number"] {
 
                     @media (max-width: 576px) {
                         font-size: 2.25rem;
+                    }
+                }
+
+                .subhead {
+                    width: 90%;
+                    text-align: center;
+                    margin: 1rem auto 0;
+                    font-size: 1.25rem;
+                    line-height: 2.25rem;
+
+                    @media (max-width: 576px) {
+                        width: 80%;
+                        font-size: 1rem;
+                        line-height: 1.5rem;
+                    }
+
+                    @media (max-width: 375px) {
+                        width: 85%;
                     }
                 }
             }
@@ -1793,10 +1811,12 @@ input[type="number"] {
         img.baloon {
             position: absolute;
             left: 0;
-            top: -12%;
-            width: auto;
+            top: 15%;
+            width: 100px;
 
-            @media(max-width: 576px){
+            @media (max-width: 576px) {
+                top: 0;
+                width: 75px;
                 display: none;
             }
         }
@@ -2343,6 +2363,7 @@ input[type="number"] {
                 font-size: 1.15rem;
                 color: #5e5e5e;
                 line-height: 2rem;
+                text-align: justify;
 
                 @media (max-width: 576px) {
                     margin: 0 auto 1.5rem;
@@ -2417,6 +2438,7 @@ input[type="number"] {
                     font-size: 1.15rem;
                     color: #5e5e5e;
                     line-height: 2rem;
+                    text-align: justify;
 
                     @media (max-width: 576px) {
                         margin: 0 auto 1.5rem;
@@ -2515,7 +2537,7 @@ input[type="number"] {
 
     section.section-one {
         position: relative;
-        padding: 5rem 0 3rem;
+        padding: 2.5rem 0 4rem;
         color: #707070;
 
         @media (max-width: 576px) {
@@ -2572,7 +2594,7 @@ input[type="number"] {
             }
 
             p.title-office {
-                font-size: 1.75rem;
+                font-size: 1.5rem;
                 font-weight: bold;
                 color: #042306;
 
@@ -2589,8 +2611,8 @@ input[type="number"] {
                 color: #5e5e5e;
                 width: 100%;
                 margin: 0 auto;
-                font-size: 1.5rem;
-                line-height: 2.5rem;
+                font-size: 1.25rem;
+                line-height: 2rem;
 
                 &.one {
                     @media (max-width: 576px) {

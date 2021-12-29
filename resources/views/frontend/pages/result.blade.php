@@ -7,8 +7,14 @@
                 <div class="col-12 p-0">
                     <div class="box-video">
                         <h1 class="title-section poppins">Result Offering</h1>
-                        <video class="video-works img-fluid" autoplay muted loop>
+
+                        {{-- List Video Result Offering --}}
+                        <video class="video-works img-fluid mb-4" autoplay muted loop>
                             <source src="{{ asset('videos/works-4.mp4') }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <video class="video-works img-fluid mb-4" autoplay muted loop>
+                            <source src="{{ asset('videos/works-5.mp4') }}" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
                     </div>
