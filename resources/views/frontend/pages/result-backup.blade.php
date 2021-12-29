@@ -8,17 +8,9 @@
                     @foreach ($module as $item)
                     <div class="box-video">
                         <h1 class="title-section poppins">Result Offering</h1>
-
-                        {{-- List Video Result Offering --}}
-                        <video class="video-works img-fluid mb-4" autoplay muted loop>
-                            <source src="{{ asset('videos/works-4.mp4') }}" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                        <video class="video-works img-fluid mb-4" autoplay muted loop>
-                            <source src="{{ asset('videos/works-5.mp4') }}" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                        {!!$item->link!!}
                     </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -51,8 +43,6 @@
                                     <td>@currency($item->total)</td>
                                 </tr>
                                 @endforeach
-
-
                             </tbody>
                         </table>
                     </div>
@@ -63,7 +53,4 @@
     @else
     @endif
 </div>
-
-
-
 @stop
