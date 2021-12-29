@@ -3,6 +3,13 @@
 <div class="container">
         <div class="row">
             <div class="col-md-4 col-md-offset-4">
+                @if(count($errors) > 0)
+                <div class="alert alert-danger">
+                    @foreach ($errors->all() as $error)
+                    {{ $error }} <br />
+                    @endforeach
+                </div>
+                @endif
             <br /><br /><br />
                @section ('login_panel_title','Please Sign In')
                @section ('login_panel_body')
@@ -10,7 +17,7 @@
                             @csrf
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    <input class="form-control @error('email') is-invalid @enderror" placeholder="E-mail" name="email"  type="email" autofocus required>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Password" name="password" type="password" value="">

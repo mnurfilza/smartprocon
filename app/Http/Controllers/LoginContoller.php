@@ -9,7 +9,7 @@ class LoginContoller extends Controller
      public function process_login(Request $request)
      {
         $credentials =  $request->validate([
-            'email' => 'required|email:dns',
+            'email' => 'required|email',
             'password' => 'required'
         ]);
 
@@ -21,6 +21,7 @@ class LoginContoller extends Controller
             $request->session()->regenerate();
             return redirect('/customer');
         }
+        return redirect('admin')->withErrors(['error',"Akun tidak dikenal"]);
         
      }
 
