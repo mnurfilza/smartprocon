@@ -34,6 +34,7 @@ class ModulesController extends Controller
     public function store(Request $request)
     {
 
+        
         $messages = [
             'required' => ':attribute wajib diisi',
         ];
@@ -93,32 +94,25 @@ class ModulesController extends Controller
     }
 
 
-    public function update(Request $request, modules $modules)
+    public function update(Request $request, modules $module)
     {
         //
-
         $messages = [
             'required' => ':attribute wajib diisi',
         ];
         $request->validate([
-            'solution' => 'required',
             'link' => 'required',
         ],$messages);
 
         try {
-
-        $solution = new solution();
-
-        $modules->id_solutions = $request->input('solution');
-        $modules->solutions = $solution->find($modules->id_solution)->nama_solution;
-        $modules->link = $request->input('link');
-        $modules->save();
+        $module->link = $request->input('link');
+        $module->save();
 
         } catch (\Throwable $th) {
             return back()->withErrors(['error', $th->getMessage()]);
         }
         //store normaly
-        return redirect()->back()->with('success','Data Berhasil Disimpan');
+        return redirect('/modules')->with('success','Data Berhasil Disimpan');
     }
 
     /**

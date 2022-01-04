@@ -6,7 +6,7 @@
     <label class="font-weight-bold">Kota</label>
     <select name="id_kota" class="form-control @error('object') is-invalid @enderror" disabled>
         <option value="">Pilih Kategori</option>
-        <option value={{$old->id_kota}} selected>{{$old->kota}}</option>
+        <option value='{{$old->id_kota}}' selected>{{$old->kota}}</option>
     </select>
 </div>
 

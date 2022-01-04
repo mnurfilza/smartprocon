@@ -97,11 +97,11 @@ class OngkirController extends Controller
      */
     public function update(Request $request, ongkir $ongkir)
     {
+        
         $messages = [
             'required' => ':attribute wajib diisi',
         ];
          $validaateData = $request->validate([
-            'id_kota' => 'required',
             'price' => 'required',
         ],$messages);
 
@@ -131,4 +131,8 @@ class OngkirController extends Controller
     public function searchOngkirByCity(ongkir $ongkir){
         return ongkir::where('id_kota', $ongkir->id_kota)->first();
     }
+
+
+
+   
 }

@@ -43,15 +43,12 @@ class OngkosPasangController extends Controller
             'required' => ':attribute wajib diisi',
         ];
         $request->validate([
-            'kota' => 'required',
             'price' => 'required',
-            'type_barang' => 'required',
-
         ],$messages);
 
         try {
 
-            if (ongkos_pasang::where('id_kota',$request->kota)->exists()) {
+            if (ongkos_pasang::where('id_kota',$request->kota)->where('type_barang',$request->type_barang)->exists()) {
                 throw new \Exception("Data Already Exists");
             }
             $citi = citi::find($request->kota);
@@ -108,10 +105,8 @@ class OngkosPasangController extends Controller
         $messages = [
             'required' => ':attribute wajib diisi',
         ];
-         $validaateData = $request->validate([
-            'id_kota' => 'required',
+         $validaateData = $request->validate([            
             'harga' => 'required',
-            'type_barang' => 'required',
         ],$messages);
 
        

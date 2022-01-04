@@ -18,6 +18,7 @@ use App\Http\Controllers\SolutionsPackageController;
 use App\Http\Controllers\SubSolutionPackageController;
 use App\Http\Controllers\TypeBarangController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\FilteringController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -74,6 +75,14 @@ Route::get('/product/detail/{sku}', [ProductDetailController::class, 'productDet
 Route::put('/product/update/{sku}', [ProductDetailController::class, 'updateDetail']);
 Route::post('/login', [LoginContoller::class, 'process_login']);
 Route::post('/logout', [LoginContoller::class, 'logout']);
+Route::get('/filter_ongkir', [FilteringController::class, 'filtering']);
+Route::get('/filter_pasang', [FilteringController::class, 'filtering_pasang']);
+Route::get('/filter_barang', [FilteringController::class, 'filtering_barang']);
+Route::get('/filter_customer', [FilteringController::class, 'filtering_customer']);
+
+
+
+
 
 
 Route::middleware(['auth'])->group(function () {

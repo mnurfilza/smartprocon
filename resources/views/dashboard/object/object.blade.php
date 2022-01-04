@@ -22,7 +22,7 @@
 	</div>
 <div class="row">
 	<div class="col-md-10 my-5">
-		@section ('htable_panel_title','Table Ongkir') 
+		@section ('htable_panel_title','Table Object') 
 		@section ('htable_panel_body')
 		@include('dashboard.object.widgets.table_object', array('class'=>'table-hover'))
 		@endsection

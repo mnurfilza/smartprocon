@@ -13,4 +13,5 @@ class product extends Model
         'sku', 'nama', 'type_barang','berat_barang','garansi','harga_satuan','description','createBy','updateBy'
     ];  
     public $timestamps = false;
+    public $autoincrement = false;
 }

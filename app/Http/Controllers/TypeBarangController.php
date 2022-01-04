@@ -45,14 +45,20 @@ class TypeBarangController extends Controller
 
         ],$messages);
         try {
+
+
+            //check if type barang already exist
+            if (type_barang::where('type_barang',"=",$request->tipe_barang)->exists()) {
+                throw new \Exception("Data Already Exists");
+            }
             
             $tb = new type_barang();
-            $tb->type_barang = $request->tipe_barang;
+            $tb->type_barang = $request->tipe_barang;   
             $tb->keterangan = $request->keterangan;
             $tb->save();
 
         } catch (\Throwable $th) {
-            return redirect()->back()->withErrors(['error', 'Gagal menambahkan data']);
+            return redirect()->back()->withErrors(['error', 'Gagal menambahkan data :'.$th->getMessage()]);
         }
 
         return redirect('/type_barang')->with('success', 'Berhasil menambahkan');

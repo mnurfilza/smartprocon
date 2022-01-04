@@ -16,11 +16,19 @@
                     {{ session()->get('success') }}
             </div>
         @endif
-		<div class="row">		
-			<a href="/ongkir/create" class="btn btn-info btn-sm">Add</a>
-		</div>
 	</div>
+
+
+	
 <div class="row">
+	<a href="/ongkir/create" class="btn btn-info btn-sm">Add</a>
+
+	<div class="form-group my-2">
+		<form class="form-inline" method="GET" action="/filter_ongkir">
+			<input type="text" class="form-control" id="filter" name="filter" placeholder="Search..." value="">
+			<button type="submit" class="btn btn-default mb-2">Filter</button>
+		</form>
+	</div>
 	<div class="col-md-10 my-5">
 		@section ('htable_panel_title','Table Ongkir') 
 		@section ('htable_panel_body')
