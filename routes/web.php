@@ -62,11 +62,12 @@ Route::get('/admin', function () {
 })->name('login')->middleware('guest');
 
 
-
 //backend site
-Route::post('/export', [ExportController::class, 'exportToExcel'])->name('export');
-Route::post('/result',[CustomerOfferingController::class, 'postOffering']);
-Route::post('/excel/preview', [PreviewExcel::class, 'previewExportToExcel']);
+Route::get('/show-preview', [PreviewExcel::class,'show_preview'])->name('show-preview');
+
+Route::post('/export', [ExportController::class, 'exportToExcel']);
+Route::post('/result', [CustomerOfferingController::class, 'postOffering']);
+Route::get('/preview', [PreviewExcel::class, 'previewExportToExcel']);
 Route::get('/offering-ges', [OfferingController::class, 'index']);
 Route::get('/offering', [OfferingController::class, 'index']);
 Route::post('/offering/proses', [CustomerController::class, 'store']);
@@ -79,10 +80,11 @@ Route::get('/filter_ongkir', [FilteringController::class, 'filtering']);
 Route::get('/filter_pasang', [FilteringController::class, 'filtering_pasang']);
 Route::get('/filter_barang', [FilteringController::class, 'filtering_barang']);
 Route::get('/filter_customer', [FilteringController::class, 'filtering_customer']);
-
-
-
-
+Route::get('/filter_subsolutionpackage', [FilteringController::class, 'filtering_subpackage']);
+Route::get('/filter_solution', [FilteringController::class, 'filtering_solution']);
+Route::get('/filter_solution_package', [FilteringController::class, 'filtering_solution_package']);
+Route::get('/filter_object', [FilteringController::class, 'filtering_object']);
+Route::get('/filter_modules', [FilteringController::class, 'filtering_modules']);
 
 
 Route::middleware(['auth'])->group(function () {
@@ -97,12 +99,12 @@ Route::middleware(['auth'])->group(function () {
         'solutions_package' => SolutionsPackageController::class,
         'sub_solution_package' => SubSolutionPackageController::class,
         'customer' => CustomerController::class,
-        'modules'=> ModulesController::class,
-        'user'=> UserController::class,
+        'modules' => ModulesController::class,
+        'user' => UserController::class,
     ]);
-    
+
 });
-    
+
 
 
 
