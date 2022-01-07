@@ -1,13 +1,11 @@
 <form action="/modules/{{$old->id}}" method="POST" enctype='multipart/form-data'>
-    {{ csrf_field() }}    
+@csrf
     @method("put")
 <div class="form-group">
     <label class="font-weight-bold">Solution</label>
-    <select disabled name="solution" class="form-control @error('object') is-invalid @enderror">
-        <option value="">Pilih Tipe Barang</option>
-        @foreach ($solution as $item )
-        <option value="{{$item->id}}" {{$item->id == $old->id_solutions ? 'selected="selected"':''}}>{{$item->nama_solution}}</option>
-        @endforeach
+    <select name='sltn' class="form-control @error('object') is-invalid @enderror" disabled>
+        <option value="">Pilih Solution</option>
+        <option value='{{$old->id_solutions}}' selected>{{$old->solutions}}</option>
     </select>
 </div>
 

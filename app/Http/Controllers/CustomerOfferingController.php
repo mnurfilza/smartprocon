@@ -20,12 +20,12 @@ use App\Models\solution;
 
 class CustomerOfferingController extends Controller
 {
-    
+
     public function postOffering(Request $request)
     {
         //save data to database customer
 
-       
+
         $offerings = array();
         $links = array();
 
@@ -97,16 +97,16 @@ class CustomerOfferingController extends Controller
                 $ongkir = $ongkirCtr->searchOngkirByCity($modelOngkir);
 
 
-             
+
                 $jumlah =0;
                 $hargaSatuan=0;
                 $total = 0;
 
                 if (empty($ongkir)){
                     throw new \Exception("Ongkir Tidak Ada Untuk :"." ".$customer->city);
-                    
+
                 }
-                
+
                 if ($ssp->ruangan == 1 && $ssp->lantai == 1) {
                     $jumlah = (integer)$ssp->jumlah * (integer)$floorAndRooms[0] * (integer)$floorAndRooms[1];
                     $hargaSatuan = (integer)$ssp->jumlah * (integer)$floorAndRooms[0] * (integer)$floorAndRooms[1] * (integer)$barang->harga_satuan;
@@ -120,9 +120,9 @@ class CustomerOfferingController extends Controller
                 }
                 $total = $jumlah * $hargaSatuan;
                 $ongkos_kirim = (float)$barang->berat_barang * (integer)$ongkir->price;
-                
 
-             
+
+
 
                 $offeringDetail = new OfferingDetail();
                 $offeringDetail->offering_id = $offering->id;
@@ -137,25 +137,25 @@ class CustomerOfferingController extends Controller
 
 
                 array_push($offerings, $offeringDetail);
-               
+
             }
-            
+
             //should return data for module
             $module = new modules();
             $modules = $module->where('id_solutions','=',$value)->first();
             array_push($links, $modules);
 
             $config = new ParamConfig();
-        
+
             }
 
 
-      
+
         } catch (\Throwable $th) {
             return back()->withErrors(['error', $th->getMessage()]);
         }
-      
-       
+
+
         return view('frontend.pages.result',['isOffering'=>$config->where('desc','ShowOffering')->first()->value,'module'=>$links,'offering'=>$offerings]);
     }
 

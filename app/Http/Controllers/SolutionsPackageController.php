@@ -53,6 +53,18 @@ class SolutionsPackageController extends Controller
 
         try {
             
+
+
+            //check if solution package already exist
+
+            $solution_package = solutions_package::where('id_solution',$request->nama_solution)
+            ->where('id_object',$request->nama_object)->first();
+            if(!empty($solution_package)){
+
+                throw new \Exception("Solutions Package Is Exist");
+
+               
+            }
             $tb = new solutions_package();
             $tb->id_solution = $request->nama_solution;
 

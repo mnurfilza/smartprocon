@@ -45,6 +45,10 @@ class TypeObjectController extends Controller
 
         ],$messages);
         try {
+
+            if (type_object::where('nama_object',"=",$request->nama_object)->exists()) {
+                throw new \Exception("Data Already Exists");
+            }
             
             $tb = new type_object();
             $tb->nama_object = $request->nama_object;
@@ -52,7 +56,7 @@ class TypeObjectController extends Controller
             $tb->save();
 
         } catch (\Throwable $th) {
-            return redirect()->back()->withErrors(['error', 'Gagal menambahkan data']);
+            return redirect()->back()->withErrors(['error', $th->getMessage()]);
         }
 
         return redirect('/type_object')->with('success', 'Berhasil menambahkan');

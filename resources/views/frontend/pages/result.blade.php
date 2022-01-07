@@ -5,19 +5,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 p-0">
-                    @foreach ($module as $item)
                     <div class="box-video">
                         <h1 class="title-section poppins">Result Offering</h1>
-
+                         @foreach ($module as $item)
                         {{-- List Video Result Offering --}}
-                        <video class="video-works img-fluid mb-4" autoplay muted loop>
-                            <source src="{{ asset('videos/works-4.mp4') }}" type="video/mp4">
+                        <iframe class="video-works " width="514" height="315" src='https://www.youtube.com/embed/jBajtHQhXYo?autoplay=1' allow='autoplay' muted loop frameborder="0" allowfullscreen>
                             Your browser does not support the video tag.
-                        </video>
-                        <video class="video-works img-fluid mb-4" autoplay muted loop>
-                            <source src="{{ asset('videos/works-5.mp4') }}" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                        </iframe>
+                        
+                        @endforeach
                     </div>
                 </div>
             </div>

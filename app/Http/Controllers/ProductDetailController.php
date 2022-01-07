@@ -50,8 +50,8 @@ class ProductDetailController extends Controller
 
                 // print_r($product->garansi);
                 // die();
-                $product->save();
-        } catch (\Throwable $th) {
+                product::where('sku',$sku)->update($product->toArray());
+            } catch (\Throwable $th) {
             return redirect()->back()->withErrors(['error',$th->getMessage()]);
         }
 
