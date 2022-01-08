@@ -4,15 +4,14 @@
     <section class="section-one">
         <div class="container">
             <div class="row">
-                <div class="col-12 p-0">
+                <div class="col-md-12 p-0 d-flex justify-content-center">
                     <div class="box-video">
                         <h1 class="title-section poppins">Result Offering</h1>
                          @foreach ($module as $item)
                         {{-- List Video Result Offering --}}
-                        <iframe class="video-works " width="514" height="315" src='https://www.youtube.com/embed/jBajtHQhXYo?autoplay=1' allow='autoplay' muted loop frameborder="0" allowfullscreen>
+                        <iframe class="video-works " width="614" height="415" src='https://www.youtube.com/embed/jBajtHQhXYo?autoplay=1' allow='autoplay' muted loop frameborder="0" allowfullscreen>
                             Your browser does not support the video tag.
                         </iframe>
-                        
                         @endforeach
                     </div>
                 </div>
