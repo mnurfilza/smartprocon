@@ -36,6 +36,17 @@ class CustomerOfferingController extends Controller
             $citi = new citi();
             $citi->id = $kota[0];
 
+            /*save data to database offering_details
+              find solution package */
+            $spCtr = new SolutionsPackageController();
+
+            foreach ($request->input('solution') as $key => $value) {
+                $solutionPackage = $spCtr->getSolution($value, $request->input('object'));
+                if (empty($solutionPackage)) {
+                    throw new \Exception("Solutions Package Not Exist");
+                }
+            }
+
             $customer = new customer;
             $customer->name = $request->input('name');
             $customer->email = $request->input('email');
@@ -44,6 +55,7 @@ class CustomerOfferingController extends Controller
             $customer->city = $citiCtr->show($citi)->nama_kota;
             $customer->country = $request->input('country');
             $customer->create_at = Carbon::now();
+            $customer->save();
 
 
             //find ongkos pasang
@@ -54,6 +66,7 @@ class CustomerOfferingController extends Controller
 
 
             foreach ($request->input('solution') as $key => $value) {
+
 
                 $offering = new Offering;
                 $offering->id_customer = $customer->id;
@@ -66,15 +79,7 @@ class CustomerOfferingController extends Controller
                 $offering->budget = $request->input('budget');
                 $offering->id_solution = $value;
                 $offering->solution = solution::find($value)->nama_solution;
-
-
-                /*save data to database offering_details
-                find solution package */
-                $spCtr = new SolutionsPackageController();
-                $solutionPackage = $spCtr->getSolution($value, $request->input('object'));
-                if (empty($solutionPackage)) {
-                    throw new \Exception("Solutions Package Not Exist");
-                }
+                $offering->save();
 
 
                 //itungan untuk jumlah barang
@@ -143,9 +148,7 @@ class CustomerOfferingController extends Controller
                 array_push($links, $modules);
 
                 $config = new ParamConfig();
-                $offering->save();
             }
-            $customer->save();
 
 
         } catch (\Throwable $th) {

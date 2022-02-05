@@ -46,14 +46,18 @@ class OngkirController extends Controller
             'price' => 'required',
         ],$messages);
         try {
+            $kota = explode("-", $request->input('kota'));
 
             //check if exists
-            if (ongkir::where('id_kota',$request->kota)->exists()) {
+            if (ongkir::where('id_kota',$kota[0])->exists()) {
                 throw new \Exception("Data Already Exists");
             }
+
+
+
             $ongkir = new ongkir();
-            $ongkir->id_kota= $request->kota;
-            $ongkir->kota = citi::find($request->kota)->nama_kota;
+            $ongkir->id_kota= $kota[0];
+            $ongkir->kota = citi::find($kota[0])->nama_kota;
             $ongkir->price = $request->price;
             $ongkir->save();
 
@@ -83,7 +87,7 @@ class OngkirController extends Controller
      */
     public function edit(ongkir $ongkir)
     {
-        $param =['old'=> $this->show($ongkir)]; 
+        $param =['old'=> $this->show($ongkir)];
         return view('dashboard.ongkir.form_ongkir',$param);
 
     }
@@ -97,7 +101,7 @@ class OngkirController extends Controller
      */
     public function update(Request $request, ongkir $ongkir)
     {
-        
+
         $messages = [
             'required' => ':attribute wajib diisi',
         ];
@@ -105,7 +109,7 @@ class OngkirController extends Controller
             'price' => 'required',
         ],$messages);
 
-       
+
         try {
             ongkir::where('id',$ongkir->id)->update($validaateData);
         } catch (\Throwable $th) {
@@ -113,7 +117,7 @@ class OngkirController extends Controller
         }
 
         return redirect('/ongkir')->with('success', 'Berhasil mengubah data');
-       
+
     }
 
     /**
@@ -134,5 +138,5 @@ class OngkirController extends Controller
 
 
 
-   
+
 }

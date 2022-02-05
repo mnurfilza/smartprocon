@@ -308,7 +308,7 @@
                             <label for="inputCountry" class="col-2 col-md-2 col-form-label poppins">Country</label>
                             <div class="col-12 col-md-10">
                                 <input type="text" class="form-control poppins @error('country') is-invalid @enderror"
-                                    name="country" value="{{ old('title') }}" placeholder="Please enter your country">
+                                    name="country" id="country" value="{{ old('title') }}" placeholder="Please enter your country">
 
                                 @error('country')
                                 <div class="alert alert-danger mt-2">
@@ -334,6 +334,7 @@
     </section>
 </div>
 <script>
+    document.getElementsByName("kota")[0].addEventListener('input', doThing);
     const previousButton = document.getElementById("previous");
     const nextButton = document.getElementById("next");
     const submitButton = document.getElementById('validate');
@@ -352,6 +353,10 @@
     previousButton.onclick = goPrevious
     nextButton.onclick = goNext
 
+
+    function doThing(){
+        document.getElementById("country").value = "Indonesia";
+    }
     function goNext(e) {
         e.preventDefault()
         currentStep += 1
