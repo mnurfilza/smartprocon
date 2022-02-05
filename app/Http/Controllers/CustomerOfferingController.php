@@ -25,6 +25,20 @@ class CustomerOfferingController extends Controller
     {
         //save data to database customer
 
+        $messages = [
+            'required' => ':attribute wajib diisi',
+            'min' =>':attribute kurang dari :min digit'
+        ];
+        $request->validate([
+            'kota' => 'required',
+            'object' => 'required',
+            'floor-and-rooms' => 'required',
+            'solution' => 'required',
+            'name' => 'required',
+            'phone_number' => 'required|min:10',
+            'email' => 'required',
+            'country' => 'required',
+        ], $messages);
 
         $offerings = array();
         $links = array();
