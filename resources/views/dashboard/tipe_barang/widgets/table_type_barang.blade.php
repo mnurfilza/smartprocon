@@ -11,8 +11,8 @@
 		<tr>
 			<td>{{$row->type_barang}}</td>
 			<td>{{ $row->keterangan }}</td>
-			<td class="col-lg-2">
-				<div class="col-lg-5 my-4">
+			<td class="col-lg-3">
+				<div class="col-lg-4 my-4">
 				<form action="/type_barang/{{$row->id}}" method="POST" enctype='multipart/form-data'>
 					@method('delete')
 					@csrf
@@ -24,9 +24,9 @@
 				<div class="col-lg-3">
 					<a href="/type_barang/{{ $row->id }}/edit" class="btn btn-info btn-sm">Show</a>
 				</div>
-			
+
 			</td>
-			
+
 		</tr>
 		@endforeach
 </table>

@@ -1,7 +1,7 @@
 @extends('dashboard.layout.dashboard')
 
 @section('section')
-<div class="col-lg-12 mx-7 my-7">				
+<div class="col-lg-12 mx-7 my-7">
 <div class="container-fluid">
 	@if(count($errors) > 0)
         <div class="alert alert-danger">
@@ -16,13 +16,16 @@
                     {{ session()->get('success') }}
             </div>
         @endif
-		<div class="row">		
-			<a href="/type_barang/create" class="btn btn-info btn-sm">Add</a>
+
+        <br>
+		<div class="row">
+			<a href="/type_barang/create" class="btn btn-info btn-sm">Tambah Data</a>
 		</div>
 	</div>
+    <br>
 <div class="row">
 	<div class="col-md-10 my-5">
-		@section ('htable_panel_title','Table Tipe Barang') 
+		@section ('htable_panel_title','Table Tipe Barang')
 		@section ('htable_panel_body')
 		@include('dashboard.tipe_barang.widgets.table_type_barang', array('class'=>'table-hover'))
 		@endsection
