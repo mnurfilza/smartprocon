@@ -12,15 +12,15 @@
 	<tbody>
 		@foreach($data as $row)
 		<tr>
-			<td>{{$row->sku}}</td>
-			<td>{{$row->nama}}</td>
-			<td>@currency($row->harga_satuan)</td>
+			<td class="col-md-2">{{$row->sku}}</td>
+			<td class="col-md-3">{{$row->nama}}</td>
+			<td class="col-md-2">@currency($row->harga_satuan)</td>
 			<td>{{$row->garansi}}</td>
-			<td>{{$row->berat_barang}}kg</td>
+			<td class="col-md-2">{{$row->berat_barang}}kg</td>
 
 
-			<td class="col-sm-3">
-				<div class="col-lg-4 my-4">
+			<td class="col-sm-2">
+				<div class="col-lg-5 my-4">
 				<form action="/product/{{$row->sku}}/delete" method="POST" enctype='multipart/form-data'>
 					@method('delete')
 					@csrf
@@ -29,15 +29,15 @@
 				</form>
 				</div>
 
-				<div class="col-lg-4">
+				<div class="col-lg-5">
 					<a href="/product/detail/{{ $row->sku }}" class="btn btn-info btn-sm">Show</a>
 				</div>
-			
+
 			</td>
-			
+
 		</tr>
 		@endforeach
 
-	
+
 </table>
 {{$data->links()}}

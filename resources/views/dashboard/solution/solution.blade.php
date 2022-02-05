@@ -16,17 +16,21 @@
                     {{ session()->get('success') }}
             </div>
         @endif
+        <br>
 		<div class="row">
-			<a href="/solution/create" class="btn btn-info btn-sm">Add</a>
+            <div class="col-md-6">
+                <a href="/solution/create" class="btn btn-info btn-sm">Tambah Data</a>
+            </div>
+            <div class="form-group col-md-6 my-2">
+            <form class="form-inline" method="GET" action="/filter_solution">
+                <input type="text" class="form-control" id="filter" name="filter" placeholder="Search..." value="">
+                <button type="submit" class="btn btn-default mb-2">Filter</button>
+            </form>
+        </div>
 		</div>
 	</div>
 <div class="row">
-    <div class="form-group my-2">
-        <form class="form-inline" method="GET" action="/filter_solution">
-            <input type="text" class="form-control" id="filter" name="filter" placeholder="Search..." value="">
-            <button type="submit" class="btn btn-default mb-2">Filter</button>
-        </form>
-    </div>
+
 	<div class="col-md-10 my-5">
 		@section ('htable_panel_title','Table Solution')
 		@section ('htable_panel_body')

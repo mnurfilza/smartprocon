@@ -16,23 +16,27 @@
                     {{ session()->get('success') }}
             </div>
         @endif
+        <br>
 		<div class="row">
-			<div class="col-sm-1">
+			<div class="col-md-6">
 				<button type="submit"  class="btn btn-info btn-sm" data-toggle="modal"  data-backdrop="static" data-keyboard="false" data-target="#myModalHorizontal">Export Customer</button>
 			</div>
+
+            <div class="form-group col-md-6">
+                <form class="form-inline" method="GET" action="/filter_customer">
+                    <input type="text" class="form-control" id="filter" name="filter" placeholder="Search..." value="">
+                    <button type="submit" class="btn btn-default mb-2">Filter</button>
+                </form>
+            </div>
 		</div>
 
 
 	</div>
 <div class="row">
-	<div class="form-group my-2">
-		<form class="form-inline" method="GET" action="/filter_customer">
-			<input type="text" class="form-control" id="filter" name="filter" placeholder="Search..." value="">
-			<button type="submit" class="btn btn-default mb-2">Filter</button>
-		</form>
-	</div>
-	<div class="col-md-10 my-5">
+
+
 		@section ('htable_panel_title','Table Customer')
+    <div class="col-md-10 my-5">
 		@section ('htable_panel_body')
 		@include('dashboard.customer.widgets.table_customer', array('class'=>'table-hover'))
 		@endsection
@@ -82,9 +86,15 @@
 
 						<div class="form-group">
 							<label class="font-weight-bold">Solution</label>
-								@foreach ($solution as $item)
-								<input type='checkbox' name='solution[]' value='{{ $item->nama_solution }}'>{{$item->nama_solution}}<br>
-								@endforeach
+                            <div class="row">
+                                <div class="col-md-4">
+                                    @foreach ($solution as $item)
+                                        <input type='checkbox' name='solution[]' value='{{ $item->nama_solution }}'>{{$item->nama_solution}}<br>
+                                    @endforeach
+                                </div>
+
+                            </div>
+
 						</div>
 						<div class="modal-body">
 							<div class="modal-footer" id="modal_footer">

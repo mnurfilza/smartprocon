@@ -14,14 +14,14 @@
 	<tbody>
 		@foreach($data as $row)
 		<tr>
-			<td>{{$row->sku}}</td>
-			<td>{{$row->nama_barang}}</td>
-			<td>{{$row->package}}</td>
-			<td>{{$row->jumlah}}</td>
-			<td>{{$row->ruangan == '1' ? "true":"false"}}</td>
-			<td>{{$row->lantai == '1' ? "true":"false"}}</td>
-			<td class="col-sm-3">
-				<div class="col-lg-4 my-4">
+			<td class="col-sm-2">{{$row->sku}}</td>
+			<td class="col-sm-3">{{$row->nama_barang}}</td>
+			<td class="col-sm-3">{{$row->package}}</td>
+			<td >{{$row->jumlah}}</td>
+			<td >{{$row->ruangan == '1' ? "true":"false"}}</td>
+			<td >{{$row->lantai == '1' ? "true":"false"}}</td>
+			<td class="col-sm-2">
+				<div class="col-lg-6 my-4">
 				<form action="/sub_solution_package/{{$row->id}}" method="POST" enctype='multipart/form-data'>
 					@method('delete')
 					@csrf
@@ -30,15 +30,15 @@
 				</form>
 				</div>
 
-				<div class="col-lg-4">
+				<div class="col-lg-6">
 					<a href="/sub_solution_package/{{ $row->id }}/edit" class="btn btn-info btn-sm">Show</a>
 				</div>
-			
+
 			</td>
-			
+
 		</tr>
 		@endforeach
 
-	
+
 </table>
 {{$data->links()}}
