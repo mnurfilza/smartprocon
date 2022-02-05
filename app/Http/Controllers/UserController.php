@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('dashboard.user.user',['data'=>user::all()]);   
+        return view('dashboard.user.user', ['data' => user::all()]);
     }
 
     /**
@@ -27,10 +27,11 @@ class UserController extends Controller
     {
         return view('dashboard.user.form_user');
     }
+
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -41,8 +42,8 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'password' => 'required',
-            'email' =>'required',
-        ],$messages);
+            'email' => 'required',
+        ], $messages);
 
         try {
 
@@ -63,32 +64,32 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\user  $user
+     * @param \App\Models\user $user
      * @return \Illuminate\Http\Response
      */
     public function show(user $user)
     {
         //
-        return user::where('id',$user->id)->first();
+        return user::where('id', $user->id)->first();
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\user  $user
+     * @param \App\Models\user $user
      * @return \Illuminate\Http\Response
      */
     public function edit(user $user)
     {
-        $param =['old'=> $this->show($user)]; 
-        return view('dashboard.user.form_user',$param);    
+        $param = ['old' => $this->show($user)];
+        return view('dashboard.user.form_user', $param);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\user  $user
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\user $user
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, user $user)
@@ -96,16 +97,16 @@ class UserController extends Controller
         $messages = [
             'required' => ':attribute wajib diisi',
         ];
-        $validateData =$request->validate([
+        $validateData = $request->validate([
             'name' => 'required',
             'password' => 'required',
-            'email' =>'required',
-        ],$messages);
+            'email' => 'required',
+        ], $messages);
 
         try {
 
-            user::where('id',$user->id)->update($validateData);
-            
+            user::where('id', $user->id)->update($validateData);
+
 
         } catch (\Throwable $th) {
             return back()->withErrors(['error', $th->getMessage()]);
@@ -117,16 +118,16 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\user  $user
+     * @param \App\Models\user $user
      * @return \Illuminate\Http\Response
      */
     public function destroy(user $user)
     {
         try {
             if (Auth::user()->email == $user->email) {
-                return back()->withErrors(['error', 'Anda tidak bisa menghapus akun anda sendiri']);
-            } 
-            user::where('id',$user->id)->delete();
+                return back()->withErrors(['Anda tidak bisa menghapus akun anda sendiri']);
+            }
+            user::where('id', $user->id)->delete();
         } catch (\Throwable $th) {
             return back()->withErrors(['error', $th->getMessage()]);
         }
