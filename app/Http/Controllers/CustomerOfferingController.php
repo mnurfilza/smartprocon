@@ -27,7 +27,7 @@ class CustomerOfferingController extends Controller
 
         $messages = [
             'required' => ':attribute wajib diisi',
-            'min' =>':attribute kurang dari :min digit'
+            'min' => ':attribute kurang dari :min digit'
         ];
         $request->validate([
             'kota' => 'required',
@@ -50,17 +50,57 @@ class CustomerOfferingController extends Controller
             $citi = new citi();
             $citi->id = $kota[0];
 
-            /*save data to database offering_details
-              find solution package */
-            $spCtr = new SolutionsPackageController();
 
-            foreach ($request->input('solution') as $key => $value) {
-                $solutionPackage = $spCtr->getSolution($value, $request->input('object'));
-                if (empty($solutionPackage)) {
-                    throw new \Exception("Solutions Package Not Exist");
-                }
+            $modelOngkir = new ongkir();
+            $modelOngkir->id_kota = $citi->id;
+            $ongkirCtr = new  OngkirController();
+            $ongkir = $ongkirCtr->searchOngkirByCity($modelOngkir);
+
+            //validasi ongkir
+            if (empty($ongkir)) {
+                throw new \Exception("Ongkir Tidak Ada Untuk :" . " " . $kota[1]);
+
             }
 
+            //find ongkos pasang
+            $modelOngkosPasang = new ongkos_pasang();
+            $modelOngkosPasang->id_kota = $citi->id;
+            $ongkosPasangCtr = new OngkosPasangController();
+            $ongkosPasang = $ongkosPasangCtr->getOngkosPasangByCity($modelOngkosPasang);
+
+            //validasi ongkospasang
+            if (empty($ongkosPasang)) {
+                throw new \Exception("Ongkos Pasang Tidak Ada Untuk :" . " " . $kota[1]);
+
+            }
+
+            /*save data to database offering_details
+              find solution package */
+
+            $ids = array();
+            $spCtr = new SolutionsPackageController();
+            foreach ($request->input('solution') as $key => $value) {
+                //check solution package
+                $solutionPackage = $spCtr->getSolution($value, $request->input('object'));
+                if (empty($solutionPackage)) {
+                    continue;
+                }
+                array_push($ids, $solutionPackage->id);
+            }
+
+
+            if (count($ids) == 0) {
+                throw new \Exception("Package Solution Not Exists");
+            }
+
+            $tbr = SubSolutionPackage::whereIn('id_solution_package', $ids)->get();
+            if (empty($tbr)) {
+                throw new \Exception("Paket Yang Anda Pilih Tidak Tersedia");
+            }
+
+            if (count($tbr) == 0) {
+                throw new \Exception("Paket Yang Anda Pilih Tidak Tersedia");
+            }
             $customer = new customer;
             $customer->name = $request->input('name');
             $customer->email = $request->input('email');
@@ -70,13 +110,6 @@ class CustomerOfferingController extends Controller
             $customer->country = $request->input('country');
             $customer->create_at = Carbon::now();
             $customer->save();
-
-
-            //find ongkos pasang
-            $modelOngkosPasang = new ongkos_pasang();
-            $modelOngkosPasang->id_kota = $citi->id;
-            $ongkosPasangCtr = new OngkosPasangController();
-            $ongkosPasang = $ongkosPasangCtr->getOngkosPasangByCity($modelOngkosPasang);
 
 
             foreach ($request->input('solution') as $key => $value) {
@@ -109,21 +142,11 @@ class CustomerOfferingController extends Controller
                     $productCtr = new ProductController();
                     $barang = $productCtr->show($modelBarang);
 
-                    //find ongkos kirim
-                    $modelOngkir = new ongkir();
-                    $modelOngkir->id_kota = $citi->id;
-                    $ongkirCtr = new  OngkirController();
-                    $ongkir = $ongkirCtr->searchOngkirByCity($modelOngkir);
-
 
                     $jumlah = 0;
                     $hargaSatuan = 0;
                     $total = 0;
 
-                    if (empty($ongkir)) {
-                        throw new \Exception("Ongkir Tidak Ada Untuk :" . " " . $customer->city);
-
-                    }
 
                     if ($ssp->ruangan == 1 && $ssp->lantai == 1) {
                         $jumlah = (integer)$ssp->jumlah * (integer)$floorAndRooms[0] * (integer)$floorAndRooms[1];
