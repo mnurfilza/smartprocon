@@ -22,11 +22,6 @@
 
 				</form>
 				</div>
-
-				<div class="col-lg-4">
-					<a href="/product/detail/{{ $row->sku }}" class="btn btn-info btn-sm">Show</a>
-				</div>
-			
 			</td>
 			
 		</tr>

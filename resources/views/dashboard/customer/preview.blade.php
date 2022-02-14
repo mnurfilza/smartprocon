@@ -1,7 +1,6 @@
 @extends('dashboard.layout.dashboard')
 
 @section('section')
-    <div class="row">
         <form action="/export" method="POST" enctype="multipart/form-data">
             @csrf
             <div hidden class="header-btn">
@@ -51,10 +50,15 @@
             <button type="submit" class="btn btn-default mb-2">Export</button>
 
         </form>
-        <div class="col-md-10 my-5">
-            <label> Preview Customer</label>
-
-            @include('dashboard.customer.widgets.result_customer', array('class'=>'table-hover'))
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <label> Preview Customer</label>
+        
+                    @include('dashboard.customer.widgets.result_customer', array('class'=>'table-hover'))
+                </div>
+            </div>
         </div>
-    </div>
+      
+       
 @endsection

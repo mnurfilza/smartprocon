@@ -77,6 +77,7 @@ class CustomerController extends Controller
             'offer'=> $offer,
             'of'=> $resOffering,
         ]; 
+
         return view('dashboard.customer.form_customer',$param);  
     }
 

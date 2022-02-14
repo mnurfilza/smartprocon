@@ -1,4 +1,7 @@
 <div class="col-lg-12">
+	@php
+		$total = 0;	
+	@endphp
 @foreach($of as $v)
 	<h3>{{$v->solution}}</h3>
 	<table class="table {{ $class }}">
@@ -27,11 +30,22 @@
 				<td>@currency($row->harga)</td>
 				<td>@currency($row->total)</td>
 				
-			</tr>		
+			</tr>	
+			@if($row->offering_id == $v->id)
+				@php
+					$total += $row->total;
+				@endphp
+			@endif	
 			@endforeach
 
-		
+			
 	</table>
+	
+	
 @endforeach
+
+<br>
+<h4> Grand Total : <b>@currency($total)</b></h4>
+
 </div>
 {{-- {{$data->links()}} --}}

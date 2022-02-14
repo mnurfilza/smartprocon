@@ -63,12 +63,12 @@ Route::get('/admin', function () {
 
 
 //backend site
-Route::get('/show-preview', [PreviewExcel::class,'show_preview'])->name('show-preview');
+Route::get('/show-preview', [PreviewExcel::class, 'show_preview'])->name('show-preview');
 
 Route::post('/export', [ExportController::class, 'exportToExcel']);
 Route::post('/result', [CustomerOfferingController::class, 'postOffering']);
 Route::get('/preview', [PreviewExcel::class, 'previewExportToExcel']);
-Route::get('/offering-ges', [OfferingController::class, 'index']);
+Route::get('/offering-ges', [OfferingController::class, 'index'])->name('offering-ges');
 Route::get('/offering', [OfferingController::class, 'index']);
 Route::post('/offering/proses', [CustomerController::class, 'store']);
 Route::delete('/product/{sku}/delete', [ProductController::class, 'delete']);

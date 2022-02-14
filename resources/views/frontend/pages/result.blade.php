@@ -9,9 +9,12 @@
                         <h1 class="title-section poppins">Result Offering</h1>
                          @foreach ($module as $item)
                         {{-- List Video Result Offering --}}
-                        <iframe class="video-works " width="614" height="415" src='https://www.youtube.com/embed/jBajtHQhXYo?autoplay=1' allow='autoplay' muted loop frameborder="0" allowfullscreen>
-                            Your browser does not support the video tag.
-                        </iframe>
+
+                            <iframe class="video-works " width="514" height="315" src={{$item->link}} allow='autoplay' muted loop frameborder="0" allowfullscreen>
+                                Your browser does not support the video tag.
+                            </iframe>
+
+
                         @endforeach
                     </div>
                 </div>
@@ -19,6 +22,9 @@
         </div>
     </section>
 
+    @php
+        $grandtotal = 0;
+    @endphp
     @if ($isOffering== 1)
     <section class="section-three">
         <div class="container">
@@ -45,11 +51,17 @@
                                     <td>@currency($item->harga)</td>
                                     <td>@currency($item->total)</td>
                                 </tr>
+
+                                @php
+                                    $grandtotal += $item->total;
+                                @endphp
+
                                 @endforeach
 
-
+                              
                             </tbody>
                         </table>
+                        <p>Total : <b>@currency($grandtotal)</b></p>
                     </div>
                 </div>
             </div>

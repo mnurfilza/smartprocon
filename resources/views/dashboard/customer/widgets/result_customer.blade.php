@@ -2,11 +2,9 @@
 	<thead>
 		<tr>
 			<th>Nama Customer</th>
-			<th>Phone Number</th>
 			<th>Kota</th>
 			<th>SKU</th>
 			<th>Nama Produk</th>
-            <th>Solution</th>
 			<th>Object</th>
 			<th>Quantity</th>
 			<th>Harga</th>
@@ -19,18 +17,16 @@
 	<tbody>
 		@foreach($data as $row)
 		<tr>
-			<td>{{$row->customer}}</td>
-			<td>{{$row->phone_number}}</td>
-			<td>{{$row->kota}}</td>
-			<td>{{ $row->sku }}</td>
-            <td>{{ $row->nama_produk }}</td>
-            <td>{{ $row->solution }}</td>
-            <td>{{ $row->object }}</td>
-			<td>{{ $row->qty }}</td>
-			<td>{{ $row->harga }}</td>
-            <td>{{ $row->ongkir }}</td>
-            <td>{{ $row->ongkos_pasang }}</td>
-            <td>{{ $row->total }}</td>
+			<td class="col-md-1">{{$row->customer}}</td>
+			<td class="col-md-1">{{$row->kota}}</td>
+			<td class="col-md-1">{{ $row->sku }}</td>
+            <td class="col-md-1">{{ $row->nama_produk }}</td>
+            <td class="col-md-1">{{ $row->object }}</td>
+			<td class="col-md-1">{{ $row->qty }}</td>
+			<td class="col-md-1">{{ $row->harga }}</td>
+            <td class="col-md-1">{{ $row->ongkir }}</td>
+            <td class="col-md-1">{{ $row->ongkos_pasang }}</td>
+            <td class="col-md-1">{{ $row->total }}</td>
 		</tr>
 		@endforeach
 

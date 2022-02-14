@@ -108,12 +108,10 @@ class CustomerOfferingController extends Controller
             $citiCtr = new CitiController();
             $customer->city = $citiCtr->show($citi)->nama_kota;
             $customer->country = $request->input('country');
-            $customer->create_at = Carbon::now();
+            $customer->create_at = Carbon::now()->format('Y-m-d');
             $customer->save();
 
-
             foreach ($request->input('solution') as $key => $value) {
-
 
                 $offering = new Offering;
                 $offering->id_customer = $customer->id;
@@ -130,39 +128,40 @@ class CustomerOfferingController extends Controller
 
 
                 //itungan untuk jumlah barang
+                $spCtr = new SolutionsPackageController();
+                $solutionPackage = $spCtr->getSolution($value, $request->input('object'));
                 $modelSub = new SubSolutionPackage();
                 $modelSub->id_solution_package = $solutionPackage->id;
                 $subCtr = new SubSolutionPackageController();
                 $solutionSubPackage = $subCtr->search($modelSub);
-
                 foreach ($solutionSubPackage as $key => $ssp) {
-                    //findBarang
+                    $floorAndRooms = explode("-", $request->input('floor-and-rooms'));
                     $modelBarang = new product();
                     $modelBarang->sku = $ssp->sku;
                     $productCtr = new ProductController();
                     $barang = $productCtr->show($modelBarang);
-
-
+    
+    
                     $jumlah = 0;
                     $hargaSatuan = 0;
                     $total = 0;
-
-
+    
+    
                     if ($ssp->ruangan == 1 && $ssp->lantai == 1) {
                         $jumlah = (integer)$ssp->jumlah * (integer)$floorAndRooms[0] * (integer)$floorAndRooms[1];
                         $hargaSatuan = (integer)$ssp->jumlah * (integer)$floorAndRooms[0] * (integer)$floorAndRooms[1] * (integer)$barang->harga_satuan;
                     } elseif ($ssp->ruangan == 1) {
                         $jumlah = (integer)$ssp->jumlah * (integer)$floorAndRooms[1];
                         $hargaSatuan = (integer)$ssp->jumlah * (integer)$floorAndRooms[1] * (integer)$barang->harga_satuan;
-
+    
                     } elseif ($ssp->lantai == 1) {
                         $jumlah = (integer)$ssp->jumlah * (integer)$floorAndRooms[0];
                         $hargaSatuan = (integer)$ssp->jumlah * (integer)$floorAndRooms[0] * (integer)$barang->harga_satuan;
                     }
                     $total = $jumlah * $hargaSatuan;
                     $ongkos_kirim = (float)$barang->berat_barang * (integer)$ongkir->price;
-
-
+    
+    
                     $offeringDetail = new OfferingDetail();
                     $offeringDetail->offering_id = $offering->id;
                     $offeringDetail->sku = $ssp->sku;
@@ -173,12 +172,12 @@ class CustomerOfferingController extends Controller
                     $offeringDetail->ongkir = $ongkos_kirim;
                     $offeringDetail->ongkos_pasang = $ongkosPasang->harga;
                     $offeringDetail->save();
-
-
+                   
+    
                     array_push($offerings, $offeringDetail);
-
+    
                 }
-
+                
                 //should return data for module
                 $module = new modules();
                 $modules = $module->where('id_solutions', '=', $value)->first();
@@ -187,10 +186,15 @@ class CustomerOfferingController extends Controller
                 $config = new ParamConfig();
             }
 
+            
+
+
 
         } catch (\Throwable $th) {
             return back()->withErrors([$th->getMessage()]);
         }
+
+        // die();
 
 
         return view('frontend.pages.result', ['isOffering' => $config->where('desc', 'ShowOffering')->first()->value, 'module' => $links, 'offering' => $offerings]);

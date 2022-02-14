@@ -24,15 +24,21 @@
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <li>
+                            <ul class="nav nav-second-level">
+                                <li {{ (Request::is('*regional') ? 'class="active"' : '') }}>
+                                    <a href="{{ url ('regional') }}"><i class="fa fa-building-o fa-fw"></i> Regional</a>
+                                </li>
+                                <li {{ (Request::is('*user') ? 'class="active"' : '') }}>
+                                    <a href="{{ url ('user') }}"><i class="fa fa-user fa-fw"></i> User</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="divider"></li>
                         <li>
                             <form action="/logout" method="POST">
                                 @csrf
-                            <button type="submit" class="dropdown-item"><i class="fa fa-sign-out fa-fw"></i> Logoout</button>
+                                <button type="submit" class="dropdown-item"><i class="fa fa-sign-out fa-fw"></i> Logout</button>
                             </form>
                         </li>
                     </ul>
@@ -84,18 +90,6 @@
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
-                        </li>
-
-                        <li>
-                            <a href="#"><i class="fa fa-database fa-fw"></i> Setting<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li {{ (Request::is('*regional') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('regional') }}"><i class="fa fa-building-o fa-fw"></i> Regional</a>
-                                </li>
-                                <li {{ (Request::is('*user') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('user') }}"><i class="fa fa-user fa-fw"></i> User</a>
-                                </li>
-                            </ul>
                         </li>
                     </ul>
                 </div>
