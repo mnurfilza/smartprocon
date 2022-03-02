@@ -172,7 +172,11 @@ class CustomerOfferingController extends Controller
                     $offeringDetail->harga = $hargaSatuan;
                     $offeringDetail->total = $total;
                     $offeringDetail->ongkir = $ongkos_kirim;
-                    $offeringDetail->ongkos_pasang = $ongkosPasang->harga;
+                    if(!empty($ongkosPasang)){
+                        $offeringDetail->ongkos_pasang = $ongkosPasang->harga;
+                    }else{
+                        $offeringDetail->ongkos_pasang = 0;
+                    }
                     $offeringDetail->save();
                    
     
