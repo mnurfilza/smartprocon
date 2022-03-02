@@ -14,7 +14,8 @@ class PreviewExcel extends Controller
 {
 
     public function show_preview(Request $request)
-    {
+    {       
+
         $datas = base64_decode($request->query('data'));
         $data = json_decode($datas);
 
@@ -23,6 +24,16 @@ class PreviewExcel extends Controller
 
     public function previewExportToExcel(Request $request)
     {
+
+        $messages = [
+            'required' => ':attribute wajib diisi',
+        ];
+        $request->validate([
+            'startDate' => 'required',
+            'endDate' => 'required',
+            
+           
+        ], $messages);
 
         $data = $this->preview(new customer(), $request);
 
@@ -35,7 +46,10 @@ class PreviewExcel extends Controller
             return redirect()->back()->withErrors(['Data tidak ditemukan']);
         }
 
-        return redirect()->route('show-preview', ['data' => base64_encode(json_encode(['data' => $data, 'old' => $request->all(), 'solution' => solution::all()]))]);
+        $param =  ['data' => $data, 'old' => $request->all(), 'solution' => solution::all()];
+        return view('dashboard.customer.preview',$param);
+
+        // return redirect()->route('show-preview', ['data' => base64_encode(json_encode(['data' => $data, 'old' => $request->all(), 'solution' => solution::all()]))]);
     }
 
     public function preview(customer $customer, Request $request)
@@ -81,6 +95,7 @@ class PreviewExcel extends Controller
                                     if (!empty($detail)) {
     
                                         $data[] = [
+                                            "offer_id" => $value->id,
                                             "customer" => $value->name,
                                             "phone_number" => $value->phone_number,
                                             "kota" => $value->city,

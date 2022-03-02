@@ -1705,10 +1705,9 @@ input[type="number"] {
                 object-position: top;
 
                 @media (max-width: 576px) {
-                    top: 30%;
-                    height: auto;
-                    object-fit: contain;
-                    object-position: center;
+                    top: calc(13vh - 10px);
+                    height: 238px;
+                    
                 }
 
                 @media (max-width: 320px) {

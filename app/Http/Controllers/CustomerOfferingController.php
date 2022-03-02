@@ -66,10 +66,10 @@ class CustomerOfferingController extends Controller
             $modelOngkosPasang = new ongkos_pasang();
             $modelOngkosPasang->id_kota = $citi->id;
             $ongkosPasangCtr = new OngkosPasangController();
-            $ongkosPasang = $ongkosPasangCtr->getOngkosPasangByCity($modelOngkosPasang);
+            $ongkosPasangValidation = $ongkosPasangCtr->getOngkosPasangByCity($modelOngkosPasang);
 
             //validasi ongkospasang
-            if (empty($ongkosPasang)) {
+            if (empty($ongkosPasangValidation)) {
                 throw new \Exception("Ongkos Pasang Tidak Ada Untuk :" . " " . $kota[1]);
 
             }
@@ -140,7 +140,9 @@ class CustomerOfferingController extends Controller
                     $modelBarang->sku = $ssp->sku;
                     $productCtr = new ProductController();
                     $barang = $productCtr->show($modelBarang);
-    
+                    $modelOngkosPasang->type_barang = $barang->type_barang;
+                    $ongkosPasang = $ongkosPasangCtr->getOngkosPasangByCityAndTipebarang($modelOngkosPasang);
+                    
     
                     $jumlah = 0;
                     $hargaSatuan = 0;

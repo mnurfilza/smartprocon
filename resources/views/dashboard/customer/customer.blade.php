@@ -59,7 +59,8 @@
 				<div>
 					Export
 				</div>
-				<form action="/preview" method="GET">
+				<form action="/preview" method="POST">
+					@csrf
 					<div class="header-btn">
 						<div id="div-physical">
 							<label>
@@ -98,7 +99,7 @@
 						</div>
 						<div class="modal-body">
 							<div class="modal-footer" id="modal_footer">
-                                <button type="submit" class="btn btn-primary">Preview</button>
+                                <input type="submit" class="btn btn-primary" value="Preview">
 								{{-- <a href="/export" id="btnDonate" class="btn btn-default-border-blk">Donate</a> --}}
 							</div>
 						</div>

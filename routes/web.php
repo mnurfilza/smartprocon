@@ -19,6 +19,7 @@ use App\Http\Controllers\SubSolutionPackageController;
 use App\Http\Controllers\TypeBarangController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FilteringController;
+use App\Http\Controllers\ParamConfigController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,7 +55,7 @@ Route::get('/result-offering', function () {
 
 // Route::get('/offering-ges-2', function () {
 //     return view('frontend.pages.offering');
-// });
+// }); 
 
 
 Route::get('/admin', function () {
@@ -63,11 +64,11 @@ Route::get('/admin', function () {
 
 
 //backend site
-Route::get('/show-preview', [PreviewExcel::class, 'show_preview'])->name('show-preview');
+// Route::get('/show-preview', [PreviewExcel::class, 'show_preview'])->name('show-preview');
 
 Route::post('/export', [ExportController::class, 'exportToExcel']);
 Route::post('/result', [CustomerOfferingController::class, 'postOffering']);
-Route::get('/preview', [PreviewExcel::class, 'previewExportToExcel']);
+Route::post('/preview', [PreviewExcel::class, 'previewExportToExcel']);
 Route::get('/offering-ges', [OfferingController::class, 'index'])->name('offering-ges');
 Route::get('/offering', [OfferingController::class, 'index']);
 Route::post('/offering/proses', [CustomerController::class, 'store']);
@@ -101,6 +102,7 @@ Route::middleware(['auth'])->group(function () {
         'customer' => CustomerController::class,
         'modules' => ModulesController::class,
         'user' => UserController::class,
+        'paramconfig'=> ParamConfigController::class,
     ]);
 
 });

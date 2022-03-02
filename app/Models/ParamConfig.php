@@ -12,4 +12,6 @@ class ParamConfig extends Model
         'id', 'desc', 'value',
       ];    
       protected $table= "param_configs";
+      public $timestamps = false;
+
 }

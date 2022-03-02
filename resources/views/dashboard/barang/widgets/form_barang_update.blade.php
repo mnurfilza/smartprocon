@@ -20,7 +20,9 @@
     <label class="font-weight-bold">Tipe Barang</label>
     <select name="type_barang" class="form-control @error('object') is-invalid @enderror">
         <option value="">Pilih Tipe Barang</option>
-        <option value='{{$old->type_barang}}' selected>{{$old->type_barang}}</option>
+        @foreach ($tipeBarang as $item )
+        <option value='{{$item->type_barang}}' {{$item->type_barang == $old->type_barang ? 'selected="selected"':''}}>{{$item->type_barang}}</option>
+        @endforeach
     </select>
 </div>
 

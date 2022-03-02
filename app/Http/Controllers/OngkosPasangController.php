@@ -137,4 +137,11 @@ class OngkosPasangController extends Controller
     {
         return ongkos_pasang::where('id_kota', $ongkos_pasang->id_kota)->first();
     }
+
+    public function getOngkosPasangByCityAndTipebarang(ongkos_pasang $ongkos_pasang)
+    {
+        return ongkos_pasang::where('id_kota', $ongkos_pasang->id_kota)
+        ->where('type_barang', $ongkos_pasang->type_barang)
+        ->first();
+    }
 }

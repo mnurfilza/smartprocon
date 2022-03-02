@@ -4,7 +4,7 @@
 <div class="row">
 <div class="">
 
-    <h2 class="my-5">Barang</h2>
+    <h2 class="my-5">Config Page</h2>
     
     <div class="col-lg-8 mx-auto my-5">				
 
@@ -23,9 +23,9 @@
         @endif
 
         @if (empty($old))
-               @include('dashboard.barang.widgets.form_barang_create')
+               @include('dashboard.config_page.widgets.form_config_page_create')
         @else
-            @include('dashboard.barang.widgets.form_barang_update')
+            @include('dashboard.config_page.widgets.form_config_page_update')
         @endif	
         
     </div>

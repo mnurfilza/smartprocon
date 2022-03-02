@@ -14,7 +14,8 @@ class ParamConfigController extends Controller
      */
     public function index()
     {
-        //
+        $param = ['data'=> ParamConfig::paginate(10)];
+        return view('dashboard.config_page.config_page',$param);
     }
 
     /**
@@ -55,10 +56,13 @@ class ParamConfigController extends Controller
      * @param  \App\Models\ParamConfig  $paramConfig
      * @return \Illuminate\Http\Response
      */
-    public function edit(ParamConfig $paramConfig)
+    public function edit($id)
     {
-        //
+        $param = ['old'=>ParamConfig::find($id)];
+       
+        return view('dashboard.config_page.form_config_page',$param);
     }
+   
 
     /**
      * Update the specified resource in storage.
@@ -69,7 +73,23 @@ class ParamConfigController extends Controller
      */
     public function update(Request $request, ParamConfig $paramConfig)
     {
-        //
+        $messages = [
+            'required' => ':attribute wajib diisi',
+        ];
+         $validaateData = $request->validate([
+            'value' => 'required',
+        ],$messages);
+
+       
+
+
+        try {
+            ParamConfig::where('id',$request->id_config)->update($validaateData);
+        } catch (\Throwable $th) {
+            return redirect()->back()->withErrors(['error',$th->getMessage()]);
+        }
+
+        return redirect('/paramconfig')->with('success', 'Berhasil mengubah data');
     }
 
     /**

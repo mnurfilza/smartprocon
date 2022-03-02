@@ -1,19 +1,29 @@
 @extends('dashboard.layout.dashboard')
-
+{{-- @php
+echo "<pre>";
+print_r($old['solution']);
+// print_r(isset($old['solution']));
+// foreach ($solution as $item) {
+//     # code...
+//     print_r($item->nama_solution);
+// }
+echo "</pre>";
+die(); --}}
+{{-- @endphp --}}
 @section('section')
         <form action="/export" method="POST" enctype="multipart/form-data">
             @csrf
             <div hidden class="header-btn">
                 <div id="div-physical">
                     <label>
-                        <input id="rdb_physical" name="startDate" value='{{$old->startDate}}'
+                        <input id="rdb_physical" name="startDate" value='{{$old['startDate']}}'
                                type="date" class="validate[required]">
                         Start Date
                     </label>
                 </div>
                 <div id="div-physical">
                     <label>
-                        <input id="rdb_physical" name="endDate" value='{{$old->endDate}}'  type="date"
+                        <input id="rdb_physical" name="endDate" value='{{$old['endDate']}}'  type="date"
                                class="validate[required]">
                         End Date
                     </label>
@@ -21,7 +31,7 @@
 
                 <div class="form-group">
                     <label class="font-weight-bold">Kota</label>
-                    <input id="rdb_physical" name="kota" value='{{ array_key_exists('kota',$old) ? $old->kota:''}}'
+                    <input id="rdb_physical" name="kota" value='{{ array_key_exists('kota',$old) ? $old['kota']:''}}'
                             type="text" class="validate[required]">
 
                 </div>
@@ -31,7 +41,7 @@
                     @foreach ($solution as $item)
 
                         <input type='checkbox' name='solution[]'
-                               value='{{$item->nama_solution}}' {{property_exists($old,'solution')? in_array($item->nama_solution,$old->solution) ? 'checked="checked"':'':''}}>{{$item->nama_solution}}
+                               value='{{$item->nama_solution}}' {{isset($old['solution']) ? in_array($item->nama_solution,$old['solution']) ? 'checked="checked"':'':''}}>{{$item->nama_solution}}
                         <br>
 
                     @endforeach

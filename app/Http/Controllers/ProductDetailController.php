@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\type_barang;
 use App\Models\product;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,7 @@ class ProductDetailController extends Controller
         $product = new product();
         $product->sku = $sku;
         $prodExist = $productCtr->show($product);
-        $param =['old'=> $prodExist];
+        $param =['old'=> $prodExist, 'tipeBarang'=>type_barang::all()];
         return view('dashboard.barang.form_barang',$param);
     }
 

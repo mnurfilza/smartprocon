@@ -32,6 +32,10 @@
                                 <li {{ (Request::is('*user') ? 'class="active"' : '') }}>
                                     <a href="{{ url ('user') }}"><i class="fa fa-user fa-fw"></i> User</a>
                                 </li>
+
+                                <li {{ (Request::is('*ParamConfig') ? 'class="active"' : '') }}>
+                                    <a href="{{ url ('paramconfig') }}"><i class="fa fa-gear fa-fw"></i> Config Page</a>
+                                </li>
                             </ul>
                         </li>
                         <li class="divider"></li>
