@@ -13,7 +13,7 @@
 
 <div class="form-group">
     <label class="font-weight-bold">Link</label>
-    <input type="text" class="form-control @error('keterangan') is-invalid @enderror" name="link"  placeholder="Masukkan Keterangan Barang">
+    <input type="text" class="form-control @error('keterangan') is-invalid @enderror" name="link"  placeholder="Masukkan Link Video">
 </div>
 <input type="submit" value="Submit" class="btn btn-primary">
 </form>

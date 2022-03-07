@@ -19,7 +19,7 @@
 
 <div class="form-group">
     <label class="font-weight-bold">Harga</label>
-    <input type="text" class="form-control @error('price') is-invalid @enderror" name="price" value='{{ $item->price }}' placeholder="Masukkan Harga Per kilo">
+    <input type="text" class="form-control @error('price') is-invalid @enderror" name="price" value='{{ $item->price }}' placeholder="Masukkan Harga Ongkos Kirim Per kilo">
 </div>
 <input type="submit" value="Submit" class="btn btn-primary">
 </form>

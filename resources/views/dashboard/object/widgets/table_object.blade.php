@@ -11,8 +11,8 @@
 		<tr>
 			<td>{{$row->nama_object}}</td>
 			<td>{{ $row->keterangan }}</td>
-			<td class="col-lg-2">
-				<div class="col-lg-5 my-4">
+			<td class="col-lg-3">
+				<div class="col-lg-4 my-4">
 				<form action="/type_object/{{$row->id}}" method="POST" enctype='multipart/form-data'>
 					@method('delete')
 					@csrf
@@ -21,7 +21,7 @@
 				</form>
 				</div>
 
-				<div class="col-lg-3">
+				<div class="col-lg-4">
 					<a href="/type_object/{{ $row->id }}/edit" class="btn btn-info btn-sm">Show</a>
 				</div>
 			

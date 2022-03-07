@@ -160,7 +160,7 @@ class CustomerOfferingController extends Controller
                         $jumlah = (integer)$ssp->jumlah * (integer)$floorAndRooms[0];
                         $hargaSatuan = (integer)$ssp->jumlah * (integer)$floorAndRooms[0] * (integer)$barang->harga_satuan;
                     }
-                    $total = $jumlah * $hargaSatuan;
+
                     $ongkos_kirim = (float)$barang->berat_barang * (integer)$ongkir->price;
     
     
@@ -169,22 +169,28 @@ class CustomerOfferingController extends Controller
                     $offeringDetail->sku = $ssp->sku;
                     $offeringDetail->nama_produk = $ssp->nama_barang;
                     $offeringDetail->qty = $jumlah;
-                    $offeringDetail->harga = $hargaSatuan;
-                    $offeringDetail->total = $total;
+                    $offeringDetail->harga = $barang->harga_satuan;
                     $offeringDetail->ongkir = $ongkos_kirim;
+                    
                     if(!empty($ongkosPasang)){
                         $offeringDetail->ongkos_pasang = $ongkosPasang->harga;
                     }else{
                         $offeringDetail->ongkos_pasang = 0;
                     }
+
+                    $total = (integer)$ongkos_kirim + (integer)$offeringDetail->ongkos_pasang + (integer)$hargaSatuan;
+                    $offeringDetail->total = $total;
+                    
                     $offeringDetail->save();
-                   
-    
+                    
+
                     array_push($offerings, $offeringDetail);
-    
+                    
                 }
                 
+
                 //should return data for module
+                
                 $module = new modules();
                 $modules = $module->where('id_solutions', '=', $value)->first();
                 array_push($links, $modules);
