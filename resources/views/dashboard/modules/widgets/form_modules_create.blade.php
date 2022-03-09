@@ -4,7 +4,7 @@
 <div class="form-group">
     <label class="font-weight-bold">Solution</label>
     <select name="solution" class="form-control @error('object') is-invalid @enderror">
-        <option value="">Pilih Tipe Barang</option>
+        <option value="">Pilih Tipe Solusi</option>
         @foreach ($solution as $item )
         <option value={{$item->id}}>{{$item->nama_solution}}</option>
         @endforeach

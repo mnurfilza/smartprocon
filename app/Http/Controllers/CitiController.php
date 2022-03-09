@@ -40,6 +40,7 @@ class CitiController extends Controller
     {
         $messages = [
             'required' => ':attribute wajib diisi',
+            'max' => ':attribute maksimal :max karakter',
         ];
         $request->validate([
             'provinsi' => 'required',

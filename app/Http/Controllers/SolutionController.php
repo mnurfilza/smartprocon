@@ -39,10 +39,11 @@ class SolutionController extends Controller
     {
         $messages = [
             'required' => ':attribute wajib diisi',
+            'max'=>':attribute maksimal :max karakter',
         ];
         $request->validate([
-            'nama_solution' => 'required',
-            'keterangan' => 'required',
+            'nama_solution' => 'required|max:50',
+            'keterangan' => 'required|max:100',
 
         ],$messages);
         try {
@@ -95,10 +96,11 @@ class SolutionController extends Controller
     {
         $messages = [
             'required' => ':attribute wajib diisi',
+            'max'=>':attribute maksimal :max karakter',
         ];
          $validaateData = $request->validate([
-            'nama_solution' => 'required',
-            'keterangan' => 'required',
+            'nama_solution' => 'required|max:50',
+            'keterangan' => 'required|max:100',
         ],$messages);
 
        

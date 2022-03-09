@@ -151,14 +151,14 @@ class CustomerOfferingController extends Controller
     
                     if ($ssp->ruangan == 1 && $ssp->lantai == 1) {
                         $jumlah = (integer)$ssp->jumlah * (integer)$floorAndRooms[0] * (integer)$floorAndRooms[1];
-                        $hargaSatuan = (integer)$ssp->jumlah * (integer)$floorAndRooms[0] * (integer)$floorAndRooms[1] * (integer)$barang->harga_satuan;
+                        // $hargaSatuan = (integer)$ssp->jumlah * (integer)$floorAndRooms[0] * (integer)$floorAndRooms[1] * (integer)$barang->harga_satuan;
                     } elseif ($ssp->ruangan == 1) {
                         $jumlah = (integer)$ssp->jumlah * (integer)$floorAndRooms[1];
-                        $hargaSatuan = (integer)$ssp->jumlah * (integer)$floorAndRooms[1] * (integer)$barang->harga_satuan;
+                        // $hargaSatuan = (integer)$ssp->jumlah * (integer)$floorAndRooms[1] * (integer)$barang->harga_satuan;
     
                     } elseif ($ssp->lantai == 1) {
                         $jumlah = (integer)$ssp->jumlah * (integer)$floorAndRooms[0];
-                        $hargaSatuan = (integer)$ssp->jumlah * (integer)$floorAndRooms[0] * (integer)$barang->harga_satuan;
+                        // $hargaSatuan = (integer)$ssp->jumlah * (integer)$floorAndRooms[0] * (integer)$barang->harga_satuan;
                     }
 
                     $ongkos_kirim = (float)$barang->berat_barang * (integer)$ongkir->price;
@@ -178,7 +178,7 @@ class CustomerOfferingController extends Controller
                         $offeringDetail->ongkos_pasang = 0;
                     }
 
-                    $total = (integer)$ongkos_kirim + (integer)$offeringDetail->ongkos_pasang + (integer)$hargaSatuan;
+                    $total = (integer)$jumlah * ((integer)$ongkos_kirim + (integer)$offeringDetail->ongkos_pasang + (integer)$barang->harga_satuan);
                     $offeringDetail->total = $total;
                     
                     $offeringDetail->save();

@@ -38,10 +38,11 @@ class TypeBarangController extends Controller
     {
         $messages = [
             'required' => ':attribute wajib diisi',
+            'max' => ':attribute maksimal :max karakter',
         ];
         $request->validate([
-            'tipe_barang' => 'required',
-            'keterangan' => 'required',
+            'tipe_barang' => 'required|max:50',
+            'keterangan' => 'required|max:50',
 
         ],$messages);
         try {
@@ -99,10 +100,12 @@ class TypeBarangController extends Controller
     {
         $messages = [
             'required' => ':attribute wajib diisi',
+            'max' => ':attribute maksimal :max karakter',
+
         ];
          $validaateData = $request->validate([
-            'type_barang' => 'required',
-            'keterangan' => 'required',
+            'tipe_barang' => 'required|max:50',
+            'keterangan' => 'required|max:50',
         ],$messages);
 
        

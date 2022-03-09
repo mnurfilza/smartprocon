@@ -19,7 +19,7 @@ class CreateOngkosPasangsTable extends Migration
             $table->string('kota',50);
             $table->string('provinsi',50);
             $table->string('type_barang')->foreign()->references('type_barang')->on('type_barang');
-            $table->string('harga',50);
+            $table->string('harga',255);
 
 
         });

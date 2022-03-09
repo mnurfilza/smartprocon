@@ -38,11 +38,12 @@ class TypeObjectController extends Controller
     {
         $messages = [
             'required' => ':attribute wajib diisi',
+            'max'=>':attribute maksimal :max karakter',
+
         ];
         $request->validate([
-            'nama_object' => 'required',
-            'keterangan' => 'required',
-
+            'nama_object' => 'required|max:50',
+            'keterangan' => 'required|max:100',
         ],$messages);
         try {
 
@@ -96,10 +97,12 @@ class TypeObjectController extends Controller
     {
         $messages = [
             'required' => ':attribute wajib diisi',
+            'max'=>':attribute maksimal :max karakter',
+
         ];
-         $validaateData = $request->validate([
-            'nama_object' => 'required',
-            'keterangan' => 'required',
+        $validaateData=$request->validate([
+            'nama_object' => 'required|max:50',
+            'keterangan' => 'required|max:100',
         ],$messages);
 
        

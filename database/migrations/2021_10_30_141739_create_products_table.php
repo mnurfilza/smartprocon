@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('nama',100);
             $table->string('type_barang',50)->foreign()->references('type_barang')->on('type_barang');
             $table->string('description')->nullable();
-            $table->string('harga_satuan',10);
+            $table->string('harga_satuan',255);
             $table->string('garansi',10);
             $table->string('berat_barang',10);
             $table->string('createBy')->nullable();

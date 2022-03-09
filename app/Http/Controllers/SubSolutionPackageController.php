@@ -43,11 +43,12 @@ class SubSolutionPackageController extends Controller
     {
         $messages = [
             'required' => ':attribute wajib diisi',
+            'max' => ':attribute maksimal :max karakter',
         ];
         $request->validate([
             'solution_package' => 'required',
             'nama_barang' => 'required',
-            'jumlah' => 'required',
+            'jumlah' => 'required|max:255',
 
         ], $messages);
         try {
@@ -121,9 +122,11 @@ class SubSolutionPackageController extends Controller
     {
         $messages = [
             'required' => ':attribute wajib diisi',
+            'max' => ':attribute maksimal :max karakter',
+
         ];
         $request->validate([
-            'jumlah' => 'required',
+            'jumlah' => 'required|max:255',
 
         ], $messages);
 

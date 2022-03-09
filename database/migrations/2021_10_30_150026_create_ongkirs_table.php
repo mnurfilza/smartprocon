@@ -17,7 +17,7 @@ class CreateOngkirsTable extends Migration
             $table->id();
             $table->string('id_kota',20)->foreign('id_kota')->references('id')->on('citis');
             $table->string('kota',50);
-            $table->string('price',10);
+            $table->string('price',255);
 
         });
     }

@@ -33,7 +33,7 @@
 
 <div class="form-group">
     <label class="font-weight-bold">Harga</label>
-    <input type="text" class="form-control @error('price') is-invalid @enderror" name="price"  placeholder="Masukkan Harga Per kilo" value='{{$old->harga_satuan}}'>
+    <input type="text" class="form-control @error('price') is-invalid @enderror" name="price"  placeholder="Masukkan Harga Barang" value='{{$old->harga_satuan}}'>
 </div>
 <div class="form-group">
     <label class="font-weight-bold">Deskripsi</label>

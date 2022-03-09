@@ -41,10 +41,16 @@ class ProductController extends Controller
     
         $messages = [
             'required' => ':attribute wajib diisi',
+            'max' => ':attribute maksimal :max karakter',
         ];
         $request->validate([
-            'kode_barang'=>'required',
-            'nama_barang' => 'required',
+            'kode_barang'=>'required|max:100',
+            'nama_barang' => 'required|max:100',
+            'berat_barang' => 'required|max:10',
+            'garansi' => 'required|max:10',
+            'description' => 'required|max:255',
+
+
         ],$messages);
 
        
