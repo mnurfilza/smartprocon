@@ -40,10 +40,11 @@ class OngkirController extends Controller
     {
         $messages = [
             'required' => ':attribute wajib diisi',
+            'max' => ':attribute maksimal :max karakter',
         ];
         $request->validate([
             'kota' => 'required',
-            'price' => 'required',
+            'price' => 'required|max:255',
         ],$messages);
         try {
             $kota = explode("-", $request->input('kota'));
@@ -104,9 +105,10 @@ class OngkirController extends Controller
 
         $messages = [
             'required' => ':attribute wajib diisi',
+            'max' => ':attribute maksimal :max karakter',
         ];
          $validaateData = $request->validate([
-            'price' => 'required',
+            'price' => 'required|max:255',
         ],$messages);
 
 

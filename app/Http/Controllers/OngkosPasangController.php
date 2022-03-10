@@ -42,9 +42,10 @@ class OngkosPasangController extends Controller
     {
         $messages = [
             'required' => ':attribute wajib diisi',
+            'max' => ':attribute maksimal :max karakter',
         ];
         $request->validate([
-            'price' => 'required',
+            'price' => 'required|max:50',
         ], $messages);
 
         try {
@@ -106,9 +107,10 @@ class OngkosPasangController extends Controller
     {
         $messages = [
             'required' => ':attribute wajib diisi',
+            'max' => ':attribute maksimal :max karakter',
         ];
         $validaateData = $request->validate([
-            'harga' => 'required',
+            'harga' => 'required|max:50',
         ], $messages);
 
 

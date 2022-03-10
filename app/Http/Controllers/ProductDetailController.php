@@ -35,12 +35,10 @@ class ProductDetailController extends Controller
             'max' => ':attribute maksimal :max karakter',
         ];
         $request->validate([
-            'kode_barang'=>'required|max:100',
-            'nama_barang' => 'required|max:100',
+            'nama' => 'required|max:100',
             'berat_barang' => 'required|max:10',
             'garansi' => 'required|max:10',
-            'description' => 'required|max:255',
-
+            'description' => 'max:255',
 
         ],$messages);
 
@@ -54,7 +52,7 @@ class ProductDetailController extends Controller
                 $product->garansi= $request->garansi;
                 $product->harga_satuan = $request->price;
                 $product->description = $request->description;
-
+                $product->berat_barang = $request->berat_barang;
                 // print_r($product->garansi);
                 // die();
                 product::where('sku',$sku)->update($product->toArray());

@@ -48,9 +48,7 @@ class ProductController extends Controller
             'nama_barang' => 'required|max:100',
             'berat_barang' => 'required|max:10',
             'garansi' => 'required|max:10',
-            'description' => 'required|max:255',
-
-
+            'description' => 'max:255',
         ],$messages);
 
        
