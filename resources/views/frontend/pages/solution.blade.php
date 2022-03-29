@@ -56,7 +56,7 @@
                         </div>
                         <div class="description poppins">
                             Wherever you go, your home is always close to you and secured. Using our “Security &
-                            Access Control” Solution, you can mmediately monitor your home or get alerted for any
+                            Access Control” Solution, you can immediately monitor your home or get alerted for any
                             security threats. Our solution helps you better protect your property and loved ones as
                             well as saves you time and money, and ultimately gives you peace of mind.
                         </div>

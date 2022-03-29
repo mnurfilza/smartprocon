@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\SubSolutionPackage;
 use App\Models\product;
 use App\Models\type_barang;
 use Illuminate\Http\Request;
@@ -96,7 +96,16 @@ class ProductController extends Controller
      */
     public function delete(string $sku)
     {
+
+        try {
+            
+            if (SubSolutionPackage::where('sku', '=',$sku)->exists()){
+                throw new \Exception("gagal menghapus data, Data Exists Ditable Sub Solution Package");
+            }
         product::where('sku',$sku)->delete();
+        } catch (\Throwable $th) {
+            return redirect()->back()->withErrors([$th->getMessage()]);
+        }
         return redirect()->back()->with('success', 'Berhasil menghapus data');
     }
 }

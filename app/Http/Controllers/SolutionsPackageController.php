@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\solution;
 use App\Models\solutions_package;
+use App\Models\SubSolutionPackage;
 use App\Models\type_object;
 use Illuminate\Http\Request;
 
@@ -160,7 +161,19 @@ class SolutionsPackageController extends Controller
      */
     public function destroy(solutions_package $solutions_package)
     {
-        solutions_package::destroy($solutions_package->id);
+
+        //check if there is any data in another table
+        try{
+            if (SubSolutionPackage::where('id_solution_package', '=',$solutions_package->id)->exists()){
+                throw new \Exception("gagal menghapus data, Data Exists Ditable Sub Solution Package");
+            }
+            solutions_package::destroy($solutions_package->id);
+        }catch(\Throwable $th){
+            return redirect()->back()->withErrors([$th->getMessage()]);
+
+        }
+
+      
         return redirect()->back()->with('success', 'Berhasil menghapus data');
     }
 

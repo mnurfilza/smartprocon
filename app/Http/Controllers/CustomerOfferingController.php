@@ -88,7 +88,6 @@ class CustomerOfferingController extends Controller
                 array_push($ids, $solutionPackage->id);
             }
 
-
             if (count($ids) == 0) {
                 throw new \Exception("Package Solution Not Exists");
             }
@@ -130,6 +129,9 @@ class CustomerOfferingController extends Controller
                 //itungan untuk jumlah barang
                 $spCtr = new SolutionsPackageController();
                 $solutionPackage = $spCtr->getSolution($value, $request->input('object'));
+                if (empty($solutionPackage)) {
+                    continue;
+                }
                 $modelSub = new SubSolutionPackage();
                 $modelSub->id_solution_package = $solutionPackage->id;
                 $subCtr = new SubSolutionPackageController();

@@ -14,7 +14,7 @@
                         <div class="text-desc">
                             Our online design tool will give
                             you immediate, ideal and
-                            costeffective solution instantly
+                            cost-effective solution instantly
                         </div>
                         <div class="box-button">
                             <a class="btn btn-success btn-green" href="{{URL::to('/offering-ges')}}">
@@ -171,7 +171,7 @@
                             <p class="desc poppins">
                                 The online design and pricing allow you to
                                 manage your own Smart Home project
-                                without going through a 3 rd party
+                                without going through a 3rd party
                             </p>
                         </div>
                     </div>
@@ -283,7 +283,7 @@
                             <img src="{{ asset('images/smarthome/ic-quotes.png') }}" class="lazy img-fluid"
                                 alt="quotes">
                             <p class="text-review poppins">
-                                "As a five-star hotel owner that values unyielding quality services and integrity, it is important to work with partners and suppliers that share our values. GES team has consistently exhibited these values throughout the journey from early design,development, implementation and operation of our Royal Tulip hotel project"
+                                "As a five-star hotel owner that values unyielding quality services and integrity, it is important to work with partners and suppliers that share our values. GES team has consistently exhibited these values throughout the journey from early design, development, implementation and operation of our Royal Tulip hotel project"
                             </p>
                         </div>
                         <div class="card-body text-center">

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ongkos_pasang;
+use App\Models\product;
 use App\Models\type_barang;
 use Illuminate\Http\Request;
 
@@ -126,7 +128,21 @@ class TypeBarangController extends Controller
      */
     public function destroy(type_barang $type_barang)
     {
-        type_barang::destroy($type_barang->id);
+
+        try {
+            $tpeBarang = type_barang::find($type_barang->id);
+            if (product::where('type_barang', '=',$tpeBarang->type_barang)->exists()){
+                throw new \Exception("gagal menghapus data, Data Exists Ditable Produk");
+            }
+
+            if (ongkos_pasang::where('type_barang', '=',$tpeBarang->type_barang)->exists()){
+                throw new \Exception("gagal menghapus data, Data Exists Ditable Ongkos Pasang");
+            }
+            type_barang::destroy($type_barang->id);
+
+        } catch (\Throwable $th) {
+            return redirect()->back()->withErrors([$th->getMessage()]);
+        }
         return redirect()->back()->with('success', 'Berhasil menghapus data');
     }
 }

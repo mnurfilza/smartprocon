@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\solutions_package;
 use App\Models\type_object;
 use Illuminate\Http\Request;
 
@@ -123,7 +123,16 @@ class TypeObjectController extends Controller
      */
     public function destroy(type_object $type_object)
     {
-        type_object::destroy($type_object->id);
+
+       try {
+        if (solutions_package::where('id_object', '=',$type_object->id)->exists()){
+            throw new \Exception("gagal menghapus data, Data Exists Ditable Solution Package");
+        }
+           type_object::destroy($type_object->id);
+       } catch (\Throwable $th) {
+        return redirect()->back()->withErrors([$th->getMessage()]);
+       }
+        
         return redirect()->back()->with('success', 'Berhasil menghapus data');
     }
 
