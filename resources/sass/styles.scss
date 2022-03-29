@@ -12,9 +12,12 @@
 @font-face {
     font-family: "Montserrat Regular";
     src: url("../../fonts/montserrat/montserrat-regular-webfont.eot"),
-        url("../../fonts/montserrat/montserrat-regular-webfont.woff") format("woff"),
-        url("../../fonts/montserrat/montserrat-regular-webfont.ttf") format("truetype"),
-        url("../../fonts/montserrat/montserrat-regular-webfont.svg") format("svg");
+        url("../../fonts/montserrat/montserrat-regular-webfont.woff")
+            format("woff"),
+        url("../../fonts/montserrat/montserrat-regular-webfont.ttf")
+            format("truetype"),
+        url("../../fonts/montserrat/montserrat-regular-webfont.svg")
+            format("svg");
     font-weight: normal;
     font-style: normal;
 }
@@ -22,8 +25,10 @@
 @font-face {
     font-family: "Montserrat Bold";
     src: url("../../fonts/montserrat/montserrat-bold-webfont.eot"),
-        url("../../fonts/montserrat/montserrat-bold-webfont.woff") format("woff"),
-        url("../../fonts/montserrat/montserrat-bold-webfont.ttf") format("truetype"),
+        url("../../fonts/montserrat/montserrat-bold-webfont.woff")
+            format("woff"),
+        url("../../fonts/montserrat/montserrat-bold-webfont.ttf")
+            format("truetype"),
         url("../../fonts/montserrat/montserrat-bold-webfont.svg") format("svg");
     font-weight: normal;
     font-style: normal;
@@ -60,7 +65,8 @@
     font-family: "Montserrat Light Italic";
     src: url("../../fonts/montserrat/Montserrat-LightItalic.eot"),
         url("../../fonts/montserrat/Montserrat-LightItalic.woff") format("woff"),
-        url("../../fonts/montserrat/Montserrat-LightItalic.ttf") format("truetype");
+        url("../../fonts/montserrat/Montserrat-LightItalic.ttf")
+            format("truetype");
     font-weight: normal;
     font-style: normal;
 }
@@ -249,7 +255,7 @@ input[type="number"] {
                 -webkit-transition: all 0.2s;
                 transition: all 0.2s;
 
-                &+.icon-bar {
+                & + .icon-bar {
                     margin-top: 4px;
                 }
 
@@ -951,7 +957,7 @@ input[type="number"] {
                     min-height: 450px;
 
                     @media (max-width: 768px) {
-                        padding: 2rem .25rem;
+                        padding: 2rem 0.25rem;
                     }
 
                     @media (max-width: 576px) {
@@ -1045,7 +1051,7 @@ input[type="number"] {
                 color: #707070;
                 border-radius: 1rem;
 
-                @media(max-width: 576px) {
+                @media (max-width: 576px) {
                     height: auto;
                     width: 100%;
                     border-radius: 0;
@@ -1291,7 +1297,6 @@ input[type="number"] {
                         .swiper {
                             margin-left: auto;
                             margin-right: auto;
-
                         }
                     }
 
@@ -1583,7 +1588,8 @@ input[type="number"] {
 
                 .card {
                     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04),
-                        0px 2px 6px rgba(0, 0, 0, 0.04), 0px 0px 1px rgba(0, 0, 0, 0.04);
+                        0px 2px 6px rgba(0, 0, 0, 0.04),
+                        0px 0px 1px rgba(0, 0, 0, 0.04);
                     border: none;
 
                     img.quotes {
@@ -1707,7 +1713,6 @@ input[type="number"] {
                 @media (max-width: 576px) {
                     top: calc(13vh - 10px);
                     height: 238px;
-                    
                 }
 
                 @media (max-width: 320px) {
@@ -2143,7 +2148,7 @@ input[type="number"] {
                     }
 
                     @media (max-width: 768px) {
-                        padding: 2rem .75rem;
+                        padding: 2rem 0.75rem;
                     }
 
                     @media (max-width: 576px) {
@@ -2337,6 +2342,11 @@ input[type="number"] {
             display: flex;
             justify-content: center;
             flex-direction: column;
+            width: 90%;
+
+            @media (max-width: 576px) {
+                width: 100%;
+            }
 
             .title {
                 font-size: 2rem;
@@ -2345,16 +2355,25 @@ input[type="number"] {
                 margin: 0 0 1.5rem;
 
                 @media (max-width: 576px) {
-                    font-size: 1.85rem;
+                    font-size: 1.65rem;
                     margin: 0 0 1rem;
                 }
 
                 @media (max-width: 375px) {
-                    font-size: 1.5rem;
+                    font-size: 1.45rem;
                 }
 
                 @media (max-width: 320px) {
                     font-size: 1.25rem;
+                }
+            }
+
+            img.solution {
+                display: flex;
+                margin: 0 auto 1.5rem;
+
+                @media (min-width: 576px) {
+                    display: none;
                 }
             }
 
@@ -2379,10 +2398,11 @@ input[type="number"] {
 
             @media (max-width: 576px) {
                 text-align: center;
+                display: none;
             }
 
             img.solution {
-                width: 95%;
+                width: 100%;
                 margin: 0 auto;
             }
         }
@@ -2395,7 +2415,7 @@ input[type="number"] {
         color: #707070;
 
         @media (max-width: 576px) {
-            padding: 4rem 0;
+            padding: 4rem 0.5rem;
         }
 
         @media (max-width: 320px) {
@@ -2420,16 +2440,25 @@ input[type="number"] {
                     margin: 0 0 1.5rem;
 
                     @media (max-width: 576px) {
-                        font-size: 1.85rem;
+                        font-size: 1.65rem;
                         margin: 0 0 1rem;
                     }
 
                     @media (max-width: 375px) {
-                        font-size: 1.5rem;
+                        font-size: 1.45rem;
                     }
 
                     @media (max-width: 320px) {
                         font-size: 1.25rem;
+                    }
+                }
+
+                img.solution {
+                    display: flex;
+                    margin: 0 auto 1.5rem;
+
+                    @media (min-width: 576px) {
+                        display: none;
                     }
                 }
 
@@ -2451,13 +2480,16 @@ input[type="number"] {
 
             .box-img {
                 text-align: left;
+                width: 90%;
 
                 @media (max-width: 576px) {
                     text-align: center;
+                    width: 100%;
+                    display: none;
                 }
 
                 img.solution {
-                    width: 85%;
+                    width: 100%;
                     margin: 0 auto;
                 }
             }
@@ -2774,6 +2806,7 @@ input[type="number"] {
                     justify-content: center;
 
                     li.progress-bar__dot {
+                        pointer-events: none;
                         position: relative;
                         display: flex;
                         justify-content: center;
@@ -3311,7 +3344,7 @@ input[type="number"] {
 .page-result {
     padding: 2rem 0 5rem;
 
-    @media(max-width: 576px) {
+    @media (max-width: 576px) {
         padding: 2rem 0;
     }
 
@@ -3323,7 +3356,7 @@ input[type="number"] {
                 .box-video {
                     padding: 3.5rem 0 1rem;
 
-                    @media(max-width: 576px) {
+                    @media (max-width: 576px) {
                         padding: 2rem 1rem 1rem;
                     }
 
@@ -3334,22 +3367,22 @@ input[type="number"] {
                         margin: 0 0 1.5rem;
                         text-align: center;
 
-                        @media(max-width: 576px) {
+                        @media (max-width: 576px) {
                             font-size: 2rem;
                             margin: 0 0 1.25rem;
                         }
 
-                        @media(max-width: 320px) {
-                            font-size: 1.5rem
+                        @media (max-width: 320px) {
+                            font-size: 1.5rem;
                         }
                     }
 
                     video {
-                        border-radius: .75rem;
-                        -webkit-border-radius: .75rem;
-                        -moz-border-radius: .75rem;
-                        -ms-border-radius: .75rem;
-                        -o-border-radius: .75rem;
+                        border-radius: 0.75rem;
+                        -webkit-border-radius: 0.75rem;
+                        -moz-border-radius: 0.75rem;
+                        -ms-border-radius: 0.75rem;
+                        -o-border-radius: 0.75rem;
                     }
                 }
             }
@@ -3357,10 +3390,10 @@ input[type="number"] {
     }
 
     section.section-two {
-        background: #F8F8F8;
+        background: #f8f8f8;
         padding: 4rem 0;
 
-        @media(max-width: 576px) {
+        @media (max-width: 576px) {
             padding: 4rem 0 2rem;
         }
 
@@ -3373,13 +3406,13 @@ input[type="number"] {
                     margin: 0 0 2rem;
                     text-align: center;
 
-                    @media(max-width: 576px) {
+                    @media (max-width: 576px) {
                         font-size: 2rem;
                         margin: 0 0 1.25rem;
                     }
 
-                    @media(max-width: 320px) {
-                        font-size: 1.5rem
+                    @media (max-width: 320px) {
+                        font-size: 1.5rem;
                     }
                 }
 
@@ -3389,11 +3422,11 @@ input[type="number"] {
                     margin: 0 auto 1rem;
                     width: 55%;
 
-                    @media(max-width: 576px) {
+                    @media (max-width: 576px) {
                         width: 90%;
                     }
 
-                    @media(max-width: 320px) {
+                    @media (max-width: 320px) {
                         width: 100%;
                         padding: 0 1rem;
                     }
@@ -3403,12 +3436,12 @@ input[type="number"] {
                         font-size: 1.25rem;
                         margin: 0 1rem 0 0;
 
-                        @media(max-width: 576px) {
+                        @media (max-width: 576px) {
                             width: 50%;
                             font-size: 1.15rem;
                         }
 
-                        @media(max-width: 320px) {
+                        @media (max-width: 320px) {
                             font-size: 1rem;
                         }
                     }
@@ -3417,12 +3450,12 @@ input[type="number"] {
                         width: 40%;
                         font-size: 1.25rem;
 
-                        @media(max-width: 576px) {
+                        @media (max-width: 576px) {
                             width: 50%;
                             font-size: 1.15rem;
                         }
 
-                        @media(max-width: 320px) {
+                        @media (max-width: 320px) {
                             font-size: 1rem;
                         }
                     }
@@ -3434,7 +3467,7 @@ input[type="number"] {
     section.section-three {
         padding: 5em 0 1rem;
 
-        @media(max-width: 576px) {
+        @media (max-width: 576px) {
             padding: 2.5rem 0 0;
         }
 
@@ -3442,25 +3475,23 @@ input[type="number"] {
             .row {
                 .table-responsive {
                     table {
-                        @media(max-width: 576px) {
+                        @media (max-width: 576px) {
                             font-size: 0.85rem;
                         }
 
-                        @media(max-width: 320px) {
+                        @media (max-width: 320px) {
                             font-size: 0.75rem;
                         }
 
                         thead {
-                            background: #04770C;
-                            color: #FFF;
+                            background: #04770c;
+                            color: #fff;
                         }
                     }
                 }
             }
         }
     }
-
-
 }
 
 // ======= End Page Result ======= //

@@ -165,8 +165,8 @@
                             <div class="form-check form-check-inline poppins">
                                 <div class="box-radio">
                                     <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                        id="inlineRadio2" value="500$-800$">
-                                    <label class="form-check-label poppins" for="inlineRadio2">$500 - $800</label>
+                                        id="inlineRadio2" value="800$-1000$">
+                                    <label class="form-check-label poppins" for="inlineRadio2">$800 - $1000</label>
                                 </div>
 
                                 <div class="box-img">
@@ -179,8 +179,8 @@
                             <div class="form-check form-check-inline poppins">
                                 <div class="box-radio">
                                     <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                        id="inlineRadio1" value="500$-800$">
-                                    <label class="form-check-label poppins" for="inlineRadio1">$500 - $800</label>
+                                        id="inlineRadio1" value="1000$-1500$">
+                                    <label class="form-check-label poppins" for="inlineRadio1">$1000 - $1500</label>
                                 </div>
 
                                 <div class="box-img">
@@ -193,8 +193,8 @@
                             <div class="form-check form-check-inline poppins">
                                 <div class="box-radio">
                                     <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                        id="inlineRadio2" value="$800-More">
-                                    <label class="form-check-label poppins" for="inlineRadio2">More than $800</label>
+                                        id="inlineRadio2" value="$2000-More">
+                                    <label class="form-check-label poppins" for="inlineRadio2">More than $2000</label>
                                 </div>
                                 <div class="box-img">
                                     <img src="{{ asset('images/smarthome/radio_entypo_dots.png') }}"

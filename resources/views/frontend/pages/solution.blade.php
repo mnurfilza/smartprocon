@@ -19,9 +19,10 @@
     <section class="section-one bg-white">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-5">
+                <div class="col-12 col-md-6">
                     <div class="box-text">
-                        <div class="title poppins">Lighting Control</div>
+                        <div class="title poppins">Smart Lighting Control</div>
+                        <img src="{{ asset('images/smarthome/solution-1.webp') }}" class="lazy img-fluid solution" alt="image">
                         <div class="description poppins">
                             Our lighting control solution provides many capabilities including smart and
                             energy-saving lighting fixtures and devices, allowing conveniences such as adjusting
@@ -30,10 +31,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-7">
+                <div class="col-12 col-md-6">
                     <div class="box-img">
-                        <img src="{{ asset('images/smarthome/solution-1.webp') }}" class="lazy img-fluid solution"
-                            alt="image">
+                        <img src="{{ asset('images/smarthome/solution-1.webp') }}" class="lazy img-fluid solution" alt="image">
                     </div>
                 </div>
             </div>
@@ -43,17 +43,17 @@
     <section class="section-two">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-7">
+                <div class="col-12 col-md-6">
                     <div class="box-img">
-                        <img src="{{ asset('images/smarthome/solution-2.webp') }}" class="lazy img-fluid solution"
-                            alt="image">
+                        <img src="{{ asset('images/smarthome/solution-2.webp') }}" class="lazy img-fluid solution" alt="image">
                     </div>
                 </div>
-                <div class="col-12 col-md-5">
+                <div class="col-12 col-md-6">
                     <div class="box-text">
                         <div class="title poppins">
-                            Security & Access Control
+                            Access Control & Security
                         </div>
+                        <img src="{{ asset('images/smarthome/solution-2.webp') }}" class="lazy img-fluid solution" alt="image">
                         <div class="description poppins">
                             Wherever you go, your home is always close to you and secured. Using our “Security &
                             Access Control” Solution, you can immediately monitor your home or get alerted for any
@@ -69,11 +69,12 @@
     <section class="section-one bg-white">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-5">
+                <div class="col-12 col-md-6">
                     <div class="box-text">
                         <div class="title poppins">
                             Audio & Video Control
                         </div>
+                        <img src="{{ asset('images/smarthome/solution-3.webp') }}" class="lazy img-fluid solution" alt="image">
                         <div class="description poppins">
                             The A&V module allows users to control and automate their entertainment needs and
                             preferences on their fingertips by controlling their existing visual and audio devices.
@@ -82,10 +83,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-7">
+                <div class="col-12 col-md-6">
                     <div class="box-img">
-                        <img src="{{ asset('images/smarthome/solution-3.webp') }}" class="lazy img-fluid solution"
-                            alt="image">
+                        <img src="{{ asset('images/smarthome/solution-3.webp') }}" class="lazy img-fluid solution" alt="image">
                     </div>
                 </div>
             </div>
@@ -95,17 +95,17 @@
     <section class="section-two">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-7">
+                <div class="col-12 col-md-6">
                     <div class="box-img">
-                        <img src="{{ asset('images/smarthome/solution-4.webp') }}" class="lazy img-fluid solution"
-                            alt="image">
+                        <img src="{{ asset('images/smarthome/solution-4.webp') }}" class="lazy img-fluid solution" alt="image">
                     </div>
                 </div>
-                <div class="col-12 col-md-5">
+                <div class="col-12 col-md-6">
                     <div class="box-text">
                         <div class="title poppins">
                             Indoor Comfort
                         </div>
+                        <img src="{{ asset('images/smarthome/solution-4.webp') }}" class="lazy img-fluid solution" alt="image">
                         <div class="description poppins">
                             Indoor Comfort solutions enable you to control or automate optimum levels of natural
                             ambience, lighting, temperature and humidity, based on your preferences and external
@@ -122,12 +122,13 @@
     <section class="section-one bg-white">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-5">
+                <div class="col-12 col-md-6">
                     <div class="box-text">
                         <div class="title poppins">
                             Smart Control &
                             Connectivity
                         </div>
+                        <img src="{{ asset('images/smarthome/solution-5.webp') }}" class="lazy img-fluid solution" alt="image">
                         <div class="description poppins">
                             Our “Control & Connectivity” solution enables you to integrate and operate your
                             multi-platform (Google, Alexa, Apple, Samsung, etc) devices and existing appliances with
@@ -137,10 +138,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-7">
+                <div class="col-12 col-md-6">
                     <div class="box-img">
-                        <img src="{{ asset('images/smarthome/solution-5.webp') }}" class="lazy img-fluid solution"
-                            alt="image">
+                        <img src="{{ asset('images/smarthome/solution-5.webp') }}" class="lazy img-fluid solution" alt="image">
                     </div>
                 </div>
             </div>
