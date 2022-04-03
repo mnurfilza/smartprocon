@@ -396,16 +396,24 @@ input[type="number"] {
                         font-family: "Poppins", sans-serif;
                         z-index: 1;
                         background: #f4fff6;
-                        padding: 5rem 1.5rem;
+                        padding: 6rem 1.5rem 10rem;
                         margin: 0 0.5rem 0 0;
                         border-radius: 20px;
 
                         @media (max-width: 1024px) {
-                            padding: 5rem 1.25rem 5.25rem;
+                            padding: 6rem 1.25rem;
+                        }
+
+                        @media (max-width: 992px) {
+                            padding: 5rem 1.25rem;
+                        }
+
+                        @media (max-width: 840px) {
+                            padding: 1.5rem 1.25rem;
                         }
 
                         @media (max-width: 768px) {
-                            padding: 5rem 0.75rem 5.5rem;
+                            padding: 1.25rem 0.75rem;
                         }
 
                         @media (max-width: 576px) {
@@ -559,116 +567,133 @@ input[type="number"] {
                             height: auto;
                         }
 
-                        .swiper-slide {
-                            position: relative;
-                            text-align: center;
-                            font-size: 18px;
-                            background: #fff;
-                            display: flex;
-                            padding: 0;
-                            flex-direction: column;
-                            justify-content: center;
-                            height: 440px;
-
-                            @media (max-width: 1024px) {
-                                height: 435px;
-                            }
-
-                            @media (max-width: 768px) {
-                                height: 440px;
-                            }
-
-                            @media (max-width: 576px) {
-                                padding: 0;
-                                height: 350px;
-                            }
-
-                            @media (max-width: 320px) {
-                                padding: 0;
-                                height: 300px;
-                            }
-
-                            .text-banner {
-                                z-index: 2;
-                                color: #fff;
-                                font-size: 1.5rem;
+                        .swiper-wrapper {
+                            .swiper-slide {
+                                position: relative;
                                 text-align: center;
-                                position: absolute;
-                                bottom: 10px;
-                                left: 50%;
-                                margin-right: -50%;
-                                transform: translate(-50%, -50%);
-                                text-shadow: 2px 2px 4px #333;
+                                font-size: 18px;
+                                background: #fff;
+                                display: flex;
+                                padding: 0;
+                                flex-direction: column;
+                                justify-content: center;
+                                height: 540px;
 
-                                @media (max-width: 576px) {
-                                    bottom: 2%;
-                                    font-size: 18px;
-                                    padding: 0 0.25rem;
+                                @media (min-width: 1400px) {
+                                    height: 630px;
                                 }
-
-                                @media (max-width: 375px) {
-                                    bottom: 5%;
-                                }
-
-                                @media (max-width: 320px) {
-                                    bottom: 6%;
-                                    padding: 0 0.5rem;
-                                    font-size: 14px;
-                                }
-                            }
-
-                            img.cover {
-                                position: absolute;
-                                left: 0;
-                                top: 0;
-                                z-index: 0;
-                                width: 100%;
-                                height: 440px;
-                                object-fit: cover;
-                                border-radius: 25px;
 
                                 @media (max-width: 1024px) {
-                                    height: 435px;
+                                    height: 520px;
+                                }
+
+                                @media (max-width: 992px) {
+                                    height: 420px;
+                                }
+
+                                @media (max-width: 840px) {
+                                    height: 300px;
                                 }
 
                                 @media (max-width: 768px) {
-                                    height: 440px;
+                                    height: 280px;
                                 }
 
                                 @media (max-width: 576px) {
-                                    height: 350px;
-                                    object-fit: cover;
-                                    border-radius: 0;
-                                    -webkit-border-radius: 0;
-                                    -moz-border-radius: 0;
-                                    -ms-border-radius: 0;
-                                    -o-border-radius: 0;
+                                    padding: 0;
+                                    height: 280px;
                                 }
 
                                 @media (max-width: 320px) {
-                                    height: 300px;
+                                    padding: 0;
+                                    height: 240px;
                                 }
-                            }
 
-                            .black-shadow {
-                                width: 100%;
-                                height: 100%;
-                                background-color: #000;
-                                opacity: 0.5;
-                                border-radius: 25px;
+                                .text-banner {
+                                    z-index: 2;
+                                    color: #fff;
+                                    font-size: 1.5rem;
+                                    text-align: center;
+                                    position: absolute;
+                                    bottom: 10px;
+                                    left: 50%;
+                                    margin-right: -50%;
+                                    transform: translate(-50%, -50%);
+                                    text-shadow: 2px 2px 4px #333;
 
-                                @media (max-width: 576px) {
-                                    border-radius: 0;
-                                    -webkit-border-radius: 0;
-                                    -moz-border-radius: 0;
-                                    -ms-border-radius: 0;
-                                    -o-border-radius: 0;
+                                    @media (max-width: 576px) {
+                                        bottom: 2%;
+                                        font-size: 18px;
+                                        padding: 0 0.25rem;
+                                    }
+
+                                    @media (max-width: 375px) {
+                                        bottom: 5%;
+                                    }
+
+                                    @media (max-width: 320px) {
+                                        bottom: 6%;
+                                        padding: 0 0.5rem;
+                                        font-size: 14px;
+                                    }
                                 }
-                            }
 
-                            .swiper {
-                                margin-left: auto;
-                                margin-right: auto;
+                                img.cover {
+                                    position: absolute;
+                                    left: 0;
+                                    top: 0;
+                                    z-index: 0;
+                                    width: 100%;
+                                    height: auto;
+                                    // object-fit: contain;
+                                    border-radius: 25px;
+
+                                    @media (max-width: 1024px) {
+                                        height: 520px;
+                                    }
+
+                                    @media (max-width: 992px) {
+                                        height: 420px;
+                                    }
+
+                                    @media (max-width: 840px) {
+                                        height: auto;
+                                    }
+
+                                    // @media (max-width: 768px) {
+                                    //     height: 500px;
+                                    // }
+
+                                    @media (max-width: 576px) {
+                                        height: 280px;
+                                        object-fit: cover;
+                                        border-radius: 0;
+                                        -webkit-border-radius: 0;
+                                        -moz-border-radius: 0;
+                                        -ms-border-radius: 0;
+                                        -o-border-radius: 0;
+                                    }
+
+                                    @media (max-width: 320px) {
+                                        height: 240px;
+                                    }
+                                }
+
+                                // .black-shadow {
+                                //     width: 100%;
+                                //     height: 100%;
+                                //     background-color: #000;
+                                //     opacity: 0.5;
+                                //     border-radius: 25px;
+                                //     @media (max-width: 576px) {
+                                //         border-radius: 0;
+                                //     }
+                                // }
+
+                                .swiper {
+                                    margin-left: auto;
+                                    margin-right: auto;
+                                }
                             }
                         }
 
@@ -1046,10 +1071,14 @@ input[type="number"] {
         .container-fluid {
             .swiper {
                 width: 80%;
-                height: 550px;
+                height: 600px;
                 margin: 0 auto 1rem;
                 color: #707070;
                 border-radius: 1rem;
+
+                @media (min-width: 1400px) {
+                    height: 680px;
+                }
 
                 @media (max-width: 576px) {
                     height: auto;
@@ -2511,7 +2540,7 @@ input[type="number"] {
 
         @media (max-width: 576px) {
             height: auto;
-            padding-top: 5rem;
+            padding-top: 5.75rem;
         }
 
         .container {
@@ -2523,34 +2552,35 @@ input[type="number"] {
             align-items: center;
 
             @media (max-width: 576px) {
-                height: calc(35vh - 56px);
+                height: calc(100vh - 100px);
             }
 
             img.cover-banner {
                 position: absolute;
                 left: 0;
-                top: 10%;
+                top: 0;
                 z-index: 0;
                 width: 100%;
                 height: 100vh;
-                object-fit: contain;
+                object-fit: cover;
                 object-position: top;
 
                 @media (max-width: 576px) {
-                    top: 32%;
-                    height: auto;
-                    object-fit: contain;
+                    top: 0;
+                    height: 100vh;
+                    object-fit: cover;
                     object-position: center;
-                }
-
-                @media (max-width: 320px) {
-                    top: 35%;
                 }
             }
 
             .box-title {
                 z-index: 2;
                 color: #fff;
+                padding: 2.5rem 0 0;
+
+                @media (max-width: 576px) {
+                    padding: 0;
+                }
 
                 .text-head {
                     font-size: 3.25rem;
@@ -2559,7 +2589,42 @@ input[type="number"] {
                     text-align: center;
 
                     @media (max-width: 576px) {
-                        font-size: 2.5rem;
+                        font-size: 2rem;
+                        line-height: 1.5rem;
+                    }
+
+                    @media (max-width: 320px) {
+                        font-size: 1.5rem;
+                    }
+                }
+
+                .box-office {
+                    margin: 1.5rem 0 0;
+
+                    .subhead {
+                        width: 100%;
+                        text-align: center;
+                        margin: 0 auto;
+                        font-size: 1.5rem;
+                        font-weight: bold;
+                        line-height: 2rem;
+
+                        @media (max-width: 576px) {
+                            font-size: 1rem;
+                            line-height: 1.5rem;
+                        }
+
+                        &.two {
+                            font-size: 1.25rem;
+                            line-height: 2rem;
+                            font-weight: normal;
+                            margin: 0.5rem 0;
+
+                            @media (max-width: 576px) {
+                                font-size: 0.9rem;
+                                line-height: 1.5rem;
+                            }
+                        }
                     }
                 }
             }

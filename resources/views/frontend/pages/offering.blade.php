@@ -73,6 +73,7 @@
                             </div>
                         </div>
                         @endforeach
+                        <h5 id="messageChoice" style="color: red;"></h5>
 
                         <!-- error message untuk option -->
                         @error('option')
@@ -141,6 +142,7 @@
                             </div>
                         </div>
                     </div>
+                    <h5 id="messageChoice" style="color: red;"></h5>
                 </div>
 
                 <div class="step step3 hidden">
@@ -203,6 +205,7 @@
                             </div>
                         </div>
                     </div>
+                    <h5 id="messageChoice" style="color: red;"></h5>
                 </div>
 
                 <div class="step step4 hidden">
@@ -235,9 +238,7 @@
                         </div>
                         @enderror
                     </div>
-
-
-
+                    <h5 id="messageChoice" style="color: red;"></h5>
                 </div>
 
                 <div class="step step5 hidden">
@@ -292,7 +293,7 @@
                                     list="datalistOptions" id="inputCity" placeholder="Please enter your city">
                                 <datalist id="datalistOptions">
                                     @foreach ($citi as $item)
-                                        <option value="{{$item->id}}-{{$item->nama_kota}}">{{$item->nama_kota}}</option>
+                                    <option value="{{$item->id}}-{{$item->nama_kota}}">{{$item->nama_kota}}</option>
                                     @endforeach
 
                                     @error('option')
@@ -308,7 +309,8 @@
                             <label for="inputCountry" class="col-2 col-md-2 col-form-label poppins">Country</label>
                             <div class="col-12 col-md-10">
                                 <input type="text" class="form-control poppins @error('country') is-invalid @enderror"
-                                    name="country" id="country" value="{{ old('title') }}" placeholder="Please enter your country">
+                                    name="country" id="country" value="{{ old('title') }}"
+                                    placeholder="Please enter your country">
 
                                 @error('country')
                                 <div class="alert alert-danger mt-2">
@@ -344,6 +346,11 @@
     const numberOfSteps = 5;
     let currentStep = 1;
 
+    const objectButtons = document.querySelectorAll('input[name="object"]');
+    const floorButtons = document.querySelectorAll('input[name="floor-and-rooms"]');
+    const budgetButtons = document.querySelectorAll('input[name="inlineRadioOptions"]');
+    const systemButtons = document.querySelectorAll('input[name="solution[]"]');
+
     for (let i = 0; i < dots.length; ++i) {
         dots[i].addEventListener('click', () => {
             goToStep(i + 1)
@@ -354,9 +361,28 @@
     nextButton.onclick = goNext
 
 
-    function doThing(){
+    function doThing() {
         document.getElementById("country").value = "Indonesia";
     }
+
+    // Disable button next first step
+    if (currentStep === 1) {
+        disable(previousButton);
+        disable(next);
+
+        for (const radioButton of objectButtons) {
+            radioButton.addEventListener('change', showSelected);
+        }
+
+        function showSelected(e) {
+            if (this.checked === false) {
+                document.querySelector('#messageChoice').innerText = `You haven't selected choice`;
+            } else {
+                enable(next);
+            }
+        }
+    }
+
     function goNext(e) {
         e.preventDefault()
         currentStep += 1
@@ -400,12 +426,60 @@
             show(submitButton);
             hide(stepLine);
         }
-
-        //else if first step
+        //Check Step Choice
         else if (currentStep === 1) {
             disable(previousButton);
             enable(next);
             hide(submitButton);
+
+        } else if (currentStep === 2) {
+            console.log("Step = ", currentStep);
+            enable(previousButton);
+            disable(next);
+
+            for (const radioButton of floorButtons) {
+                radioButton.addEventListener('change', showSelected);
+            }
+
+            function showSelected(e) {
+                if (this.checked === false) {
+                    document.querySelector('#messageChoice').innerText = `You haven't selected choice`;
+                } else {
+                    enable(next);
+                }
+            }
+        } else if (currentStep === 3) {
+            console.log("Step = ", currentStep);
+            enable(previousButton);
+            disable(next);
+
+            for (const radioButton of budgetButtons) {
+                radioButton.addEventListener('change', showSelected);
+            }
+
+            function showSelected(e) {
+                if (this.checked === false) {
+                    document.querySelector('#messageChoice').innerText = `You haven't selected choice`;
+                } else {
+                    enable(next);
+                }
+            }
+        } else if (currentStep === 4) {
+            console.log("Step = ", currentStep);
+            enable(previousButton);
+            disable(next);
+
+            for (const radioButton of systemButtons) {
+                radioButton.addEventListener('change', showSelected);
+            }
+
+            function showSelected(e) {
+                if (this.checked === false) {
+                    document.querySelector('#messageChoice').innerText = `You haven't selected choice`;
+                } else {
+                    enable(next);
+                }
+            }
         } else {
             enable(previousButton);
             enable(next);

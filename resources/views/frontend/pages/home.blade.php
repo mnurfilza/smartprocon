@@ -33,7 +33,7 @@
                                 </span>
                                 <img src="{{ asset('images/smarthome/banner-4.webp') }}" class="lazy img-fluid cover"
                                     alt="cover">
-                                <div class="black-shadow"></div>
+                                {{-- <div class="black-shadow"></div> --}}
                             </div>
                             <div class="swiper-slide">
                                 <span class="text-banner poppins">
@@ -42,7 +42,7 @@
                                 </span>
                                 <img src="{{ asset('images/smarthome/banner-1.webp') }}" class="lazy img-fluid cover"
                                     alt="cover">
-                                <div class="black-shadow"></div>
+                                {{-- <div class="black-shadow"></div> --}}
                             </div>
                             <div class="swiper-slide">
                                 <span class="text-banner poppins">
@@ -51,7 +51,7 @@
                                 </span>
                                 <img src="{{ asset('images/smarthome/banner-2.webp') }}" class="lazy img-fluid cover"
                                     alt="cover">
-                                <div class="black-shadow"></div>
+                                {{-- <div class="black-shadow"></div> --}}
                             </div>
                             <div class="swiper-slide">
                                 <span class="text-banner poppins">
@@ -60,7 +60,7 @@
                                 </span>
                                 <img src="{{ asset('images/smarthome/banner-3.webp') }}" class="lazy img-fluid cover"
                                     alt="cover">
-                                <div class="black-shadow"></div>
+                                {{-- <div class="black-shadow"></div> --}}
                             </div>
                         </div>
                         <div class="swiper-button-next"></div>
