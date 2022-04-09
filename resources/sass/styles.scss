@@ -1714,7 +1714,7 @@ input[type="number"] {
 
         @media (max-width: 576px) {
             height: auto;
-            padding-top: 5rem;
+            padding-top: 5.75rem;
         }
 
         .container {
@@ -1726,7 +1726,15 @@ input[type="number"] {
             align-items: center;
 
             @media (max-width: 576px) {
-                height: calc(35vh - 56px);
+                height: calc(55vh - 55px);
+            }
+
+            @media (max-width: 376px) {
+                height: calc(85vh - 55px);
+            }
+
+            @media (max-width: 320px) {
+                height: calc(90vh - 55px);
             }
 
             img.cover-banner {
@@ -1740,12 +1748,8 @@ input[type="number"] {
                 object-position: top;
 
                 @media (max-width: 576px) {
-                    top: calc(13vh - 10px);
-                    height: 238px;
-                }
-
-                @media (max-width: 320px) {
-                    top: 35%;
+                    height: 100%;
+                    top: 0;
                 }
             }
 
@@ -1838,7 +1842,7 @@ input[type="number"] {
         position: relative;
 
         @media (max-width: 576px) {
-            padding-top: 0 !important;
+            padding-top: 1.5rem !important;
         }
 
         img.baloon {
@@ -2264,7 +2268,7 @@ input[type="number"] {
 
         @media (max-width: 576px) {
             height: auto;
-            padding-top: 5rem;
+            padding-top: 5.75rem;
         }
 
         .container {
@@ -2276,7 +2280,7 @@ input[type="number"] {
             align-items: center;
 
             @media (max-width: 576px) {
-                height: calc(65vh - 55px);
+                height: calc(70vh - 55px);
             }
 
             @media (max-width: 375px) {
@@ -2298,19 +2302,19 @@ input[type="number"] {
                 object-position: top;
 
                 @media (max-width: 576px) {
-                    top: 15%;
-                    height: 450px;
+                    top: 0;
+                    height: 100%;
                     object-fit: cover;
                     object-position: right;
                 }
 
-                @media (max-width: 375px) {
-                    height: 500px;
-                }
+                // @media (max-width: 375px) {
+                //     height: 500px;
+                // }
 
-                @media (max-width: 320px) {
-                    top: 10%;
-                }
+                // @media (max-width: 320px) {
+                //     top: 10%;
+                // }
             }
 
             .box-title {
