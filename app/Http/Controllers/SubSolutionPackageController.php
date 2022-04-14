@@ -17,7 +17,6 @@ class SubSolutionPackageController extends Controller
      */
     public function index()
     {
-
         $param = ['data' => SubSolutionPackage::paginate(10)];
         return view('dashboard.sub_solution_package.sub_solution_package', $param);
     }
@@ -59,15 +58,17 @@ class SubSolutionPackageController extends Controller
             $modelProd->sku = $request->nama_barang;
             $namaBarang = $prod->show($modelProd)->nama;
 
-            if (SubSolutionPackage::where('sku', $request->nama_barang)->exists()) {
-                throw new \Exception("Package With Product Name " . $namaBarang . " Already Exist");
-
-            }
-
             $solutionPackage = new SolutionsPackageController;
             $modelSolutionPackage = new solutions_package();
             $modelSolutionPackage->id = $request->solution_package;
             $resp = $solutionPackage->show($modelSolutionPackage);
+
+            if (SubSolutionPackage::where('sku', $request->nama_barang)->where('id_solution_package',$resp->id)->exists()) {
+                throw new \Exception("Package With Product Name " . $namaBarang . " Already Exist With Solution Package ".$resp->nama_solution."-".$resp->nama_object);
+
+            }
+
+           
             $object = $resp->nama_object;
             $solution = $resp->nama_solution;
             $tb = new SubSolutionPackage();
